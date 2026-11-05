@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ゆずの音楽作品を紹介するファンサイト YUZU LOVERS">
+  <title>DISCOGRAPHY | YUZU LOVERS</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .discography {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 15px;
+      letter-spacing: 5px;
+    }
+
+    .page-description {
+      text-align: center;
+      color: #777;
+      margin-bottom: 40px;
+    }
+
+    .category-menu {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 45px;
+    }
+
+    .category-menu button {
+      padding: 10px 22px;
+      border: 1px solid #d6a34a;
+      background: white;
+      color: #444;
+      cursor: pointer;
+      border-radius: 25px;
+    }
+
+    .category-menu button:hover,
+    .category-menu button.active {
+      background: #d6a34a;
+      color: white;
+    }
+
+    .section-title {
+      border-bottom: 2px solid #d6a34a;
+      padding-bottom: 12px;
+      margin: 55px 0 25px;
+      letter-spacing: 3px;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 30px;
+    }
+
+    .work-card {
+      text-align: center;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+      transition: transform .3s;
+    }
+
+    .work-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .work-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: #f2f2f2;
+      border-radius: 5px;
+    }
+
+    .work-type {
+      font-size: 11px;
+      color: #b18435;
+      letter-spacing: 2px;
+      margin-top: 15px;
+    }
+
+    .work-card h3 {
+      font-size: 16px;
+      margin: 8px 0;
+    }
+
+    .release-date {
+      color: #888;
+      font-size: 13px;
+    }
+
+    .official-link {
+      display: block;
+      text-align: center;
+      margin: 55px auto;
+      color: #a47b32;
+      text-decoration: none;
+    }
+
+    @media(max-width:600px) {
+      .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+
+      .work-card {
+        padding: 10px;
+      }
+
+      .work-card h3 {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <a href="index.html">YUZU LOVERS</a>
+  </div>
+
+  <nav>
+    <a href="index.html">TOP</a>
+    <a href="news.html">NEWS</a>
+    <a href="biography.html">BIOGRAPHY</a>
+    <a href="discography.html">DISCOGRAPHY</a>
+  </nav>
+</header>
+
+<main class="discography">
+
+  <h1 class="page-title">DISCOGRAPHY</h1>
+  <p class="page-description">
+    ゆずがこれまでに届けてきた音楽作品
+  </p>
+
+  <div class="category-menu">
+    <button class="active" onclick="filterWorks('all',this)">ALL</button>
+    <button onclick="filterWorks('single',this)">SINGLE</button>
+    <button onclick="filterWorks('album',this)">ALBUM</button>
+    <button onclick="filterWorks('dvd',this)">DVD</button>
+    <button onclick="filterWorks('blu-ray',this)">BLU-RAY</button>
+    <button onclick="filterWorks('digital',this)">DIGITAL</button>
+  </div>
+
+  <section class="work-section">
+    <h2 class="section-title">SINGLES</h2>
+    <div class="works-grid">
+
+      <article class="work-card" data-category="single">
+        <img src="images/getback.jpg" alt="GET BACK">
+        <p class="work-type">SINGLE</p>
+        <h3>GET BACK</h3>
+        <p class="release-date">2025.08.27</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="work-section">
+    <h2 class="section-title">ALBUMS</h2>
+    <div class="works-grid">
+
+      <article class="work-card" data-category="album">
+        <img src="images/kokune.jpg" alt="心音">
+        <p class="work-type">ALBUM</p>
+        <h3>心音</h3>
+        <p class="release-date">2026.03.11</p>
+      </article>
+
+      <article class="work-card" data-category="album">
+        <img src="images/zukan.jpg" alt="図鑑">
+        <p class="work-type">ALBUM</p>
+        <h3>図鑑</h3>
+        <p class="release-date">2024.07.31</p>
+      </article>
+
+      <article class="work-card" data-category="album">
+        <img src="images/sees.jpg" alt="SEES">
+        <p class="work-type">ALBUM</p>
+        <h3>SEES</h3>
+        <p class="release-date">2022.06.29</p>
+      </article>
+
+      <article class="work-card" data-category="album">
+        <img src="images/people.jpg" alt="PEOPLE">
+        <p class="work-type">ALBUM</p>
+        <h3>PEOPLE</h3>
+        <p class="release-date">2022.03.23</p>
+      </article>
+
+      <article class="work-card" data-category="album">
+        <img src="images/yuzutown.jpg" alt="YUZUTOWN">
+        <p class="work-type">ALBUM</p>
+        <h3>YUZUTOWN</h3>
+        <p class="release-date">2020.03.04</p>
+      </article>
+
+      <article class="work-card" data-category="album">
+        <img src="images/bigyell.jpg" alt="BIG YELL">
+        <p class="work-type">ALBUM</p>
+        <h3>BIG YELL</h3>
+        <p class="release-date">2018.04.04</p>
+      </article>
+
+      <article class="work-card" data-category="album">
+        <img src="images/yuzuiroha.jpg" alt="ゆずイロハ">
+        <p class="work-type">BEST ALBUM</p>
+        <h3>ゆずイロハ 1997-2017</h3>
+        <p class="release-date">2017.04.26</p>
+      </article>
+
+      <article class="work-card" data-category="album">
+        <img src="images/towa.jpg" alt="TOWA">
+        <p class="work-type">ALBUM</p>
+        <h3>TOWA</h3>
+        <p class="release-date">2016.01.13</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="work-section">
+    <h2 class="section-title">DVD / BLU-RAY</h2>
+    <div class="works-grid">
+
+      <article class="work-card" data-category="blu-ray">
+        <img src="images/live-zukan.jpg" alt="LIVE FILMS 図鑑">
+        <p class="work-type">BLU-RAY</p>
+        <h3>LIVE FILMS 図鑑</h3>
+        <p class="release-date">2026.02.25</p>
+      </article>
+
+      <article class="work-card" data-category="dvd">
+        <img src="images/rokka-zukan.jpg" alt="録歌選 図鑑">
+        <p class="work-type">DVD</p>
+        <h3>録歌選 図鑑</h3>
+        <p class="release-date">2026.02.25</p>
+      </article>
+
+      <article class="work-card" data-category="blu-ray">
+        <img src="images/live-again.jpg" alt="LIVE FILMS AGAIN AGAIN">
+        <p class="work-type">BLU-RAY</p>
+        <h3>LIVE FILMS AGAIN AGAIN</h3>
+        <p class="release-date">2025.06.25</p>
+      </article>
+
+      <article class="work-card" data-category="blu-ray">
+        <img src="images/live-hibiki.jpg" alt="LIVE FILMS HIBIKI">
+        <p class="work-type">BLU-RAY</p>
+        <h3>LIVE FILMS HIBIKI</h3>
+        <p class="release-date">2024.04.17</p>
+      </article>
+
+      <article class="work-card" data-category="blu-ray">
+        <img src="images/live-people.jpg" alt="LIVE FILMS PEOPLE">
+        <p class="work-type">BLU-RAY</p>
+        <h3>LIVE FILMS PEOPLE</h3>
+        <p class="release-date">2023.03.15</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="work-section">
+    <h2 class="section-title">DIGITAL</h2>
+    <div class="works-grid">
+
+      <article class="work-card" data-category="digital">
+        <img src="images/kokoro.jpg" alt="心をとめないで">
+        <p class="work-type">DIGITAL</p>
+        <h3>心をとめないで</h3>
+        <p class="release-date">2026.10.23</p>
+      </article>
+
+      <article class="work-card" data-category="digital">
+        <img src="images/ikue.jpg" alt="幾重">
+        <p class="work-type">DIGITAL</p>
+        <h3>幾重（ライブバージョン）</h3>
+        <p class="release-date">2026.08.14</p>
+      </article>
+
+      <article class="work-card" data-category="digital">
+        <img src="images/newbeginning.jpg" alt="ニュービギニング">
+        <p class="work-type">DIGITAL</p>
+        <h3>ニュービギニング</h3>
+        <p class="release-date">2026.06.03</p>
+      </article>
+
+    </div>
+  </section>
+
+  <a class="official-link"
+     href="https://yuzu-official.com/contents/discography"
+     target="_blank" rel="noopener">
+    ゆず OFFICIAL DISCOGRAPHY →
+  </a>
+
+</main>
+
+<footer>
+  <p>YUZU LOVERS</p>
+  <p>UNOFFICIAL FAN SITE</p>
+  <p>© YUZU LOVERS</p>
+</footer>
+
+<script>
+function filterWorks(category, button) {
+  const cards = document.querySelectorAll('.work-card');
+
+  cards.forEach(card => {
+    if (category === 'all' ||
+        card.dataset.category === category) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  document.querySelectorAll('.category-menu button')
+    .forEach(btn => btn.classList.remove('active'));
+
+  button.classList.add('active');
+
+  document.querySelectorAll('.work-section').forEach(section => {
+    const visibleCards = section.querySelectorAll(
+      '.work-card:not([style*="display: none"])'
+    );
+
+    section.style.display =
+      visibleCards.length > 0 ? '' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>
