@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ゆずのミュージックビデオやライブ映像を紹介するYUZU LOVERS">
+  <title>MOVIE | ゆず大好き人公式サイト</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .movie-page {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    .page-title {
+      text-align: center;
+      letter-spacing: 6px;
+      margin-bottom: 15px;
+    }
+
+    .page-description {
+      text-align: center;
+      color: #777;
+      margin-bottom: 45px;
+    }
+
+    .movie-menu {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 55px;
+    }
+
+    .movie-menu button {
+      padding: 10px 22px;
+      border: 1px solid #d6a34a;
+      border-radius: 25px;
+      background: white;
+      cursor: pointer;
+    }
+
+    .movie-menu button:hover,
+    .movie-menu button.active {
+      background: #d6a34a;
+      color: white;
+    }
+
+    .movie-section {
+      margin-bottom: 65px;
+    }
+
+    .section-title {
+      border-bottom: 2px solid #d6a34a;
+      padding-bottom: 12px;
+      margin-bottom: 30px;
+      letter-spacing: 3px;
+    }
+
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .movie-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 15px rgba(0,0,0,.07);
+    }
+
+    .movie-thumbnail {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #eee;
+    }
+
+    .movie-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      background: rgba(0,0,0,.7);
+      color: white;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 23px;
+    }
+
+    .movie-info {
+      padding: 18px;
+    }
+
+    .movie-type {
+      color: #b18435;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .movie-info h3 {
+      font-size: 17px;
+      margin: 10px 0;
+    }
+
+    .movie-info p {
+      font-size: 13px;
+      color: #777;
+      line-height: 1.8;
+    }
+
+    .movie-link {
+      display: inline-block;
+      margin-top: 8px;
+      color: #a47b32;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .youtube-area {
+      text-align: center;
+      padding: 50px 20px;
+      background: #f8f5ef;
+      border-radius: 10px;
+    }
+
+    .youtube-area a {
+      display: inline-block;
+      padding: 13px 28px;
+      background: #b18435;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      margin-top: 15px;
+    }
+
+    @media(max-width:600px) {
+      .movie-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <a href="index.html">YUZU LOVERS</a>
+  </div>
+
+  <nav>
+    <a href="index.html">TOP</a>
+    <a href="news.html">NEWS</a>
+    <a href="biography.html">BIOGRAPHY</a>
+    <a href="discography.html">DISCOGRAPHY</a>
+    <a href="movie.html">MOVIE</a>
+  </nav>
+</header>
+
+<main class="movie-page">
+
+  <h1 class="page-title">MOVIE</h1>
+
+  <p class="page-description">
+    ゆずの音楽と映像の世界
+  </p>
+
+  <div class="movie-menu">
+    <button class="active" onclick="filterMovies('all',this)">ALL</button>
+    <button onclick="filterMovies('music',this)">MUSIC VIDEO</button>
+    <button onclick="filterMovies('live',this)">LIVE</button>
+    <button onclick="filterMovies('special',this)">SPECIAL</button>
+  </div>
+
+  <section class="movie-section">
+    <h2 class="section-title">MUSIC VIDEO</h2>
+
+    <div class="movie-grid">
+
+      <article class="movie-card" data-category="music">
+        <div class="movie-thumbnail">
+          <img src="images/natsuiro-movie.jpg" alt="夏色">
+          <span class="play-icon">▶</span>
+        </div>
+        <div class="movie-info">
+          <span class="movie-type">MUSIC VIDEO</span>
+          <h3>夏色</h3>
+          <p>ゆずを代表する楽曲のひとつ。</p>
+          <a class="movie-link" href="https://www.youtube.com/results?search_query=ゆず+夏色+公式MV" target="_blank" rel="noopener">映像を見る →</a>
+        </div>
+      </article>
+
+      <article class="movie-card" data-category="music">
+        <div class="movie-thumbnail">
+          <img src="images/eikou-movie.jpg" alt="栄光の架橋">
+          <span class="play-icon">▶</span>
+        </div>
+        <div class="movie-info">
+          <span class="movie-type">MUSIC VIDEO</span>
+          <h3>栄光の架橋</h3>
+          <p>多くの人々の心に残る名曲。</p>
+          <a class="movie-link" href="https://www.youtube.com/results?search_query=ゆず+栄光の架橋+公式MV" target="_blank" rel="noopener">映像を見る →</a>
+        </div>
+      </article>
+
+      <article class="movie-card" data-category="music">
+        <div class="movie-thumbnail">
+          <img src="images/niji-movie.jpg" alt="虹">
+          <span class="play-icon">▶</span>
+        </div>
+        <div class="movie-info">
+          <span class="movie-type">MUSIC VIDEO</span>
+          <h3>虹</h3>
+          <p>希望を感じさせるゆずの楽曲。</p>
+          <a class="movie-link" href="https://www.youtube.com/results?search_query=ゆず+虹+公式MV" target="_blank" rel="noopener">映像を見る →</a>
+        </div>
+      </article>
+
+      <article class="movie-card" data-category="music">
+        <div class="movie-thumbnail">
+          <img src="images/withyou-movie.jpg" alt="with you">
+          <span class="play-icon">▶</span>
+        </div>
+        <div class="movie-info">
+          <span class="movie-type">MUSIC VIDEO</span>
+          <h3>with you</h3>
+          <p>ゆずの音楽を映像とともに楽しむ。</p>
+          <a class="movie-link" href="https://www.youtube.com/results?search_query=ゆず+with+you+公式MV" target="_blank" rel="noopener">映像を見る →</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="movie-section">
+    <h2 class="section-title">LIVE MOVIE</h2>
+
+    <div class="movie-grid">
+
+      <article class="movie-card" data-category="live">
+        <div class="movie-thumbnail">
+          <img src="images/live-yuzu.jpg" alt="ゆずライブ映像">
+          <span class="play-icon">▶</span>
+        </div>
+        <div class="movie-info">
+          <span class="movie-type">LIVE MOVIE</span>
+          <h3>YUZU LIVE</h3>
+          <p>ライブでしか味わえないゆずの魅力。</p>
+          <a class="movie-link" href="https://www.youtube.com/results?search_query=ゆず+公式+LIVE+映像" target="_blank" rel="noopener">映像を見る →</a>
+        </div>
+      </article>
+
+      <article class="movie-card" data-category="live">
+        <div class="movie-thumbnail">
+          <img src="images/live-zukan-movie.jpg" alt="図鑑ライブ">
+          <span class="play-icon">▶</span>
+        </div>
+        <div class="movie-info">
+          <span class="movie-type">LIVE MOVIE</span>
+          <h3>YUZU ARENA TOUR 2024 図鑑</h3>
+          <p>アルバム『図鑑』を携えたツアー。</p>
+          <a class="movie-link" href="https://www.youtube.com/results?search_query=ゆず+図鑑+ライブ+公式" target="_blank" rel="noopener">映像を見る →</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="movie-section">
+    <h2 class="section-title">SPECIAL MOVIE</h2>
+
+    <div class="movie-grid">
+
+      <article class="movie-card" data-category="special">
+        <div class="movie-thumbnail">
+          <img src="images/yuzu-making.jpg" alt="メイキング映像">
+          <span class="play-icon">▶</span>
+        </div>
+        <div class="movie-info">
+          <span class="movie-type">SPECIAL</span>
+          <h3>MAKING MOVIE</h3>
+          <p>作品の制作風景や舞台裏を楽しむ。</p>
+          <a class="movie-link" href="https://www.youtube.com/@yuzuofficial" target="_blank" rel="noopener">公式チャンネルを見る →</a>
+        </div>
+      </article>
+
+      <article class="movie-card" data-category="special">
+        <div class="movie-thumbnail">
+          <img src="images/yuzu-documentary.jpg" alt="ゆずドキュメンタリー">
+          <span class="play-icon">▶</span>
+        </div>
+        <div class="movie-info">
+          <span class="movie-type">SPECIAL</span>
+          <h3>DOCUMENTARY</h3>
+          <p>ゆずの活動や歴史を映像で振り返る。</p>
+          <a class="movie-link" href="https://www.youtube.com/@yuzuofficial" target="_blank" rel="noopener">公式チャンネルを見る →</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="youtube-area">
+    <h2>YUZU OFFICIAL YOUTUBE</h2>
+    <p>ゆずの最新ミュージックビデオやライブ映像はこちら。</p>
+    <a href="https://www.youtube.com/@yuzuofficial"
+       target="_blank" rel="noopener">
+      OFFICIAL YOUTUBE →
+    </a>
+  </section>
+
+</main>
+
+<footer>
+  <p>YUZU LOVERS</p>
+  <p>UNOFFICIAL FAN SITE</p>
+  <p>© YUZU LOVERS</p>
+</footer>
+
+<script>
+function filterMovies(category, button) {
+  const cards = document.querySelectorAll('.movie-card');
+
+  cards.forEach(card => {
+    card.style.display =
+      category === 'all' ||
+      card.dataset.category === category ? '' : 'none';
+  });
+
+  document.querySelectorAll('.movie-menu button')
+    .forEach(btn => btn.classList.remove('active'));
+
+  button.classList.add('active');
+
+  document.querySelectorAll('.movie-section').forEach(section => {
+    const visible = section.querySelectorAll(
+      '.movie-card:not([style*="display: none"])'
+    );
+
+    section.style.display = visible.length ? '' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>
