@@ -2,349 +2,390 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ゆずの音楽作品を紹介するファンサイト YUZU LOVERS">
-  <title>DISCOGRAPHY | YUZU LOVERS</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DISCOGRAPHY | ゆず大好きな人</title>
 
-  <style>
-    .discography {
-      max-width: 1200px;
-      margin: 60px auto;
-      padding: 20px;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
 
-    .page-title {
-      text-align: center;
-      margin-bottom: 15px;
-      letter-spacing: 5px;
-    }
+body {
+  margin: 0;
+  background: #fffdf8;
+  color: #333;
+  font-family: sans-serif;
+}
 
-    .page-description {
-      text-align: center;
-      color: #777;
-      margin-bottom: 40px;
-    }
+header {
+  background: #f4c542;
+  padding: 25px 15px;
+  text-align: center;
+}
 
-    .category-menu {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 45px;
-    }
+header h1 {
+  letter-spacing: 4px;
+  margin: 0;
+}
 
-    .category-menu button {
-      padding: 10px 22px;
-      border: 1px solid #d6a34a;
-      background: white;
-      color: #444;
-      cursor: pointer;
-      border-radius: 25px;
-    }
+header p {
+  font-size: 12px;
+  letter-spacing: 3px;
+}
 
-    .category-menu button:hover,
-    .category-menu button.active {
-      background: #d6a34a;
-      color: white;
-    }
+nav {
+  background: #333;
+  padding: 15px;
+  text-align: center;
+}
 
-    .section-title {
-      border-bottom: 2px solid #d6a34a;
-      padding-bottom: 12px;
-      margin: 55px 0 25px;
-      letter-spacing: 3px;
-    }
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 13px;
+}
 
-    .works-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 30px;
-    }
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 18px;
+}
 
-    .work-card {
-      text-align: center;
-      background: #fff;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.07);
-      transition: transform .3s;
-    }
+h2 {
+  text-align: center;
+  letter-spacing: 5px;
+  border-bottom: 2px solid #f4c542;
+  padding-bottom: 15px;
+}
 
-    .work-card:hover {
-      transform: translateY(-5px);
-    }
+.intro {
+  text-align: center;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
 
-    .work-card img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      background: #f2f2f2;
-      border-radius: 5px;
-    }
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 25px 0;
+}
 
-    .work-type {
-      font-size: 11px;
-      color: #b18435;
-      letter-spacing: 2px;
-      margin-top: 15px;
-    }
+.filters button {
+  border: 1px solid #d5ad32;
+  background: white;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 20px;
+}
 
-    .work-card h3 {
-      font-size: 16px;
-      margin: 8px 0;
-    }
+.filters button.active {
+  background: #f4c542;
+}
 
-    .release-date {
-      color: #888;
-      font-size: 13px;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px 15px;
+}
 
-    .official-link {
-      display: block;
-      text-align: center;
-      margin: 55px auto;
-      color: #a47b32;
-      text-decoration: none;
-    }
+.item {
+  text-align: center;
+  min-width: 0;
+}
 
-    @media(max-width:600px) {
-      .works-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-      }
+.item img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: #eee;
+  border: 1px solid #ddd;
+}
 
-      .work-card {
-        padding: 10px;
-      }
+.item h3 {
+  font-size: 14px;
+  margin: 10px 0 5px;
+}
 
-      .work-card h3 {
-        font-size: 13px;
-      }
-    }
-  </style>
+.item p {
+  font-size: 12px;
+  color: #777;
+  margin: 4px 0;
+}
+
+.category {
+  display: inline-block;
+  font-size: 10px;
+  background: #f8e9b4;
+  padding: 4px 8px;
+  margin-top: 5px;
+}
+
+footer {
+  margin-top: 60px;
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  font-size: 12px;
+}
+
+@media(max-width:700px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  nav a {
+    margin: 5px;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">
-    <a href="index.html">YUZU LOVERS</a>
-  </div>
-
-  <nav>
-    <a href="index.html">TOP</a>
-    <a href="news.html">NEWS</a>
-    <a href="biography.html">BIOGRAPHY</a>
-    <a href="discography.html">DISCOGRAPHY</a>
-  </nav>
+<h1>YUZU LOVERS</h1>
+<p>OFFICIAL FAN SITE</p>
 </header>
 
-<main class="discography">
+<nav>
+<a href="index.html">HOME</a>
+<a href="news.html">NEWS</a>
+<a href="biography.html">BIOGRAPHY</a>
+<a href="discography.html">DISCOGRAPHY</a>
+<a href="live.html">LIVE</a>
+<a href="movie.html">MOVIE</a>
+</nav>
 
-  <h1 class="page-title">DISCOGRAPHY</h1>
-  <p class="page-description">
-    ゆずがこれまでに届けてきた音楽作品
-  </p>
+<main>
 
-  <div class="category-menu">
-    <button class="active" onclick="filterWorks('all',this)">ALL</button>
-    <button onclick="filterWorks('single',this)">SINGLE</button>
-    <button onclick="filterWorks('album',this)">ALBUM</button>
-    <button onclick="filterWorks('dvd',this)">DVD</button>
-    <button onclick="filterWorks('blu-ray',this)">BLU-RAY</button>
-    <button onclick="filterWorks('digital',this)">DIGITAL</button>
-  </div>
+<h2>DISCOGRAPHY</h2>
 
-  <section class="work-section">
-    <h2 class="section-title">SINGLES</h2>
-    <div class="works-grid">
+<p class="intro">
+ゆずがこれまでに届けてきた音楽作品。<br>
+1997年から現在までの作品を紹介します。
+</p>
 
-      <article class="work-card" data-category="single">
-        <img src="images/getback.jpg" alt="GET BACK">
-        <p class="work-type">SINGLE</p>
-        <h3>GET BACK</h3>
-        <p class="release-date">2025.08.27</p>
-      </article>
+<div class="filters">
+<button class="active" onclick="filterItems('ALL',this)">ALL</button>
+<button onclick="filterItems('SINGLE',this)">SINGLE</button>
+<button onclick="filterItems('ALBUM',this)">ALBUM</button>
+<button onclick="filterItems('BEST',this)">BEST ALBUM</button>
+<button onclick="filterItems('DIGITAL',this)">DIGITAL</button>
+<button onclick="filterItems('DVD',this)">DVD</button>
+<button onclick="filterItems('BLU-RAY',this)">BLU-RAY</button>
+</div>
 
-    </div>
-  </section>
-
-  <section class="work-section">
-    <h2 class="section-title">ALBUMS</h2>
-    <div class="works-grid">
-
-      <article class="work-card" data-category="album">
-        <img src="images/kokune.jpg" alt="心音">
-        <p class="work-type">ALBUM</p>
-        <h3>心音</h3>
-        <p class="release-date">2026.03.11</p>
-      </article>
-
-      <article class="work-card" data-category="album">
-        <img src="images/zukan.jpg" alt="図鑑">
-        <p class="work-type">ALBUM</p>
-        <h3>図鑑</h3>
-        <p class="release-date">2024.07.31</p>
-      </article>
-
-      <article class="work-card" data-category="album">
-        <img src="images/sees.jpg" alt="SEES">
-        <p class="work-type">ALBUM</p>
-        <h3>SEES</h3>
-        <p class="release-date">2022.06.29</p>
-      </article>
-
-      <article class="work-card" data-category="album">
-        <img src="images/people.jpg" alt="PEOPLE">
-        <p class="work-type">ALBUM</p>
-        <h3>PEOPLE</h3>
-        <p class="release-date">2022.03.23</p>
-      </article>
-
-      <article class="work-card" data-category="album">
-        <img src="images/yuzutown.jpg" alt="YUZUTOWN">
-        <p class="work-type">ALBUM</p>
-        <h3>YUZUTOWN</h3>
-        <p class="release-date">2020.03.04</p>
-      </article>
-
-      <article class="work-card" data-category="album">
-        <img src="images/bigyell.jpg" alt="BIG YELL">
-        <p class="work-type">ALBUM</p>
-        <h3>BIG YELL</h3>
-        <p class="release-date">2018.04.04</p>
-      </article>
-
-      <article class="work-card" data-category="album">
-        <img src="images/yuzuiroha.jpg" alt="ゆずイロハ">
-        <p class="work-type">BEST ALBUM</p>
-        <h3>ゆずイロハ 1997-2017</h3>
-        <p class="release-date">2017.04.26</p>
-      </article>
-
-      <article class="work-card" data-category="album">
-        <img src="images/towa.jpg" alt="TOWA">
-        <p class="work-type">ALBUM</p>
-        <h3>TOWA</h3>
-        <p class="release-date">2016.01.13</p>
-      </article>
-
-    </div>
-  </section>
-
-  <section class="work-section">
-    <h2 class="section-title">DVD / BLU-RAY</h2>
-    <div class="works-grid">
-
-      <article class="work-card" data-category="blu-ray">
-        <img src="images/live-zukan.jpg" alt="LIVE FILMS 図鑑">
-        <p class="work-type">BLU-RAY</p>
-        <h3>LIVE FILMS 図鑑</h3>
-        <p class="release-date">2026.02.25</p>
-      </article>
-
-      <article class="work-card" data-category="dvd">
-        <img src="images/rokka-zukan.jpg" alt="録歌選 図鑑">
-        <p class="work-type">DVD</p>
-        <h3>録歌選 図鑑</h3>
-        <p class="release-date">2026.02.25</p>
-      </article>
-
-      <article class="work-card" data-category="blu-ray">
-        <img src="images/live-again.jpg" alt="LIVE FILMS AGAIN AGAIN">
-        <p class="work-type">BLU-RAY</p>
-        <h3>LIVE FILMS AGAIN AGAIN</h3>
-        <p class="release-date">2025.06.25</p>
-      </article>
-
-      <article class="work-card" data-category="blu-ray">
-        <img src="images/live-hibiki.jpg" alt="LIVE FILMS HIBIKI">
-        <p class="work-type">BLU-RAY</p>
-        <h3>LIVE FILMS HIBIKI</h3>
-        <p class="release-date">2024.04.17</p>
-      </article>
-
-      <article class="work-card" data-category="blu-ray">
-        <img src="images/live-people.jpg" alt="LIVE FILMS PEOPLE">
-        <p class="work-type">BLU-RAY</p>
-        <h3>LIVE FILMS PEOPLE</h3>
-        <p class="release-date">2023.03.15</p>
-      </article>
-
-    </div>
-  </section>
-
-  <section class="work-section">
-    <h2 class="section-title">DIGITAL</h2>
-    <div class="works-grid">
-
-      <article class="work-card" data-category="digital">
-        <img src="images/kokoro.jpg" alt="心をとめないで">
-        <p class="work-type">DIGITAL</p>
-        <h3>心をとめないで</h3>
-        <p class="release-date">2026.10.23</p>
-      </article>
-
-      <article class="work-card" data-category="digital">
-        <img src="images/ikue.jpg" alt="幾重">
-        <p class="work-type">DIGITAL</p>
-        <h3>幾重（ライブバージョン）</h3>
-        <p class="release-date">2026.08.14</p>
-      </article>
-
-      <article class="work-card" data-category="digital">
-        <img src="images/newbeginning.jpg" alt="ニュービギニング">
-        <p class="work-type">DIGITAL</p>
-        <h3>ニュービギニング</h3>
-        <p class="release-date">2026.06.03</p>
-      </article>
-
-    </div>
-  </section>
-
-  <a class="official-link"
-     href="https://yuzu-official.com/contents/discography"
-     target="_blank" rel="noopener">
-    ゆず OFFICIAL DISCOGRAPHY →
-  </a>
+<div class="grid" id="discography"></div>
 
 </main>
 
 <footer>
-  <p>YUZU LOVERS</p>
-  <p>UNOFFICIAL FAN SITE</p>
-  <p>© YUZU LOVERS</p>
+<p>YUZU LOVERS</p>
+<p>Unofficial Fan Site</p>
 </footer>
 
 <script>
-function filterWorks(category, button) {
-  const cards = document.querySelectorAll('.work-card');
+// 作品データを追加する場所
+// coverにはジャケット画像のファイル名を指定
 
-  cards.forEach(card => {
-    if (category === 'all' ||
-        card.dataset.category === category) {
-      card.style.display = '';
-    } else {
-      card.style.display = 'none';
-    }
-  });
+const works = [
 
-  document.querySelectorAll('.category-menu button')
-    .forEach(btn => btn.classList.remove('active'));
+{
+title:"ゆずの素",
+date:"1997.10.25",
+category:"ALBUM",
+cover:"images/yuzunomoto.jpg"
+},
 
-  button.classList.add('active');
+{
+title:"ゆずマン",
+date:"1998.02.21",
+category:"ALBUM",
+cover:"images/yuzuman.jpg"
+},
 
-  document.querySelectorAll('.work-section').forEach(section => {
-    const visibleCards = section.querySelectorAll(
-      '.work-card:not([style*="display: none"])'
-    );
+{
+title:"ゆず一家",
+date:"1998.07.23",
+category:"ALBUM",
+cover:"images/yuzuikka.jpg"
+},
 
-    section.style.display =
-      visibleCards.length > 0 ? '' : 'none';
-  });
+{
+title:"サヨナラバス",
+date:"1999.03.17",
+category:"SINGLE",
+cover:"images/sayonarabus.jpg"
+},
+
+{
+title:"ゆずえん",
+date:"1999.10.14",
+category:"ALBUM",
+cover:"images/yuzuen.jpg"
+},
+
+{
+title:"トビラ",
+date:"2000.11.01",
+category:"ALBUM",
+cover:"images/tobira.jpg"
+},
+
+{
+title:"ユズモア",
+date:"2002.03.06",
+category:"ALBUM",
+cover:"images/yuzumore.jpg"
+},
+
+{
+title:"すみれ",
+date:"2003.03.19",
+category:"ALBUM",
+cover:"images/sumire.jpg"
+},
+
+{
+title:"1 〜ONE〜",
+date:"2004.09.15",
+category:"ALBUM",
+cover:"images/one.jpg"
+},
+
+{
+title:"リボン",
+date:"2006.01.18",
+category:"ALBUM",
+cover:"images/ribbon.jpg"
+},
+
+{
+title:"WONDERFUL WORLD",
+date:"2008.04.16",
+category:"ALBUM",
+cover:"images/wonderfulworld.jpg"
+},
+
+{
+title:"FURUSATO",
+date:"2009.10.07",
+category:"ALBUM",
+cover:"images/furusato.jpg"
+},
+
+{
+title:"2-NI-",
+date:"2011.02.16",
+category:"ALBUM",
+cover:"images/ni.jpg"
+},
+
+{
+title:"LAND",
+date:"2013.05.01",
+category:"ALBUM",
+cover:"images/land.jpg"
+},
+
+{
+title:"新世界",
+date:"2014.02.19",
+category:"ALBUM",
+cover:"images/shinsekai.jpg"
+},
+
+{
+title:"TOWA",
+date:"2016.01.13",
+category:"ALBUM",
+cover:"images/towa.jpg"
+},
+
+{
+title:"BIG YELL",
+date:"2018.04.04",
+category:"ALBUM",
+cover:"images/bigyell.jpg"
+},
+
+{
+title:"YUZUTOWN",
+date:"2020.03.04",
+category:"ALBUM",
+cover:"images/yuzutown.jpg"
+},
+
+{
+title:"PEOPLE",
+date:"2022.03.23",
+category:"ALBUM",
+cover:"images/people.jpg"
+},
+
+{
+title:"SEES",
+date:"2022.06.29",
+category:"ALBUM",
+cover:"images/sees.jpg"
+},
+
+{
+title:"図鑑",
+date:"2024.07.31",
+category:"ALBUM",
+cover:"images/zukan.jpg"
 }
+
+];
+
+function displayWorks(category="ALL") {
+  const container = document.getElementById("discography");
+
+  const filtered = works
+    .filter(work => category === "ALL" || work.category === category)
+    .sort((a,b) => b.date.localeCompare(a.date));
+
+  container.innerHTML = filtered.map(work => `
+    <div class="item">
+      <img src="${work.cover}"
+           alt="${work.title}"
+           onerror="this.style.opacity='.25'">
+      <h3>${work.title}</h3>
+      <p>${work.date}</p>
+      <span class="category">${work.category}</span>
+    </div>
+  `).join("");
+}
+
+function filterItems(category,button) {
+  document.querySelectorAll(".filters button")
+    .forEach(btn => btn.classList.remove("active"));
+
+  button.classList.add("active");
+  displayWorks(category);
+}
+
+displayWorks();
+
+// コピー・右クリック等の制限
+document.addEventListener("contextmenu",e=>e.preventDefault());
+document.addEventListener("copy",e=>e.preventDefault());
+document.addEventListener("cut",e=>e.preventDefault());
+
+document.addEventListener("keydown",e=>{
+  if((e.ctrlKey || e.metaKey) &&
+    ["c","u","s","a"].includes(e.key.toLowerCase())) {
+    e.preventDefault();
+  }
+});
 </script>
 
 </body>
