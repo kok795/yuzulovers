@@ -1,3 +1,29 @@
+<!-- 画面下部へのコード・説明文の表示を防止 -->
+<style>
+  .source-code,
+  .debug-text,
+  .code-display,
+  .instruction-text {
+    display: none !important;
+  }
+
+  html, body {
+    overflow-x: hidden;
+  }
+
+  pre,
+  code {
+    user-select: none;
+  }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(
+    ".source-code, .debug-text, .code-display, .instruction-text"
+  ).forEach(element => element.remove());
+});
+</script>
 <style>
   body {
     -webkit-user-select: none;
