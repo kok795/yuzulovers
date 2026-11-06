@@ -4,17 +4,49 @@
   -ms-user-select: none;
   user-select: none;
 }
-/* テキスト選択を禁止 */
-* {
+/* テキスト選択禁止 */
+body {
   -webkit-user-select: none;
   user-select: none;
-  -webkit-touch-callout: none;
 }
 
-/* 画像のドラッグを禁止 */
+/* 画像のドラッグ・選択を禁止 */
 img {
   -webkit-user-drag: none;
-  user-drag: none;
+  user-select: none;
+}
+
+/* ジャケット写真 */
+.discography-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 25px;
+}
+
+.discography-item {
+  text-align: center;
+}
+
+.discography-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.discography-item img:hover {
+  transform: scale(1.04);
+}
+
+.discography-item h3 {
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.discography-item p {
+  font-size: 13px;
+  color: #777;
 }
 <!DOCTYPE html>
 <html lang="ja">
