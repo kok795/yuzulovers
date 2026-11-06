@@ -14,3 +14,446 @@ img {
 img {
   user-select: none;
 }
+/* =================================
+   YUZU LOVERS - PREMIUM DESIGN
+================================= */
+
+/* 基本設定 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    "Noto Sans JP",
+    "Hiragino Kaku Gothic ProN",
+    sans-serif;
+  background: #fffaf0;
+  color: #49351f;
+  line-height: 1.9;
+  overflow-x: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* リンク */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+/* =================================
+   HEADER
+================================= */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 3px 20px rgba(150, 90, 20, 0.12);
+  border-bottom: 3px solid #f5bd42;
+}
+
+.header > div {
+  max-width: 1250px;
+  margin: auto;
+  padding: 15px 30px;
+}
+
+.logo a {
+  display: inline-block;
+  color: #e58c16;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.logo p {
+  color: #987044;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px;
+}
+
+.navigation a {
+  padding: 8px 20px;
+  border-radius: 30px;
+  color: #76502c;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navigation a:hover {
+  background: linear-gradient(135deg, #ffca55, #ed9225);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* =================================
+   HERO
+================================= */
+
+.hero {
+  position: relative;
+  min-height: 590px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 20%,
+      rgba(255,255,255,0.8), transparent 25%),
+    radial-gradient(circle at 85% 80%,
+      rgba(255,255,255,0.5), transparent 25%),
+    linear-gradient(135deg,
+      #ffe98c 0%,
+      #ffc34d 40%,
+      #ff963c 75%,
+      #f47a39 100%);
+}
+
+.hero::before {
+  content: "YUZU";
+  position: absolute;
+  font-size: clamp(100px, 23vw, 300px);
+  font-weight: 900;
+  color: rgba(255,255,255,0.17);
+  letter-spacing: 15px;
+  transform: rotate(-8deg);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 70px 25px;
+  text-align: center;
+  animation: fadeUp 1.2s ease;
+}
+
+.hero-subtitle {
+  color: #87501b;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 5px;
+}
+
+.hero h1 {
+  margin: 20px 0;
+  color: white;
+  font-size: clamp(42px, 8vw, 85px);
+  font-weight: 900;
+  letter-spacing: 5px;
+  text-shadow: 0 5px 20px rgba(130, 70, 15, 0.2);
+}
+
+.hero-message {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 2.2;
+}
+
+.hero-button {
+  display: inline-block;
+  margin-top: 35px;
+  padding: 14px 42px;
+  background: white;
+  color: #d77d19;
+  border-radius: 40px;
+  font-weight: bold;
+  box-shadow: 0 8px 25px rgba(130, 70, 15, 0.2);
+}
+
+.hero-button:hover {
+  background: #fff1c8;
+  transform: translateY(-5px);
+}
+
+/* =================================
+   SECTION COMMON
+================================= */
+
+main section {
+  padding: 85px 25px;
+}
+
+main section h2 {
+  position: relative;
+  margin-bottom: 35px;
+  color: #d9851c;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+main section h2::after {
+  content: "";
+  display: block;
+  width: 65px;
+  height: 4px;
+  margin: 15px auto 0;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ffcb52, #ed8231);
+}
+
+.section-description {
+  margin: 0 auto 35px;
+  text-align: center;
+  color: #97754e;
+}
+
+/* =================================
+   INTRODUCTION
+================================= */
+
+.introduction {
+  background: white;
+  text-align: center;
+}
+
+.introduction p {
+  max-width: 850px;
+  margin: 20px auto;
+  font-size: 16px;
+  line-height: 2.3;
+}
+
+/* =================================
+   CONTENTS
+================================= */
+
+.contents {
+  background: linear-gradient(180deg, #fff9e9, #fff1d1);
+}
+
+.contents-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.content-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 190px;
+  padding: 30px 20px;
+  overflow: hidden;
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #ffe0a0;
+  box-shadow: 0 8px 25px rgba(160, 100, 20, 0.09);
+  text-align: center;
+  transition: 0.4s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 18px 35px rgba(200, 130, 30, 0.2);
+  border-color: #f4b83f;
+}
+
+.content-card span {
+  color: #e99a27;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.content-card h3 {
+  margin: 10px 0;
+  color: #71451d;
+  font-size: 23px;
+  font-weight: 900;
+}
+
+.content-card p {
+  color: #a28a6c;
+  font-size: 13px;
+}
+
+/* =================================
+   MESSAGE
+================================= */
+
+.message {
+  background:
+    linear-gradient(135deg, #fff0bd, #ffe2b0);
+  text-align: center;
+}
+
+.message p {
+  margin: 20px auto;
+  color: #79552e;
+  font-size: 16px;
+}
+
+/* =================================
+   PAGE CONTENT
+================================= */
+
+main {
+  min-height: 70vh;
+}
+
+main img {
+  border-radius: 12px;
+}
+
+main h3 {
+  color: #b66b20;
+}
+
+main article,
+main .card {
+  margin: 25px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(150, 90, 20, 0.08);
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+.footer {
+  padding: 55px 20px 30px;
+  background: linear-gradient(135deg, #a85e20, #e89a2e);
+  color: white;
+  text-align: center;
+}
+
+.footer h2 {
+  margin-bottom: 10px;
+  font-size: 30px;
+  letter-spacing: 4px;
+}
+
+.footer p {
+  margin: 12px 0;
+  font-size: 13px;
+}
+
+.copyright {
+  margin-top: 35px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+.notice {
+  color: rgba(255,255,255,0.85);
+  font-size: 11px;
+}
+
+/* =================================
+   ANIMATION
+================================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media screen and (max-width: 768px) {
+
+  .logo a {
+    font-size: 24px;
+  }
+
+  .navigation {
+    gap: 5px;
+  }
+
+  .navigation a {
+    padding: 7px 11px;
+    font-size: 11px;
+  }
+
+  .hero {
+    min-height: 480px;
+  }
+
+  .hero-message {
+    font-size: 15px;
+  }
+
+  main section {
+    padding: 60px 18px;
+  }
+
+  main section h2 {
+    font-size: 26px;
+  }
+
+  .contents-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+  }
+
+  .content-card {
+    min-height: 155px;
+    padding: 20px 10px;
+  }
+
+  .content-card h3 {
+    font-size: 19px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .contents-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 動きを控えたい人への配慮 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
