@@ -1,25 +1,3 @@
-/* テキスト選択を制限 */
-body {
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-/* 画像のドラッグを禁止 */
-img {
-  -webkit-user-drag: none;
-  user-drag: none;
-}
-
-/* 画像の選択を禁止 */
-img {
-  user-select: none;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -457,4 +435,16 @@ a {
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+/* テキスト選択を禁止 */
+* {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* 画像のドラッグを禁止 */
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
 }
