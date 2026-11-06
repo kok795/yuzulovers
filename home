@@ -58,13 +58,12 @@ document.addEventListener('keydown', function(e) {
     </div>
 
     <nav class="navigation">
-      <a href="index.html">HOME</a>
-      <a href="news.html">NEWS</a>
-      <a href="discography.html">DISCOGRAPHY</a>
-      <a href="biography.html">BIOGRAPHY</a>
-      <a href="live.html">LIVE</a>
-      <a href="movie.html">MOVIE</a>
-      <a href="special.html">SPECIAL</a>
+      <a href="home">HOME</a>
+      <a href="news">NEWS</a>
+      <a href="discography">DISCOGRAPHY</a>
+      <a href="biography">BIOGRAPHY</a>
+      <a href="live">LIVE</a>
+      <a href="movie">MOVIE</a>
     </nav>
   </header>
 
