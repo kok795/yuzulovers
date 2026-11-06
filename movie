@@ -142,11 +142,11 @@ img {
 
   <nav class="navigation">
     <a href="index.html">HOME</a>
-    <a href="news.html">NEWS</a>
-    <a href="discography.html">DISCOGRAPHY</a>
-    <a href="biography.html">BIOGRAPHY</a>
-    <a href="live.html">LIVE</a>
-    <a href="movie.html">MOVIE</a>
+    <a href="news">NEWS</a>
+    <a href="discography">DISCOGRAPHY</a>
+    <a href="biography">BIOGRAPHY</a>
+    <a href="live">LIVE</a>
+    <a href="movie">MOVIE</a>
   </nav>
 </header>
 
@@ -157,61 +157,20 @@ img {
     <h1>MOVIE</h1>
     <p>ゆずの音楽と映像、そして思い出。</p>
   </div>
-
-  <!-- VIDEO -->
-  <section class="movie-section">
-
-    <h2>VIDEO COLLECTION</h2>
-
-    <div class="movie-grid">
-
-      <article class="movie-card">
-        <video controls playsinline preload="metadata">
-          
-<video
-  controls
-  playsinline
-  preload="auto"
-  width="100%"
->
-  <source
-    src="https://res.cloudinary.com/b1q6fpjt/video/upload/f_mp4,vc_h264/v1793942925/%E3%82%86%E3%81%9A_%E5%BF%83%E3%82%92%E3%81%A8%E3%82%81%E3%81%AA%E3%81%84%E3%81%A7_MUSIC_VIDEO.mp4"
-    type="video/mp4"
+<div class="movie-video">
+  <video
+    controls
+    playsinline
+    preload="auto"
+    width="100%"
+    poster=""
   >
-</video>
-.movie-section {
-  max-width: 1000px;
-  margin: 60px auto;
-  padding: 20px;
-}
-
-.movie-container {
-  width: 100%;
-}
-
-.movie-card {
-  margin-top: 30px;
-}
-
-.yuzu-video {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  background: #000;
-  border-radius: 8px;
-}
-
-.movie-card h3 {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.movie-card p {
-  text-align: center;
-  letter-spacing: 2px;
-}
-
+    <source
+      src="https://res.cloudinary.com/b1q6fpjt/video/upload/f_mp4,vc_h264/v1793942925/%E3%82%86%E3%81%9A_%E5%BF%83%E3%82%92%E3%81%A8%E3%82%81%E3%81%AA%E3%81%84%E3%81%A7_MUSIC_VIDEO.mp4"
+      type="video/mp4"
+    >
+  </video>
+</div>
         <div class="movie-info">
           <span>VIDEO</span>
           <h3>ゆず MOVIE</h3>
