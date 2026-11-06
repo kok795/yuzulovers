@@ -1,183 +1,111 @@
-<section id="single">
-  <h2>SINGLE</h2>
-  <div id="single-list" class="discography-grid"></div>
-</section>
-
-<section id="dvd">
-  <h2>DVD</h2>
-  <div id="dvd-list" class="discography-grid"></div>
-</section>
-
-<section id="blu-ray">
-  <h2>BLU-RAY</h2>
-  <div id="bluray-list" class="discography-grid"></div>
-</section>
-<!-- SINGLE -->
-<section class="discography-section" id="single">
-    <h2>SINGLE</h2>
-    <div class="album-grid">
-        <!-- シングル作品を発売日順に掲載 -->
-    </div>
-</section>
-
-<!-- DVD -->
-<section class="discography-section" id="dvd">
-    <h2>DVD</h2>
-    <div class="album-grid">
-        <!-- DVD作品を発売日順に掲載 -->
-    </div>
-</section>
-
-<!-- BLU-RAY -->
-<section class="discography-section" id="blu-ray">
-    <h2>Blu-ray</h2>
-    <div class="album-grid">
-        <!-- Blu-ray作品を発売日順に掲載 -->
-    </div>
-</section>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DISCOGRAPHY | ゆず大好きな人公式サイト</title>
+<title>DISCOGRAPHY | YUZU LOVERS</title>
+<link rel="stylesheet" href="style.css">
 
 <style>
-* {
-  box-sizing: border-box;
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
+.discography {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
 }
 
-body {
-  margin: 0;
-  background: #fffdf8;
-  color: #333;
-  font-family: sans-serif;
-}
-
-header {
-  background: #f4c542;
-  padding: 25px 15px;
+.discography h1 {
   text-align: center;
-}
-
-header h1 {
-  letter-spacing: 4px;
-  margin: 0;
-}
-
-header p {
-  font-size: 12px;
-  letter-spacing: 3px;
-}
-
-nav {
-  background: #333;
-  padding: 15px;
-  text-align: center;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-  font-size: 13px;
-}
-
-main {
-  max-width: 1100px;
-  margin: auto;
-  padding: 30px 18px;
-}
-
-h2 {
-  text-align: center;
+  font-size: 38px;
   letter-spacing: 5px;
-  border-bottom: 2px solid #f4c542;
-  padding-bottom: 15px;
 }
 
-.intro {
+.disco-subtitle {
   text-align: center;
-  line-height: 1.8;
-  margin-bottom: 30px;
+  color: #888;
+  margin-bottom: 40px;
 }
 
-.filters {
+.disco-nav {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 8px;
-  margin: 25px 0;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 35px;
 }
 
-.filters button {
-  border: 1px solid #d5ad32;
+.disco-nav button {
+  padding: 11px 24px;
+  border: 1px solid #d8a34a;
   background: white;
-  padding: 10px 16px;
+  color: #333;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 25px;
 }
 
-.filters button.active {
-  background: #f4c542;
+.disco-nav button.active,
+.disco-nav button:hover {
+  background: #d8a34a;
+  color: white;
 }
 
-.grid {
+.disco-search {
+  display: block;
+  width: min(90%, 450px);
+  margin: 0 auto 35px;
+  padding: 13px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+}
+
+.disco-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px 15px;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 30px 20px;
 }
 
-.item {
-  text-align: center;
-  min-width: 0;
+.disco-item {
+  text-align: left;
 }
 
-.item img {
+.disco-item img {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
+  border-radius: 5px;
   background: #eee;
-  border: 1px solid #ddd;
 }
 
-.item h3 {
-  font-size: 14px;
-  margin: 10px 0 5px;
+.disco-item h3 {
+  font-size: 15px;
+  margin: 12px 0 5px;
 }
 
-.item p {
+.disco-item p {
   font-size: 12px;
   color: #777;
   margin: 4px 0;
 }
 
-.category {
-  display: inline-block;
-  font-size: 10px;
-  background: #f8e9b4;
-  padding: 4px 8px;
-  margin-top: 5px;
+.disco-type {
+  color: #bd8b38 !important;
+  font-weight: bold;
 }
 
-footer {
-  margin-top: 60px;
-  background: #333;
-  color: white;
+.disco-empty {
   text-align: center;
-  padding: 25px;
-  font-size: 12px;
+  padding: 50px;
+  color: #888;
+  display: none;
 }
 
-@media(max-width:700px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
+@media(max-width:600px) {
+  .discography h1 {
+    font-size: 29px;
   }
-  nav a {
-    margin: 5px;
+
+  .disco-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px 13px;
   }
 }
 </style>
@@ -185,392 +113,137 @@ footer {
 
 <body>
 
-<header>
-<h1>YUZU LOVERS</h1>
-<p>OFFICIAL FAN SITE</p>
-</header>
+<main class="discography">
 
-<nav>
-<a href="index.html">HOME</a>
-<a href="news.html">NEWS</a>
-<a href="biography.html">BIOGRAPHY</a>
-<a href="discography.html">DISCOGRAPHY</a>
-<a href="live.html">LIVE</a>
-<a href="movie.html">MOVIE</a>
-</nav>
+<h1>DISCOGRAPHY</h1>
+<p class="disco-subtitle">YUZU MUSIC COLLECTION</p>
 
-<main>
-
-<h2>DISCOGRAPHY</h2>
-
-<p class="intro">
-ゆずがこれまでに届けてきた音楽作品。<br>
-1997年から現在までの作品を紹介します。
-</p>
-
-<div class="filters">
-<button class="active" onclick="filterItems('ALL',this)">ALL</button>
-<button onclick="filterItems('SINGLE',this)">SINGLE</button>
-<button onclick="filterItems('ALBUM',this)">ALBUM</button>
-<button onclick="filterItems('BEST',this)">BEST ALBUM</button>
-<button onclick="filterItems('DIGITAL',this)">DIGITAL</button>
-<button onclick="filterItems('DVD',this)">DVD</button>
-<button onclick="filterItems('BLU-RAY',this)">BLU-RAY</button>
+<div class="disco-nav">
+  <button class="active" data-type="ALL">ALL</button>
+  <button data-type="SINGLE">SINGLE</button>
+  <button data-type="ALBUM">ALBUM</button>
+  <button data-type="VIDEO">DVD / Blu-ray</button>
 </div>
 
-<div class="grid" id="discography"></div>
+<input
+  type="search"
+  class="disco-search"
+  id="discoSearch"
+  placeholder="作品名・発売年で検索..."
+>
+
+<div class="disco-grid" id="discoGrid"></div>
+
+<p class="disco-empty" id="discoEmpty">
+該当する作品はありません。
+</p>
 
 </main>
 
-<footer>
-<p>YUZU LOVERS</p>
-<p>Unofficial Fan Site</p>
-</footer>
-
 <script>
-// 作品データを追加する場所
-// coverにはジャケット画像のファイル名を指定
-
 const works = [
 
-{
-title:"ゆずの素",
-date:"1997.10.25",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUu9rLUOnpuRXNO2Ay8MFxoqTYA_WEEC6Qf5R4W4Avpg&s=10"
-},
+  // SINGLE・ALBUM・VIDEOの作品データをここに追加
 
-{
-title:"ゆずマン",
-date:"1998.02.21",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEljUMchZxM0TlVMmCSMkBknA_o7r7-29SQryWoXCitQ&s=10"
-},
+  {
+    title: "夏色",
+    date: "1998.06.03",
+    type: "SINGLE",
+    image: "images/natsuiro.jpg"
+  },
 
-{
-title:"ゆず一家",
-date:"1998.07.23",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKI5_LSlb6nYejGppaKMMikqXwEk230oVi8LgOejHEgw&s=10"
-},
+  {
+    title: "ゆず一家",
+    date: "1998.07.23",
+    type: "ALBUM",
+    image: "images/yuzuikka.jpg"
+  },
 
-{
-title:"サヨナラバス",
-date:"1999.03.17",
-category:"SINGLE",
-cover:"https://yuzu-official.com/uploads/76adc489-c61c-47d6-bd56-766824697711/contents/discography/9207_SNDC-28904.jpg"
-},
+  {
+    title: "ゆずえん",
+    date: "1999.10.14",
+    type: "ALBUM",
+    image: "images/yuzuen.jpg"
+  }
 
-{
-title:"ゆずえん",
-date:"1999.10.14",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRflJECPE0Bnd17BCcgNXm8uexFsrakRr8tl19tGkQ0KQ&s=10"
-},
-
-{
-title:"トビラ",
-date:"2000.11.01",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dOxjC57PpdA2I8EMwxhEdBzZGyB-sJWcM5PL6OQxqA&s=10"
-},
-
-{
-title:"ユズモア",
-date:"2002.03.06",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc3L3apx1mdMfdGoVU_AIEoaeldpfqfGjtpMtujbkqNQ&s=10"
-},
-
-{
-title:"すみれ",
-date:"2003.03.19",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSw28SII_o_g99HcwwGgD52xmK9oPBhi-5gAnD5EuDPA&s=10"
-},
-
-{
-title:"1 〜ONE〜",
-date:"2004.09.15",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7iHpYNw-4O_bQ3PQ9z61scZJdJJV_5wQPPRfRwo54Yg&s=10"
-},
-
-{
-title:"リボン",
-date:"2006.01.18",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ2bs6gqNe1g0YZMoCOvWn-4ItCXWzA9Q_aNCtL85Ipg&s=10"
-},
-
-{
-title:"WONDERFUL WORLD",
-date:"2008.04.16",
-category:"ALBUM",
-cover:"https://m.media-amazon.com/images/I/51BHCePLx1L._UF1000,1000_QL80_.jpg"
-},
-
-{
-title:"FURUSATO",
-date:"2009.10.07",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQErMNOLagND04WH8fecrH2ClKBUQznlOu6aMgR6rLr8g&s=10"
-},
-
-{
-title:"2-NI-",
-date:"2011.02.16",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRCAj-qIRbsJQkk2mp5H0cczgLOIHgBA0ShSiUYUw5GDJ0qIZym_x4bvw&s=10"
-},
-
-{
-title:"LAND",
-date:"2013.05.01",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSScA04DFb26dzdIv15UybvsPeZKL-fB327Dq4Jj4Ufw&s=10"
-},
-
-{
-title:"新世界",
-date:"2014.02.19",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQzOtXinMBtOHwH07VeE4FbDsGleRfg66RXSUXtrQxJQ&s=10"
-},
-
-{
-title:"TOWA",
-date:"2016.01.13",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxcMkoPHp6zn710l0DeuN-LL6PCskVjdt-4gNLMWZHJw&s=10"
-},
-
-{
-title:"BIG YELL",
-date:"2018.04.04",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiDr-O1oVVQzLBzHKrnT3Jmu7-oxVBuGoJQhsaLS0Pvg&s=10"
-},
-
-{
-title:"YUZUTOWN",
-date:"2020.03.04",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmpn85uMKeyOfMGfcPP5mvwCnIgH8sB5Di2XH420Er5w&s=10"
-},
-
-{
-title:"PEOPLE",
-date:"2022.03.23",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3S1tIeI0OSxsq7tkBs4iJjX2kaLQe-HJtCQMhtrFTeDwIcAjlxYDh5mKi&s=10"
-},
-
-{
-title:"SEES",
-date:"2022.06.29",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsUIaveGRpo8rCxc3VDVzh4FCYnawE7AGdDpC7WDkyQw&s=10"
-},
-
-{
-title:"図鑑",
-date:"2024.07.31",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzzgzT1vZ8T1E7yrCmPE_zxOnsFGKLS9HRw7teMRDCN5yCyrJtikAacL21&s=10"
-}
-title:"心音",
-date:"2026.03.11",
-category:"ALBUM",
-cover:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS54n1HYJCN0f5FjA9FznuTEAr7dA7mKkZWuCR5TpJYcQ&s=10"
 ];
-  const additionalDiscography = {
 
-  SINGLE: [
-    ["1998.06.03","夏色"],
-    ["1998.09.18","少年"],
-    ["1998.11.11","からっぽ"],
-    ["1999.01.20","いつか"],
-    ["1999.03.17","サヨナラバス"],
-    ["1999.08.18","センチメンタル"],
-    ["1999.09.29","友達の唄"],
-    ["1999.11.25","心のままに／くず星"],
-    ["1999.12.25","星がきれい"],
-    ["2000.05.31","嗚呼、青春の日々"],
-    ["2000.10.18","飛べない鳥"],
-    ["2001.05.23","3カウント"],
-    ["2002.02.13","アゲイン2"],
-    ["2002.02.20","恋の歌謡日"],
-    ["2002.10.17","またあえる日まで"],
-    ["2003.02.12","呼吸"],
-    ["2003.02.19","3番線／水平線"],
-    ["2003.02.26","スミレ"],
-    ["2003.10.22","歩行者優先／濃"],
-    ["2004.06.02","桜木町／趣味のハバ／夢の地図"],
-    ["2004.07.22","栄光の架橋"],
-    ["2004.12.01","威風堂々"],
-    ["2005.07.13","We are F・Marinos"],
-    ["2005.11.09","超特急／陽はまた昇る"],
-    ["2006.11.29","クリスマスの約束"],
-    ["2007.03.07","春風"],
-    ["2007.07.11","ミュージック"],
-    ["2008.02.06","ストーリー"],
-    ["2008.06.25","Yesterday and Tomorrow"],
-    ["2008.11.05","シシカバブー"],
-    ["2009.04.22","逢いたい"],
-    ["2009.05.13","two友"],
-    ["2009.07.29","いちご"],
-    ["2009.09.02","虹"],
-    ["2010.02.03","桜会／マイライフ"],
-    ["2010.08.25","慈愛への旅路"],
-    ["2010.12.01","from"],
-    ["2011.01.19","Hey和"],
-    ["2011.05.04","第九のベンさん"],
-    ["2011.11.30","翔"],
-    ["2012.05.23","with you"],
-    ["2012.08.08","また明日"],
-    ["2013.01.09","REASON"],
-    ["2013.09.18","友〜旅立ちの時〜"],
-    ["2013.11.13","雨のち晴レルヤ／守ってあげたい"],
-    ["2013.12.25","表裏一体"],
-    ["2014.02.12","ヒカレ"],
-    ["2015.04.15","OLA!!"],
-    ["2015.08.12","終わらない歌"],
-    ["2018.08.01","マスカット"],
-    ["2025.08.27","GET BACK"]
-  ],
+let currentType = "ALL";
 
-  DVD: [
-    ["2001.05.16","LIVE FILMS TOBIRA TOUR 2000〜2001"],
-    ["2001.12.26","録歌選 金銀"],
-    ["2001.12.26","LIVE FILMS ふたりビッグ(エッグ)ショー"],
-    ["2002.01.23","LIVE FILMS スタジアムツアー 満員音(楽)礼"],
-    ["2002.01.23","LIVE FILMS ふたり"],
-    ["2002.01.23","LIVE FILMS ふたり 秋味"],
-    ["2002.08.01","LIVE FILMS ユズモラス完全版"],
-    ["2002.08.07","恋の歌謡日"],
-    ["2003.01.22","録歌選 紅"],
-    ["2003.05.21","録歌選 菫"],
-    ["2003.10.01","LIVE FILMS 夏休み子供コンサート ゆずスマイル"],
-    ["2003.10.22","LIVE FILMS すみれ"],
-    ["2005.03.01","LIVE FILMS 夢の地図"],
-    ["2005.04.06","録歌選 1〜ONE〜"],
-    ["2005.04.06","LIVE FILMS 1〜ONE〜"],
-    ["2005.11.01","今夜君を迎えに行くよ"],
-    ["2005.11.16","LIVE FILMS GO HOME"],
-    ["2006.09.01","ゆずスマイルコンサート 2006 〜にほんのうた〜"],
-    ["2006.10.04","LIVE FILMS リボン"],
-    ["2008.02.06","LIVE FILMS ゆずのね"],
-    ["2008.11.05","LIVE FILMS WONDERFUL WORLD"],
-    ["2009.02.01","素晴らしきこの世界"],
-    ["2009.04.22","録歌選 緑"],
-    ["2010.02.03","録歌選 虹"],
-    ["2010.07.14","LIVE FILMS FURUSATO"],
-    ["2011.11.30","LIVE FILMS 2-NI-"],
-    ["2012.10.24","LIVE FILMS YUZU YOU DOME 〜みんな、どうむありがとう〜"],
-    ["2012.10.24","LIVE FILMS YUZU YOU DOME 〜二人で、どうむありがとう〜"],
-    ["2013.01.09","録歌選 2-NI-"],
-    ["2013.06.15","LIVE FILMS YUZU YOU ARENA 〜みんなと、どこまでも〜"],
-    ["2013.09.18","録歌選 LAND"],
-    ["2013.12.25","LIVE FILMS GO LAND"],
-    ["2014.11.26","LIVE FILMS 新世界"],
-    ["2014.11.26","録歌選 新世界"],
-    ["2016.04.27","LIVE FILMS TOWA -episode zero-"],
-    ["2016.04.27","録歌選 TOWA"],
-    ["2017.12.06","LIVE FILMS ゆずのみ"],
-    ["2017.12.06","LIVE FILMS ゆずイロハ"],
-    ["2018.12.19","LIVE FILMS BIG YELL"],
-    ["2018.12.19","録歌選 BIGYELL"],
-    ["2020.01.15","LIVE FILMS ゆずのみ〜拍手喝祭〜"],
-    ["2020.09.16","YUZU ALL TIME BEST LIVE AGAIN 1997-2007"],
-    ["2020.09.16","YUZU ALL TIME BEST LIVE AGAIN 2008-2020"],
-    ["2020.11.15","LIVE FILMS YUZU ONLINE TOUR 2020 AGAIN"],
-    ["2021.08.25","LIVE FILMS 二人参客"],
-    ["2021.11.24","LIVE FILMS 謳おう 2021"],
-    ["2021.12.22","LIVE FILMS YUZUTOWN / ALWAYS YUZUTOWN"],
-    ["2021.12.22","録歌選 YUZUTOWN"],
-    ["2023.03.15","LIVE FILMS SEES -ALWAYS with you-"],
-    ["2023.03.15","LIVE FILMS PEOPLE -ALWAYS with you-"],
-    ["2023.08.31","LIVE FILMS 夏祭り 杜の音 後夜祭"],
-    ["2023.08.31","録歌選 PEOPLE SEES"],
-    ["2024.04.17","LIVE FILMS HIBIKI DAY1 BLUE ✕ FUTARI"],
-    ["2024.04.17","LIVE FILMS HIBIKI DAY2 RED ✕ ALL STARS"],
-    ["2025.06.25","LIVE FILMS AGAIN AGAIN"],
-    ["2025.06.25","LIVE FILMS ゆず晦日"],
-    ["2026.02.25","LIVE FILMS 図鑑"],
-    ["2026.02.25","録歌選 図鑑"]
-  ],
+function displayWorks() {
+  const grid = document.getElementById("discoGrid");
+  const search = document.getElementById("discoSearch")
+    .value.toLowerCase();
 
-  BLURAY: [
-    ["2012.10.24","LIVE FILMS YUZU YOU DOME 〜二人で、どうむありがとう〜"],
-    ["2016.04.27","LIVE FILMS TOWA -episode zero-"],
-    ["2017.12.06","LIVE FILMS ゆずのみ"],
-    ["2017.12.06","LIVE FILMS ゆずイロハ"],
-    ["2018.12.19","LIVE FILMS BIG YELL"],
-    ["2018.12.19","録歌選 BIGYELL"],
-    ["2020.01.15","LIVE FILMS ゆずのみ〜拍手喝祭〜"],
-    ["2020.09.16","YUZU ALL TIME BEST LIVE AGAIN 1997-2007"],
-    ["2020.09.16","YUZU ALL TIME BEST LIVE AGAIN 2008-2020"],
-    ["2020.11.15","LIVE FILMS YUZU ONLINE TOUR 2020 AGAIN"],
-    ["2021.08.25","LIVE FILMS 二人参客"],
-    ["2021.11.24","LIVE FILMS 謳おう 2021"],
-    ["2021.12.22","LIVE FILMS YUZUTOWN / ALWAYS YUZUTOWN"],
-    ["2021.12.22","録歌選 YUZUTOWN"],
-    ["2023.03.15","LIVE FILMS SEES -ALWAYS with you-"],
-    ["2023.03.15","LIVE FILMS PEOPLE -ALWAYS with you-"],
-    ["2023.08.31","LIVE FILMS 夏祭り 杜の音 後夜祭"],
-    ["2023.08.31","録歌選 PEOPLE SEES"],
-    ["2024.04.17","LIVE FILMS HIBIKI DAY1 BLUE ✕ FUTARI"],
-    ["2024.04.17","LIVE FILMS HIBIKI DAY2 RED ✕ ALL STARS"],
-    ["2025.06.25","LIVE FILMS AGAIN AGAIN"],
-    ["2025.06.25","LIVE FILMS ゆず晦日"],
-    ["2026.02.25","LIVE FILMS 図鑑"],
-    ["2026.02.25","録歌選 図鑑"]
-  ]
+  grid.innerHTML = "";
 
-};
+  const filtered = works.filter(work => {
+    const matchType =
+      currentType === "ALL" || work.type === currentType;
 
-function displayWorks(category="ALL") {
-  const container = document.getElementById("discography");
+    const matchSearch =
+      work.title.toLowerCase().includes(search) ||
+      work.date.includes(search);
 
-  const filtered = works
-    .filter(work => category === "ALL" || work.category === category)
-    .sort((a,b) => b.date.localeCompare(a.date));
+    return matchType && matchSearch;
+  });
 
-  container.innerHTML = filtered.map(work => `
-    <div class="item">
-      <img src="${work.cover}"
-           alt="${work.title}"
-           onerror="this.style.opacity='.25'">
-      <h3>${work.title}</h3>
-      <p>${work.date}</p>
-      <span class="category">${work.category}</span>
-    </div>
-  `).join("");
+  filtered.forEach(work => {
+    const item = document.createElement("article");
+    item.className = "disco-item";
+
+    const img = document.createElement("img");
+    img.src = work.image;
+    img.alt = work.title + " ジャケット";
+    img.loading = "lazy";
+
+    const title = document.createElement("h3");
+    title.textContent = work.title;
+
+    const date = document.createElement("p");
+    date.textContent = work.date;
+
+    const type = document.createElement("p");
+    type.className = "disco-type";
+    type.textContent = work.type;
+
+    item.append(img, title, date, type);
+    grid.appendChild(item);
+  });
+
+  document.getElementById("discoEmpty").style.display =
+    filtered.length ? "none" : "block";
 }
 
-function filterItems(category,button) {
-  document.querySelectorAll(".filters button")
-    .forEach(btn => btn.classList.remove("active"));
+document.querySelectorAll(".disco-nav button")
+.forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".disco-nav button")
+      .forEach(b => b.classList.remove("active"));
 
-  button.classList.add("active");
-  displayWorks(category);
-}
+    button.classList.add("active");
+    currentType = button.dataset.type;
+    displayWorks();
+  });
+});
+
+document.getElementById("discoSearch")
+.addEventListener("input", displayWorks);
 
 displayWorks();
-
-// コピー・右クリック等の制限
-document.addEventListener("contextmenu",e=>e.preventDefault());
-document.addEventListener("copy",e=>e.preventDefault());
-document.addEventListener("cut",e=>e.preventDefault());
-
-document.addEventListener("keydown",e=>{
-  if((e.ctrlKey || e.metaKey) &&
-    ["c","u","s","a"].includes(e.key.toLowerCase())) {
-    e.preventDefault();
-  }
-});
 </script>
 
 </body>
 </html>
+/* テキスト選択を禁止 */
+* {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* 画像のドラッグを禁止 */
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
