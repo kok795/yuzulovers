@@ -1,4 +1,40 @@
+<section id="single">
+  <h2>SINGLE</h2>
+  <div id="single-list" class="discography-grid"></div>
+</section>
 
+<section id="dvd">
+  <h2>DVD</h2>
+  <div id="dvd-list" class="discography-grid"></div>
+</section>
+
+<section id="blu-ray">
+  <h2>BLU-RAY</h2>
+  <div id="bluray-list" class="discography-grid"></div>
+</section>
+<!-- SINGLE -->
+<section class="discography-section" id="single">
+    <h2>SINGLE</h2>
+    <div class="album-grid">
+        <!-- シングル作品を発売日順に掲載 -->
+    </div>
+</section>
+
+<!-- DVD -->
+<section class="discography-section" id="dvd">
+    <h2>DVD</h2>
+    <div class="album-grid">
+        <!-- DVD作品を発売日順に掲載 -->
+    </div>
+</section>
+
+<!-- BLU-RAY -->
+<section class="discography-section" id="blu-ray">
+    <h2>Blu-ray</h2>
+    <div class="album-grid">
+        <!-- Blu-ray作品を発売日順に掲載 -->
+    </div>
+</section>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -345,6 +381,151 @@ cover:"images/zukan.jpg"
 }
 
 ];
+  const additionalDiscography = {
+
+  SINGLE: [
+    ["1998.06.03","夏色"],
+    ["1998.09.18","少年"],
+    ["1998.11.11","からっぽ"],
+    ["1999.01.20","いつか"],
+    ["1999.03.17","サヨナラバス"],
+    ["1999.08.18","センチメンタル"],
+    ["1999.09.29","友達の唄"],
+    ["1999.11.25","心のままに／くず星"],
+    ["1999.12.25","星がきれい"],
+    ["2000.05.31","嗚呼、青春の日々"],
+    ["2000.10.18","飛べない鳥"],
+    ["2001.05.23","3カウント"],
+    ["2002.02.13","アゲイン2"],
+    ["2002.02.20","恋の歌謡日"],
+    ["2002.10.17","またあえる日まで"],
+    ["2003.02.12","呼吸"],
+    ["2003.02.19","3番線／水平線"],
+    ["2003.02.26","スミレ"],
+    ["2003.10.22","歩行者優先／濃"],
+    ["2004.06.02","桜木町／趣味のハバ／夢の地図"],
+    ["2004.07.22","栄光の架橋"],
+    ["2004.12.01","威風堂々"],
+    ["2005.07.13","We are F・Marinos"],
+    ["2005.11.09","超特急／陽はまた昇る"],
+    ["2006.11.29","クリスマスの約束"],
+    ["2007.03.07","春風"],
+    ["2007.07.11","ミュージック"],
+    ["2008.02.06","ストーリー"],
+    ["2008.06.25","Yesterday and Tomorrow"],
+    ["2008.11.05","シシカバブー"],
+    ["2009.04.22","逢いたい"],
+    ["2009.05.13","two友"],
+    ["2009.07.29","いちご"],
+    ["2009.09.02","虹"],
+    ["2010.02.03","桜会／マイライフ"],
+    ["2010.08.25","慈愛への旅路"],
+    ["2010.12.01","from"],
+    ["2011.01.19","Hey和"],
+    ["2011.05.04","第九のベンさん"],
+    ["2011.11.30","翔"],
+    ["2012.05.23","with you"],
+    ["2012.08.08","また明日"],
+    ["2013.01.09","REASON"],
+    ["2013.09.18","友〜旅立ちの時〜"],
+    ["2013.11.13","雨のち晴レルヤ／守ってあげたい"],
+    ["2013.12.25","表裏一体"],
+    ["2014.02.12","ヒカレ"],
+    ["2015.04.15","OLA!!"],
+    ["2015.08.12","終わらない歌"],
+    ["2018.08.01","マスカット"],
+    ["2025.08.27","GET BACK"]
+  ],
+
+  DVD: [
+    ["2001.05.16","LIVE FILMS TOBIRA TOUR 2000〜2001"],
+    ["2001.12.26","録歌選 金銀"],
+    ["2001.12.26","LIVE FILMS ふたりビッグ(エッグ)ショー"],
+    ["2002.01.23","LIVE FILMS スタジアムツアー 満員音(楽)礼"],
+    ["2002.01.23","LIVE FILMS ふたり"],
+    ["2002.01.23","LIVE FILMS ふたり 秋味"],
+    ["2002.08.01","LIVE FILMS ユズモラス完全版"],
+    ["2002.08.07","恋の歌謡日"],
+    ["2003.01.22","録歌選 紅"],
+    ["2003.05.21","録歌選 菫"],
+    ["2003.10.01","LIVE FILMS 夏休み子供コンサート ゆずスマイル"],
+    ["2003.10.22","LIVE FILMS すみれ"],
+    ["2005.03.01","LIVE FILMS 夢の地図"],
+    ["2005.04.06","録歌選 1〜ONE〜"],
+    ["2005.04.06","LIVE FILMS 1〜ONE〜"],
+    ["2005.11.01","今夜君を迎えに行くよ"],
+    ["2005.11.16","LIVE FILMS GO HOME"],
+    ["2006.09.01","ゆずスマイルコンサート 2006 〜にほんのうた〜"],
+    ["2006.10.04","LIVE FILMS リボン"],
+    ["2008.02.06","LIVE FILMS ゆずのね"],
+    ["2008.11.05","LIVE FILMS WONDERFUL WORLD"],
+    ["2009.02.01","素晴らしきこの世界"],
+    ["2009.04.22","録歌選 緑"],
+    ["2010.02.03","録歌選 虹"],
+    ["2010.07.14","LIVE FILMS FURUSATO"],
+    ["2011.11.30","LIVE FILMS 2-NI-"],
+    ["2012.10.24","LIVE FILMS YUZU YOU DOME 〜みんな、どうむありがとう〜"],
+    ["2012.10.24","LIVE FILMS YUZU YOU DOME 〜二人で、どうむありがとう〜"],
+    ["2013.01.09","録歌選 2-NI-"],
+    ["2013.06.15","LIVE FILMS YUZU YOU ARENA 〜みんなと、どこまでも〜"],
+    ["2013.09.18","録歌選 LAND"],
+    ["2013.12.25","LIVE FILMS GO LAND"],
+    ["2014.11.26","LIVE FILMS 新世界"],
+    ["2014.11.26","録歌選 新世界"],
+    ["2016.04.27","LIVE FILMS TOWA -episode zero-"],
+    ["2016.04.27","録歌選 TOWA"],
+    ["2017.12.06","LIVE FILMS ゆずのみ"],
+    ["2017.12.06","LIVE FILMS ゆずイロハ"],
+    ["2018.12.19","LIVE FILMS BIG YELL"],
+    ["2018.12.19","録歌選 BIGYELL"],
+    ["2020.01.15","LIVE FILMS ゆずのみ〜拍手喝祭〜"],
+    ["2020.09.16","YUZU ALL TIME BEST LIVE AGAIN 1997-2007"],
+    ["2020.09.16","YUZU ALL TIME BEST LIVE AGAIN 2008-2020"],
+    ["2020.11.15","LIVE FILMS YUZU ONLINE TOUR 2020 AGAIN"],
+    ["2021.08.25","LIVE FILMS 二人参客"],
+    ["2021.11.24","LIVE FILMS 謳おう 2021"],
+    ["2021.12.22","LIVE FILMS YUZUTOWN / ALWAYS YUZUTOWN"],
+    ["2021.12.22","録歌選 YUZUTOWN"],
+    ["2023.03.15","LIVE FILMS SEES -ALWAYS with you-"],
+    ["2023.03.15","LIVE FILMS PEOPLE -ALWAYS with you-"],
+    ["2023.08.31","LIVE FILMS 夏祭り 杜の音 後夜祭"],
+    ["2023.08.31","録歌選 PEOPLE SEES"],
+    ["2024.04.17","LIVE FILMS HIBIKI DAY1 BLUE ✕ FUTARI"],
+    ["2024.04.17","LIVE FILMS HIBIKI DAY2 RED ✕ ALL STARS"],
+    ["2025.06.25","LIVE FILMS AGAIN AGAIN"],
+    ["2025.06.25","LIVE FILMS ゆず晦日"],
+    ["2026.02.25","LIVE FILMS 図鑑"],
+    ["2026.02.25","録歌選 図鑑"]
+  ],
+
+  BLURAY: [
+    ["2012.10.24","LIVE FILMS YUZU YOU DOME 〜二人で、どうむありがとう〜"],
+    ["2016.04.27","LIVE FILMS TOWA -episode zero-"],
+    ["2017.12.06","LIVE FILMS ゆずのみ"],
+    ["2017.12.06","LIVE FILMS ゆずイロハ"],
+    ["2018.12.19","LIVE FILMS BIG YELL"],
+    ["2018.12.19","録歌選 BIGYELL"],
+    ["2020.01.15","LIVE FILMS ゆずのみ〜拍手喝祭〜"],
+    ["2020.09.16","YUZU ALL TIME BEST LIVE AGAIN 1997-2007"],
+    ["2020.09.16","YUZU ALL TIME BEST LIVE AGAIN 2008-2020"],
+    ["2020.11.15","LIVE FILMS YUZU ONLINE TOUR 2020 AGAIN"],
+    ["2021.08.25","LIVE FILMS 二人参客"],
+    ["2021.11.24","LIVE FILMS 謳おう 2021"],
+    ["2021.12.22","LIVE FILMS YUZUTOWN / ALWAYS YUZUTOWN"],
+    ["2021.12.22","録歌選 YUZUTOWN"],
+    ["2023.03.15","LIVE FILMS SEES -ALWAYS with you-"],
+    ["2023.03.15","LIVE FILMS PEOPLE -ALWAYS with you-"],
+    ["2023.08.31","LIVE FILMS 夏祭り 杜の音 後夜祭"],
+    ["2023.08.31","録歌選 PEOPLE SEES"],
+    ["2024.04.17","LIVE FILMS HIBIKI DAY1 BLUE ✕ FUTARI"],
+    ["2024.04.17","LIVE FILMS HIBIKI DAY2 RED ✕ ALL STARS"],
+    ["2025.06.25","LIVE FILMS AGAIN AGAIN"],
+    ["2025.06.25","LIVE FILMS ゆず晦日"],
+    ["2026.02.25","LIVE FILMS 図鑑"],
+    ["2026.02.25","録歌選 図鑑"]
+  ]
+
+};
 
 function displayWorks(category="ALL") {
   const container = document.getElementById("discography");
