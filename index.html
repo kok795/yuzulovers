@@ -12,179 +12,135 @@ img {
   user-drag: none;
 }
 </style>
-
-<script>
-document.addEventListener('contextmenu', function(e) {
-  e.preventDefault();
-});
-
-document.addEventListener('copy', function(e) {
-  e.preventDefault();
-});
-
-document.addEventListener('cut', function(e) {
-  e.preventDefault();
-});
-
-document.addEventListener('keydown', function(e) {
-  if (
-    (e.ctrlKey || e.metaKey) &&
-    ['c', 'u', 's', 'a'].includes(e.key.toLowerCase())
-  ) {
-    e.preventDefault();
-  }
-});
-</script>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>YUZU LOVER OFFICIAL SITE | ゆず大好きな人公式サイト</title>
-
-  <meta name="description" content="ゆずの音楽、作品、歴史、ライブ情報を紹介するファンサイト ゆず大好きな人公式サイト">
-
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="YUZU LOVERS - ゆずの音楽、歴史、ライブを紹介するファンサイト">
+<meta name="theme-color" content="#17130f">
+<title>YUZU LOVERS | MUSIC. HISTORY. MEMORIES.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="logo">
-      <a href="index.html">YUZU LOVERS</a>
-      <p>～ ゆずと歩む、音楽の旅 ～</p>
-    </div>
+<header class="header">
+  <a href="index.html" class="logo">YUZU <span>LOVERS</span></a>
+  <nav class="navigation">
+    <a href="index.html">HOME</a>
+    <a href="news">NEWS</a>
+    <a href="discography">DISCOGRAPHY</a>
+    <a href="biography">BIOGRAPHY</a>
+    <a href="live">LIVE</a>
+    <a href="movie">MOVIE</a>
+  </nav>
+</header>
 
-    <nav class="navigation">
-      <a href="index.html">HOME</a>
-      <a href="news.html">NEWS</a>
-      <a href="discography.html">DISCOGRAPHY</a>
-      <a href="biography.html">BIOGRAPHY</a>
-      <a href="live.html">LIVE</a>
-      <a href="movie.html">MOVIE</a>
-    </nav>
-  </header>
+<main>
+<section class="hero">
+  <div class="hero-image"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="eyebrow">MUSIC · HISTORY · MEMORIES</p>
+    <h1>YUZU <span>LOVERS</span></h1>
+    <div class="gold-line"></div>
+    <p class="hero-message">いつまでも色あせない音楽とともに。</p>
+    <p class="hero-sub">ゆずの音楽、歴史、そして大切な記憶を。</p>
+    <a href="biography" class="hero-button">EXPLORE YUZU ↗</a>
+  </div>
+  <div class="scroll">SCROLL ↓</div>
+</section>
 
-  <!-- MAIN VISUAL -->
-  <main>
+<section class="introduction">
+  <p class="eyebrow dark">WELCOME TO YUZU LOVERS</p>
+  <h2>音楽とともに、<br>その先の景色へ。</h2>
+  <p>
+    北川悠仁・岩沢厚治によるフォークデュオ「ゆず」。<br>
+    ここでは、ゆずの作品や歴史、ライブの記録を紹介します。<br>
+    音楽がつないできた思い出を、一緒にたどってみませんか。
+  </p>
+</section>
 
-    <section class="hero">
-      <div class="hero-content">
-        <p class="hero-subtitle">WELCOME TO YUZU LOVERS</p>
+<section class="contents">
+  <div class="section-title">
+    <p class="eyebrow dark">CONTENTS</p>
+    <h2>EXPLORE YUZU</h2>
+  </div>
 
-        <h1>YUZU LOVERS</h1>
+  <div class="contents-grid">
+    <a href="news" class="content-card">
+      <span>01 / INFORMATION</span>
+      <h3>NEWS</h3>
+      <p>最新情報・お知らせ</p>
+      <b>↗</b>
+    </a>
 
-        <p class="hero-message">
-          ゆずの音楽と、これまでの軌跡を。
-        </p>
+    <a href="discography" class="content-card">
+      <span>02 / MUSIC & VIDEO</span>
+      <h3>DISCOGRAPHY</h3>
+      <p>全CD・DVD・Blu-ray作品</p>
+      <b>↗</b>
+    </a>
 
-        <a href="biography.html" class="hero-button">
-          DISCOVER YUZU
-        </a>
-      </div>
-    </section>
+    <a href="biography" class="content-card">
+      <span>03 / THE STORY</span>
+      <h3>BIOGRAPHY</h3>
+      <p>ゆずの歴史と歩み</p>
+      <b>↗</b>
+    </a>
 
-    <!-- INTRODUCTION -->
-    <section class="introduction">
-      <h2>ABOUT YUZU LOVERS</h2>
+    <a href="live" class="content-card">
+      <span>04 / ON THE STAGE</span>
+      <h3>LIVE</h3>
+      <p>ライブ・ツアー情報</p>
+      <b>↗</b>
+    </a>
 
-      <p>
-        北川悠仁・岩沢厚治による音楽デュオ「ゆず」。
-        <br>
-        1996年の結成から現在まで、
-        数々の音楽と感動を届けてきました。
-      </p>
+    <a href="movie" class="content-card">
+      <span>05 / VISUAL</span>
+      <h3>MOVIE</h3>
+      <p>ミュージックビデオ</p>
+      <b>↗</b>
+    </a>
+  </div>
+</section>
 
-      <p>
-        YUZU LOVERSでは、ゆずの作品、歴史、
-        ライブ、最新情報などを紹介します。
-      </p>
-    </section>
+<section class="message">
+  <p class="eyebrow dark">OUR MESSAGE</p>
+  <h2>いつまでも、ゆずとともに。</h2>
+  <p>これからも、ゆずの音楽が生み出す景色を大切に。</p>
+  <strong>YUZU LOVERS</strong>
+</section>
+</main>
 
-    <!-- CONTENT MENU -->
-    <section class="contents">
+<footer class="footer">
+  <h2>YUZU <span>LOVERS</span></h2>
+  <p>MUSIC · HISTORY · MEMORIES</p>
+  <div class="footer-nav">
+    <a href="news">NEWS</a>
+    <a href="discography">DISCOGRAPHY</a>
+    <a href="biography">BIOGRAPHY</a>
+    <a href="live">LIVE</a>
+    <a href="movie">MOVIE</a>
+  </div>
+  <p class="copyright">© YUZU LOVERS. ALL RIGHTS RESERVED.</p>
+  <small>当サイトはファンによる非公式サイトです。</small>
+</footer>
 
-      <h2>CONTENTS</h2>
-
-      <p class="section-description">
-        YUZU LOVERS CONTENTS
-      </p>
-
-      <div class="contents-grid">
-
-        <a href="news.html" class="content-card">
-          <span>01</span>
-          <h3>NEWS</h3>
-          <p>最新情報・お知らせ</p>
-        </a>
-
-        <a href="discography.html" class="content-card">
-          <span>02</span>
-          <h3>DISCOGRAPHY</h3>
-          <p>CD・DVD・Blu-ray作品</p>
-        </a>
-
-        <a href="biography.html" class="content-card">
-          <span>03</span>
-          <h3>BIOGRAPHY</h3>
-          <p>ゆずの歴史と歩み</p>
-        </a>
-
-        <a href="live.html" class="content-card">
-          <span>04</span>
-          <h3>LIVE</h3>
-          <p>ライブ・ツアー情報</p>
-        </a>
-
-        <a href="movie.html" class="content-card">
-          <span>05</span>
-          <h3>MOVIE</h3>
-          <p>ミュージックビデオ</p>
-        </a>
-
-        <a href="special.html" class="content-card">
-          <span>06</span>
-          <h3>SPECIAL</h3>
-          <p>特集・企画コンテンツ</p>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- MESSAGE -->
-    <section class="message">
-      <h2>WITH YUZU</h2>
-
-      <p>
-        いつまでも色あせない音楽とともに。
-      </p>
-
-      <p>
-        これからも、ゆずの魅力を発信していきます。
-      </p>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-
-    <h2>ゆず大好きな人公式サイト</h2>
-
-    <p class="copyright">
-      © YUZU LOVERS OFFICIAL SITE
-    </p>
-
-    <p class="notice">
-      ※当サイトはファンによる非公式サイトです。
-      ゆずおよび所属事務所とは関係ありません。
-    </p>
-
-  </footer>
-
-  <script src="js/main.js"></script>
+<script>
+const cards = document.querySelectorAll(".content-card");
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.15});
+cards.forEach(card => observer.observe(card));
+</script>
 
 </body>
 </html>
