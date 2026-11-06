@@ -11,172 +11,260 @@ img {
   -webkit-user-drag: none;
   user-drag: none;
 }
-</style>
-
-<script>
-document.addEventListener('contextmenu', function(e) {
-  e.preventDefault();
-});
-
-document.addEventListener('copy', function(e) {
-  e.preventDefault();
-});
-
-document.addEventListener('cut', function(e) {
-  e.preventDefault();
-});
-
-document.addEventListener('keydown', function(e) {
-  if (
-    (e.ctrlKey || e.metaKey) &&
-    ['c', 'u', 's', 'a'].includes(e.key.toLowerCase())
-  ) {
-    e.preventDefault();
-  }
-});
-</script>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="description" content="YUZU LOVERS NEWS - ゆずの最新ニュース、リリース、ライブ、メディア情報をお届けします。">
   <title>NEWS | YUZU LOVERS</title>
-  <meta name="description" content="ゆずの最新ニュース・リリース・ライブ・メディア情報をお届けするファンサイトです。">
+  <link rel="stylesheet" href="style.css">
 
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .news-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 24px;
+    }
+
+    .news-heading {
+      text-align: center;
+      margin-bottom: 65px;
+    }
+
+    .news-heading .eyebrow {
+      color: #c5a66a;
+      letter-spacing: 5px;
+      font-size: 12px;
+    }
+
+    .news-heading h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(42px, 8vw, 72px);
+      letter-spacing: 8px;
+      margin: 15px 0;
+    }
+
+    .news-heading p {
+      color: #aaa;
+      letter-spacing: 2px;
+      font-size: 13px;
+    }
+
+    .news-list {
+      border-top: 1px solid rgba(197,166,106,.4);
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 125px 100px 1fr;
+      gap: 22px;
+      align-items: center;
+      padding: 30px 10px;
+      border-bottom: 1px solid rgba(197,166,106,.25);
+      transition: background .3s, padding .3s;
+    }
+
+    .news-item:hover {
+      background: rgba(197,166,106,.06);
+      padding-left: 18px;
+    }
+
+    .news-date {
+      color: #c5a66a;
+      font-family: Georgia, serif;
+      font-size: 15px;
+      letter-spacing: 1px;
+    }
+
+    .news-category {
+      display: inline-block;
+      text-align: center;
+      border: 1px solid #c5a66a;
+      color: #c5a66a;
+      padding: 6px 10px;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .news-title {
+      color: #eee;
+      font-size: 15px;
+      line-height: 1.9;
+      text-decoration: none;
+      transition: color .3s;
+    }
+
+    .news-title:hover {
+      color: #c5a66a;
+    }
+
+    .news-note {
+      text-align: center;
+      margin-top: 70px;
+      color: #888;
+      font-size: 11px;
+      line-height: 2;
+    }
+
+    .news-back {
+      display: block;
+      width: fit-content;
+      margin: 45px auto 0;
+      padding: 13px 35px;
+      border: 1px solid #c5a66a;
+      color: #c5a66a;
+      text-decoration: none;
+      letter-spacing: 2px;
+      font-size: 12px;
+      transition: .3s;
+    }
+
+    .news-back:hover {
+      background: #c5a66a;
+      color: #111;
+    }
+
+    @media (max-width: 650px) {
+      .news-page {
+        padding: 75px 18px;
+      }
+
+      .news-item {
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        padding: 23px 5px;
+      }
+
+      .news-date {
+        grid-column: 1;
+      }
+
+      .news-category {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .news-title {
+        grid-column: 1 / -1;
+        font-size: 13px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- ヘッダー -->
-  <header class="site-header">
+  <header>
     <div class="logo">
       <a href="index.html">YUZU LOVERS</a>
     </div>
 
-    <nav class="main-nav">
+    <nav>
       <a href="index.html">HOME</a>
-      <a href="news.html" class="active">NEWS</a>
+      <a href="news.html">NEWS</a>
       <a href="discography.html">DISCOGRAPHY</a>
       <a href="biography.html">BIOGRAPHY</a>
       <a href="live.html">LIVE</a>
       <a href="movie.html">MOVIE</a>
-      <a href="special.html">SPECIAL</a>
     </nav>
   </header>
 
+  <main class="news-page">
 
-  <!-- ページタイトル -->
-  <main>
-
-    <section class="page-title">
-      <p class="english-title">INFORMATION</p>
+    <div class="news-heading">
+      <span class="eyebrow">LATEST INFORMATION</span>
       <h1>NEWS</h1>
       <p>ゆずの最新情報をお届けします。</p>
-    </section>
+    </div>
 
+    <section class="news-list">
 
-    <!-- ニュース一覧 -->
-    <section class="news-section">
-
-      <div class="news-list">
-
-        <article class="news-item">
-          <time datetime="2026-11-04">2026.11.04</time>
-          <span class="news-category">WEB</span>
-          <div class="news-content">
-            <h2>
-              <a href="https://yuzu-official.com/contents/information" target="_blank" rel="noopener noreferrer">
-                初の日産スタジアムライブ「GO HOME」映像作品をYouTubeプレミア公開！
-              </a>
-            </h2>
-          </div>
-        </article>
-
-        <article class="news-item">
-          <time datetime="2026-11-03">2026.11.03</time>
-          <span class="news-category">TV</span>
-          <div class="news-content">
-            <h2>
-              <a href="https://yuzu-official.com/contents/information" target="_blank" rel="noopener noreferrer">
-                テレビ出演情報
-              </a>
-            </h2>
-          </div>
-        </article>
-
-        <article class="news-item">
-          <time datetime="2026-10-25">2026.10.25</time>
-          <span class="news-category">LIVE</span>
-          <div class="news-content">
-            <h2>
-              <a href="https://yuzu-official.com/contents/information" target="_blank" rel="noopener noreferrer">
-                2027年5月、22年ぶりの日産スタジアムライブ2DAYS開催決定！
-              </a>
-            </h2>
-          </div>
-        </article>
-
-        <article class="news-item">
-          <time datetime="2026-10-25">2026.10.25</time>
-          <span class="news-category">RELEASE</span>
-          <div class="news-content">
-            <h2>
-              <a href="https://yuzu-official.com/contents/information" target="_blank" rel="noopener noreferrer">
-                2027年春、10年ぶりのオールタイムベストアルバム発売決定！
-              </a>
-            </h2>
-          </div>
-        </article>
-
-        <article class="news-item">
-          <time datetime="2026-10-25">2026.10.25</time>
-          <span class="news-category">MEDIA</span>
-          <div class="news-content">
-            <h2>
-              <a href="https://yuzu-official.com/contents/information" target="_blank" rel="noopener noreferrer">
-                「ゆず 30周年開幕記念ライブ 心をとめないで」2027年1月放送・配信決定！
-              </a>
-            </h2>
-          </div>
-        </article>
-
-        <article class="news-item">
-          <time datetime="2026-10-23">2026.10.23</time>
-          <span class="news-category">RELEASE</span>
-          <div class="news-content">
-            <h2>
-              <a href="https://yuzu-official.com/contents/information" target="_blank" rel="noopener noreferrer">
-                新曲「心をとめないで」サプライズ配信リリース！
-              </a>
-            </h2>
-          </div>
-        </article>
-
-      </div>
-
-      <p class="news-note">
-        ※ニュースの詳細・最新情報は、ゆず公式サイトをご確認ください。
-      </p>
-
-      <div class="official-link">
-        <a href="https://yuzu-official.com/contents/information"
-           target="_blank" rel="noopener noreferrer">
-          ゆず公式サイト NEWSはこちら →
+      <article class="news-item">
+        <time class="news-date" datetime="2026-11-04">2026.11.04</time>
+        <span class="news-category">WEB</span>
+        <a class="news-title"
+           href="https://yuzu-official.com/contents/information"
+           target="_blank" rel="noopener">
+          22年ぶり日産スタジアム公演を記念して、2005年の初日産スタジアムライブ「GO HOME」映像作品をYouTubeプレミア公開！
         </a>
-      </div>
+      </article>
+
+      <article class="news-item">
+        <time class="news-date" datetime="2026-11-03">2026.11.03</time>
+        <span class="news-category">TV</span>
+        <a class="news-title"
+           href="https://yuzu-official.com/contents/information"
+           target="_blank" rel="noopener">
+          テレビ出演情報
+        </a>
+      </article>
+
+      <article class="news-item">
+        <time class="news-date" datetime="2026-10-25">2026.10.25</time>
+        <span class="news-category">TICKET</span>
+        <a class="news-title"
+           href="https://yuzu-official.com/pages/30_stadiumlive_2027/"
+           target="_blank" rel="noopener">
+          2027年春に10年ぶりオールタイムベストアルバム発売！2027年5月、22年ぶりの日産スタジアムライブ2DAYS開催決定！
+        </a>
+      </article>
+
+      <article class="news-item">
+        <time class="news-date" datetime="2026-10-25">2026.10.25</time>
+        <span class="news-category">MEDIA</span>
+        <a class="news-title"
+           href="https://yuzu-official.com/contents/information"
+           target="_blank" rel="noopener">
+          「ゆず 30周年開幕記念ライブ 心をとめないで」2027年1月にWOWOW・Leminoで放送・配信決定！
+        </a>
+      </article>
+
+      <article class="news-item">
+        <time class="news-date" datetime="2026-10-23">2026.10.23</time>
+        <span class="news-category">EVENT</span>
+        <a class="news-title"
+           href="https://yuzu-official.com/contents/information"
+           target="_blank" rel="noopener">
+          Kアリーナ横浜公演「ゆずの輪」ブースにて、新曲「心をとめないで」ダウンロードキャンペーン実施決定！
+        </a>
+      </article>
+
+      <article class="news-item">
+        <time class="news-date" datetime="2026-10-23">2026.10.23</time>
+        <span class="news-category">RELEASE</span>
+        <a class="news-title"
+           href="https://yuzu-official.com/contents/information"
+           target="_blank" rel="noopener">
+          新曲「心をとめないで」をサプライズ配信リリース！新アーティスト写真＆ミュージックビデオも公開！
+        </a>
+      </article>
+
+      <article class="news-item">
+        <time class="news-date" datetime="2026-10-05">2026.10.05</time>
+        <span class="news-category">RELEASE</span>
+        <a class="news-title"
+           href="https://yuzu-official.com/shop/contents/ec_information"
+           target="_blank" rel="noopener">
+          Blu-ray & DVD「LIVE FILMS 心音」12月23日発売決定！受注受付スタート！
+        </a>
+      </article>
 
     </section>
+
+    <p class="news-note">
+      ※掲載情報はゆず公式サイト等を参考にしています。<br>
+      ※最新情報・詳細は各公式ページをご確認ください。<br>
+      YUZU LOVERS is an unofficial fan site.
+    </p>
+
+    <a class="news-back" href="index.html">BACK TO HOME</a>
 
   </main>
 
-
-  <!-- フッター -->
-  <footer class="site-footer">
-    <p>YUZU LOVERS</p>
-    <p>ゆずを応援する非公式ファンサイトです。</p>
-    <p>&copy; 2026 YUZU LOVERS</p>
+  <footer>
+    <p>© YUZU LOVERS. All Rights Reserved.</p>
+    <p>UNOFFICIAL FAN SITE</p>
   </footer>
 
 </body>
