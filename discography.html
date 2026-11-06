@@ -1,3 +1,27 @@
+<style>
+  body {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+</style>
+
+<script>
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
+
+  document.addEventListener('copy', function(e) {
+    e.preventDefault();
+  });
+
+  document.addEventListener('cut', function(e) {
+    e.preventDefault();
+  });
+
+  document.addEventListener('selectstart', function(e) {
+    e.preventDefault();
+  });
+</script>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -143,8 +167,225 @@
 <script>
 const works = [
 <section class="discography">
-  <h1>DISCOGRAPHY</h1>
-  <p>ゆずの音楽作品一覧</p>
+  
+<!-- YUZU LOVERS DISCOGRAPHY -->
+
+<section class="yuzu-discography">
+
+  <div class="yd-heading">
+    <h2>DISCOGRAPHY</h2>
+    <p>ゆず 全作品ディスコグラフィー</p>
+  </div>
+
+  <div class="yd-tabs">
+    <button class="active" data-category="all">ALL</button>
+    <button data-category="single">SINGLE</button>
+    <button data-category="digital">DIGITAL</button>
+    <button data-category="dvd">DVD</button>
+    <button data-category="bluray">BLU-RAY</button>
+  </div>
+
+  <div class="yd-grid" id="yd-grid"></div>
+
+</section>
+
+<style>
+.yuzu-discography {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 15px;
+  box-sizing: border-box;
+}
+
+.yd-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.yd-heading h2 {
+  letter-spacing: 5px;
+}
+
+.yd-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.yd-tabs button {
+  padding: 10px 18px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.yd-tabs button.active {
+  background: #333;
+  color: white;
+}
+
+.yd-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px 18px;
+}
+
+.yd-card {
+  min-width: 0;
+  text-align: center;
+}
+
+.yd-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.yd-card h3 {
+  font-size: 14px;
+  margin: 12px 0 6px;
+}
+
+.yd-date {
+  font-size: 12px;
+  opacity: .7;
+}
+
+.yd-type {
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+@media(max-width:700px) {
+  .yd-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 12px;
+  }
+}
+</style>
+
+<script>
+const yuzuWorks = [
+  {
+    title: "心をとめないで",
+    date: "2026.10.23",
+    type: "digital",
+    image: ""
+  },
+  {
+    title: "幾重（ライブバージョン）",
+    date: "2026.08.14",
+    type: "digital",
+    image: ""
+  },
+  {
+    title: "ニュービギニング",
+    date: "2026.06.03",
+    type: "digital",
+    image: ""
+  },
+  {
+    title: "GET BACK",
+    date: "2025.08.27",
+    type: "single",
+    image: ""
+  },
+  {
+    title: "尤",
+    date: "2025.08.27",
+    type: "digital",
+    image: ""
+  },
+  {
+    title: "シビレル",
+    date: "2025.07.30",
+    type: "digital",
+    image: ""
+  },
+  {
+    title: "LIVE FILMS 図鑑",
+    date: "2026.02.25",
+    type: "dvd",
+    image: ""
+  },
+  {
+    title: "録歌選 図鑑",
+    date: "2026.02.25",
+    type: "dvd",
+    image: ""
+  },
+  {
+    title: "LIVE FILMS 図鑑",
+    date: "2026.02.25",
+    type: "bluray",
+    image: ""
+  },
+  {
+    title: "録歌選 図鑑",
+    date: "2026.02.25",
+    type: "bluray",
+    image: ""
+  }
+];
+
+const ydGrid = document.getElementById("yd-grid");
+
+function renderYuzuWorks(category = "all") {
+  ydGrid.innerHTML = "";
+
+  const works = yuzuWorks.filter(work =>
+    category === "all" || work.type === category
+  );
+
+  works.forEach(work => {
+    const card = document.createElement("article");
+    card.className = "yd-card";
+
+    const image = document.createElement("img");
+    image.alt = work.title + " ジャケット";
+    image.loading = "lazy";
+
+    if (work.image) {
+      image.src = work.image;
+    } else {
+      image.alt = work.title + "（画像未設定）";
+    }
+
+    const title = document.createElement("h3");
+    title.textContent = work.title;
+
+    const date = document.createElement("p");
+    date.className = "yd-date";
+    date.textContent = work.date;
+
+    const type = document.createElement("p");
+    type.className = "yd-type";
+    type.textContent = work.type.toUpperCase();
+
+    card.append(image, title, date, type);
+    ydGrid.appendChild(card);
+  });
+}
+
+document.querySelectorAll(".yd-tabs button").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".yd-tabs button")
+      .forEach(item => item.classList.remove("active"));
+
+    button.classList.add("active");
+    renderYuzuWorks(button.dataset.category);
+  });
+});
+
+renderYuzuWorks();
+</script>
+
 
   <div class="discography-grid">
 
