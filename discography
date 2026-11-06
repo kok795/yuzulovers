@@ -40,7 +40,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DISCOGRAPHY | ゆず大好きな人</title>
+<title>DISCOGRAPHY | ゆず大好きな人公式サイト</title>
 
 <style>
 * {
@@ -191,12 +191,12 @@ footer {
 </header>
 
 <nav>
-<a href="index.html">HOME</a>
-<a href="news.html">NEWS</a>
-<a href="biography.html">BIOGRAPHY</a>
-<a href="discography.html">DISCOGRAPHY</a>
-<a href="live.html">LIVE</a>
-<a href="movie.html">MOVIE</a>
+<a href="home">HOME</a>
+<a href="news">NEWS</a>
+<a href="biography">BIOGRAPHY</a>
+<a href="discography">DISCOGRAPHY</a>
+<a href="live">LIVE</a>
+<a href="movie">MOVIE</a>
 </nav>
 
 <main>
