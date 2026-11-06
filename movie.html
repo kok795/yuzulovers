@@ -1,11 +1,47 @@
+<style>
+/* テキスト選択を禁止 */
+* {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
 
+/* 画像のドラッグを禁止 */
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+</style>
+
+<script>
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+
+document.addEventListener('copy', function(e) {
+  e.preventDefault();
+});
+
+document.addEventListener('cut', function(e) {
+  e.preventDefault();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (
+    (e.ctrlKey || e.metaKey) &&
+    ['c', 'u', 's', 'a'].includes(e.key.toLowerCase())
+  ) {
+    e.preventDefault();
+  }
+});
+</script>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="ゆずのミュージックビデオやライブ映像を紹介するYUZU LOVERS">
-  <title>MOVIE | ゆず大好き人公式サイト</title>
+  <title>MOVIE | ゆず大好きな人公式サイト</title>
   <link rel="stylesheet" href="style.css">
 
   <style>
