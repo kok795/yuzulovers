@@ -1,3 +1,9 @@
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 /* テキスト選択を禁止 */
 * {
   -webkit-user-select: none;
@@ -154,32 +160,20 @@ img {
 
 <script>
 const works = [
+<section class="discography">
+  <h1>DISCOGRAPHY</h1>
+  <p>ゆずの音楽作品一覧</p>
 
-  // SINGLE・ALBUM・VIDEOの作品データをここに追加
+  <div class="discography-grid">
 
-  {
-    title: "夏色",
-    date: "1998.06.03",
-    type: "SINGLE",
-    image: "uploads/76adc489-c61c-47d6-bd56-766824697711/contents/discography/9211_SNDC-28901.jpg"
-  },
-
-  {
-    title: "ゆず一家",
-    date: "1998.07.23",
-    type: "ALBUM",
-    image: "uploads/76adc489-c61c-47d6-bd56-766824697711/contents/discography/9109_SNCC-88972.jpg"
-  },
-
-  {
-    title: "ゆずえん",
-    date: "1999.10.14",
-    type: "ALBUM",
-    image: "images/?q=tbn:ANd9GcRflJECPE0Bnd17BCcgNXm8uexFsrakRr8tl19tGkQ0KQ&s=10"
-  }
-
-];
-
+    <div class="discography-item">
+      <a href="https://yuzu-official.com/" target="_blank">
+        <img src="公式画像のURL" alt="作品ジャケット">
+      </a>
+      <h3>作品タイトル</h3>
+      <p>発売日：発売日を入力</p>
+      <p>シングル</p>
+    </div>
 let currentType = "ALL";
 
 function displayWorks() {
