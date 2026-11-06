@@ -167,10 +167,63 @@ img {
 
       <article class="movie-card">
         <video controls playsinline preload="metadata">
-          <source src="assets/videos/sample.mp4"
-                  type="video/mp4">
-          お使いのブラウザは動画再生に対応していません。
-        </video>
+          
+<section class="movie-section">
+  <div class="movie-container">
+    <h2 class="section-title">MOVIE</h2>
+
+    <div class="movie-card">
+      <video
+        class="yuzu-video"
+        controls
+        playsinline
+        preload="metadata"
+      >
+        <source
+          src="https://res.cloudinary.com/b1q6fpjt/video/upload/v1793942925/%E3%82%86%E3%81%9A_%E5%BF%83%E3%82%92%E3%81%A8%E3%82%81%E3%81%AA%E3%81%84%E3%81%A7_MUSIC_VIDEO.mp4"
+          type="video/mp4"
+        >
+        お使いのブラウザは動画再生に対応していません。
+      </video>
+
+      <h3>心をとめないで</h3>
+      <p>MUSIC VIDEO</p>
+    </div>
+  </div>
+</section>
+          
+.movie-section {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.movie-container {
+  width: 100%;
+}
+
+.movie-card {
+  margin-top: 30px;
+}
+
+.yuzu-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 8px;
+}
+
+.movie-card h3 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.movie-card p {
+  text-align: center;
+  letter-spacing: 2px;
+}
 
         <div class="movie-info">
           <span>VIDEO</span>
