@@ -1,3 +1,15 @@
+/* テキスト選択を禁止 */
+* {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* 画像のドラッグを禁止 */
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -232,18 +244,3 @@ document.getElementById("discoSearch")
 
 displayWorks();
 </script>
-
-</body>
-</html>
-/* テキスト選択を禁止 */
-* {
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-}
-
-/* 画像のドラッグを禁止 */
-img {
-  -webkit-user-drag: none;
-  user-drag: none;
-}
