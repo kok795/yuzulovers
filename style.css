@@ -448,6 +448,43 @@ img {
   -webkit-user-drag: none;
   user-drag: none;
 }
+.movie-description {
+  line-height: 1.8;
+}
+
+.movie-description h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.movie-description p {
+  margin-bottom: 12px;
+}
+
+.movie-links {
+  margin-top: 15px;
+  margin-bottom: 18px;
+}
+
+.movie-links a {
+  color: #3498db;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.movie-hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.movie-hashtags span {
+  color: #3498db;
+  font-size: 14px;
+  font-weight: 600;
+}
 .movie-info {
   margin-top: 14px;
   margin-bottom: 30px;
@@ -465,4 +502,17 @@ img {
   font-size: 14px;
   line-height: 1.8;
   color: #777;
+}
+.movie-description {
+  line-height: 1.8;
+}
+
+.movie-description h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.movie-description p {
+  margin-bottom: 12px;
 }
