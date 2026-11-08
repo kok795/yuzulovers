@@ -687,3 +687,6 @@ img {
 .timeline-item {
   column-gap: 15px;
 }
+.timeline {
+  margin-top: 40px;
+}
