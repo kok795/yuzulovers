@@ -515,3 +515,8 @@ img {
 .movie-description p {
   margin-bottom: 12px;
 }
+.movie-description .movie-hashtags span {
+  color: #3498db !important;
+  font-size: 14px !important;
+  font-weight: 600;
+}
