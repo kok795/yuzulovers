@@ -17,192 +17,37 @@ img {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="YUZU LOVERS - ゆずの映像と写真">
-<title>MOVIE | YUZU LOVERS</title>
+<title>MOVIE | ゆず大好きな人</title>
 <link rel="stylesheet" href="style.css">
 
-<style>
-.movie-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 110px 25px 80px;
-}
+<section class="movie-section">
+  <h2>VIDEO</h2>
 
-.movie-heading {
-  text-align: center;
-  margin-bottom: 65px;
-}
+  <article class="movie-card">
+    <video
+      class="movie-player"
+      controls
+      controlsList="nodownload"
+      disablePictureInPicture
+      playsinline
+      preload="metadata"
+      oncontextmenu="return false;"
+    >
+      <source
+        src="https://res.cloudinary.com/b1q6fpjt/video/upload/f_mp4,vc_h264/v1793942925/%E3%82%86%E3%81%9A_%E5%BF%83%E3%82%92%E3%81%A8%E3%82%81%E3%81%AA%E3%81%84%E3%81%A7_MUSIC_VIDEO.mp4"
+        type="video/mp4">
+    </video>
 
-.movie-heading h1 {
-  font-family: Georgia, serif;
-  font-size: 48px;
-  font-weight: 400;
-  letter-spacing: 6px;
-}
-
-.movie-heading p {
-  color: #887866;
-  font-size: 14px;
-}
-
-.movie-section {
-  margin-bottom: 80px;
-}
-
-.movie-section h2 {
-  font-family: Georgia, serif;
-  font-weight: 400;
-  letter-spacing: 3px;
-  border-bottom: 1px solid #d6b978;
-  padding-bottom: 15px;
-  margin-bottom: 30px;
-}
-
-.movie-grid,
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-}
-
-.movie-card,
-.photo-card {
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 3px 15px rgba(0,0,0,.07);
-}
-
-.movie-card video {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #211a13;
-}
-
-.movie-info {
-  padding: 20px;
-}
-
-.movie-info span {
-  color: #b18435;
-  font-size: 11px;
-  letter-spacing: 2px;
-}
-
-.movie-info h3 {
-  font-size: 18px;
-  margin: 8px 0;
-}
-
-.movie-info p {
-  color: #887866;
-  font-size: 13px;
-}
-
-.photo-card img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  display: block;
-}
-
-.photo-caption {
-  padding: 15px;
-  font-size: 13px;
-  color: #776b5c;
-}
-
-.movie-message {
-  text-align: center;
-  padding: 55px 20px;
-  background: #f5f0e7;
-  border-radius: 8px;
-  color: #776b5c;
-}
-
-@media(max-width:600px) {
-  .movie-heading h1 {
-    font-size: 36px;
-  }
-
-  .movie-grid,
-  .photo-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<header class="header">
-  <a href="index.html" class="logo">
-    YUZU <span>LOVERS</span>
-  </a>
-
-  <nav class="navigation">
-    <a href="index.html">HOME</a>
-    <a href="news.html">NEWS</a>
-    <a href="discography.html">DISCOGRAPHY</a>
-    <a href="biography.html">BIOGRAPHY</a>
-    <a href="live.html">LIVE</a>
-    <a href="movie.html">MOVIE</a>
-  </nav>
-</header>
-<main class="movie-page">
-
-  <div class="movie-heading">
-    <p class="eyebrow dark">MUSIC & MEMORIES</p>
-    <h1>MOVIE</h1>
-    <p>ゆずの音楽と映像、そして思い出。</p>
-  </div>
-  <video
-  controls
-  controlsList="nodownload"
-  disablePictureInPicture
-  oncontextmenu="return false;"
-  playsinline
-  preload="metadata"
->
-  <source src="https://res.cloudinary.com/b1q6fpjt/video/upload/f_mp4,vc_h264/v1793942925/%E3%82%86%E3%81%9A_%E5%BF%83%E3%82%92%E3%81%A8%E3%82%81%E3%81%AA%E3%81%84%E3%81%A7_MUSIC_VIDEO.mp4"
-      type="video/mp4">
-  お使いのブラウザは動画再生に対応していません。
-<div class="movie-video">
-  <video
-    controls
-    playsinline
-    preload="auto"
-    width="100%"
-    poster=""
-  >
-  <div class="movie-info">
-          <span>VIDEO</span>
-          <h3>ゆず『心をとめないで』MUSIC VIDEO</h3>
-          <p>ゆずの最新MV</p>
-        </div>
-   </article>
-    .movie-info {
-  display: block;
-  margin-top: 16px;
-  margin-bottom: 32px;
-  text-align: left;
-  color: #333;
-}
-
-.movie-info h3 {
-  display: block;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: #333;
-}
-
-.movie-info p {
-  display: block;
-  font-size: 14px;
-  line-height: 1.8;
-  color: #666;
-}
+    <div class="movie-info">
+      <span>MUSIC VIDEO</span>
+      <h3>ゆず『心をとめないで』MUSIC VIDEO</h3>
+      <p>
+        ゆずの音楽の魅力を映像で楽しめるミュージックビデオ。
+        楽曲の世界観を映像とともにお楽しみください。
+      </p>
+    </div>
+  </article>
+</section>
   <!-- PHOTO -->
   <section class="movie-section">
 
@@ -260,3 +105,32 @@ img {
 </footer>
 </body>
 </html>
+/* MOVIEページのヘッダー */
+.header {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  background: #211a13;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .logo {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 25px;
+  font-family: Georgia, serif;
+  letter-spacing: 3px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.header .logo span {
+  color: #e7bd68;
+}
+
+.header .navigation a {
+  color: #ffffff;
+}
