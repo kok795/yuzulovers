@@ -1,617 +1,90 @@
+
 <!DOCTYPE html>
 <html lang="ja">
-<head> 
-<link rel="icon" href="/favicon.ico">
-<link rel="icon" type="image/png" href="/favicon.png">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="YUZU LOVERS - ゆずのCD・映像作品を紹介するディスコグラフィー">
-<meta name="theme-color" content="#fffdf7">
-<title>DISCOGRAPHY | YUZU LOVERS</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <title>DISCOGRAPHY | YUZU LOVERS</title>
 
-<style>
-/* =================================
-   DISCOGRAPHY DESIGN
-================================= */
+  <meta name="description" content="YUZU LOVERS - ゆずファンサイト">
 
-body {
-  background: #fffdf8;
-  color: #403d32;
-  font-family: "Noto Sans JP", sans-serif;
-}
-
-/* Header */
-.header {
-  position: relative;
-  top: auto;
-  color: #403d32;
-  background: #fffdf8;
-  border-bottom: 1px solid #eee8d9;
-  box-shadow: 0 2px 12px rgba(80,65,35,.04);
-}
-
-.header .logo {
-  color: #403d32;
-}
-
-.header .navigation a {
-  color: #625b4b;
-}
-
-.header .navigation a:hover {
-  color: #c49b39;
-}
-
-/* Main */
-.disco-main {
-  max-width: 1250px;
-  margin: 0 auto;
-  padding: 75px 30px 110px;
-}
-
-.disco-heading {
-  text-align: center;
-  margin-bottom: 45px;
-}
-
-.disco-eyebrow {
-  color: #c39b42;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 5px;
-}
-
-.disco-heading h1 {
-  margin: 10px 0;
-  font-family: Georgia, serif;
-  font-size: clamp(38px, 6vw, 58px);
-  font-weight: 400;
-  letter-spacing: 5px;
-  color: #484333;
-}
-
-.disco-heading p {
-  color: #928a78;
-  font-size: 13px;
-}
-
-.disco-line {
-  width: 55px;
-  height: 3px;
-  background: #e4c66f;
-  margin: 25px auto 0;
-  border-radius: 5px;
-}
-
-/* Intro */
-.disco-intro {
-  max-width: 680px;
-  margin: 0 auto 45px;
-  text-align: center;
-  color: #817a6b;
-  font-size: 13px;
-  line-height: 2.2;
-}
-
-/* Filter */
-.disco-filters {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 28px;
-}
-
-.disco-filter {
-  border: 1px solid #e5d9b9;
-  background: #fff;
-  color: #71664f;
-  border-radius: 30px;
-  padding: 10px 22px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: .25s;
-}
-
-.disco-filter:hover,
-.disco-filter.active {
-  background: #e9d28c;
-  border-color: #e9d28c;
-  color: #51452d;
-}
-
-/* Search */
-.disco-search-wrap {
-  max-width: 430px;
-  margin: 0 auto 45px;
-  position: relative;
-}
-
-.disco-search {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 14px 20px;
-  border: 1px solid #e8e0cf;
-  border-radius: 30px;
-  outline: none;
-  background: #fff;
-  color: #403d32;
-  font-family: inherit;
-  font-size: 13px;
-  transition: .25s;
-}
-
-.disco-search:focus {
-  border-color: #d5b45f;
-  box-shadow: 0 0 0 3px rgba(213,180,95,.12);
-}
-
-/* Section title */
-.disco-section-title {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 25px;
-}
-
-.disco-section-title h2 {
-  margin: 0;
-  color: #625940;
-  font-family: Georgia, serif;
-  font-size: 21px;
-  font-weight: 400;
-  letter-spacing: 2px;
-}
-
-.disco-section-title span {
-  color: #aaa18c;
-  font-size: 11px;
-}
-
-/* Grid */
-.disco-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 38px 24px;
-}
-
-/* Card */
-.disco-card {
-  min-width: 0;
-  animation: discoFade .45s ease both;
-}
-
-.disco-artwork {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 1 / 1;
-  background: #f0eadb;
-  border-radius: 5px;
-  box-shadow: 0 5px 18px rgba(70,55,25,.08);
-}
-
-.disco-artwork img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform .5s;
-}
-
-.disco-card:hover .disco-artwork img {
-  transform: scale(1.045);
-}
-
-/* Image placeholder */
-.disco-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: linear-gradient(145deg, #f7f3e9, #eae1cb);
-  color: #a99a76;
-}
-
-.disco-placeholder-mark {
-  font-family: Georgia, serif;
-  font-size: 30px;
-  letter-spacing: 3px;
-}
-
-.disco-placeholder small {
-  font-size: 9px;
-  letter-spacing: 2px;
-}
-
-.disco-info {
-  padding: 14px 2px 0;
-}
-
-.disco-type {
-  display: inline-block;
-  margin-bottom: 7px;
-  padding: 3px 9px;
-  border-radius: 3px;
-  background: #f5efdE;
-  color: #a0833d;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.disco-info h3 {
-  margin: 0 0 6px;
-  color: #454133;
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.7;
-}
-
-.disco-date {
-  margin: 0;
-  color: #99917f;
-  font-family: Georgia, serif;
-  font-size: 12px;
-  letter-spacing: 1px;
-}
-
-.disco-empty {
-  display: none;
-  padding: 55px 15px;
-  color: #928a78;
-  text-align: center;
-  font-size: 13px;
-}
-
-/* Footer */
-.disco-footer {
-  padding: 55px 20px 35px;
-  background: #f4f0e5;
-  text-align: center;
-}
-
-.disco-footer h2 {
-  margin: 0;
-  color: #554b36;
-  font-family: Georgia, serif;
-  font-size: 25px;
-  font-weight: 400;
-  letter-spacing: 4px;
-}
-
-.disco-footer h2 span {
-  color: #c7a44f;
-}
-
-.disco-footer p {
-  color: #968b72;
-  font-size: 10px;
-  letter-spacing: 2px;
-}
-
-.disco-footer a {
-  display: inline-block;
-  margin-top: 18px;
-  color: #817451;
-  font-size: 11px;
-}
-
-/* Animation */
-@keyframes discoFade {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive */
-@media (max-width: 800px) {
-  .disco-main {
-    padding: 55px 20px 80px;
-  }
-
-  .disco-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px 15px;
-  }
-
-  .disco-info h3 {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 430px) {
-  .disco-main {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-
-  .disco-filter {
-    padding: 9px 15px;
-    font-size: 10px;
-  }
-
-  .disco-heading h1 {
-    letter-spacing: 3px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .disco-card {
-    animation: none;
-  }
-
-  .disco-artwork img {
-    transition: none;
-  }
-}
-</style>
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="header">
-  <a href="index.html" class="logo">YUZU <span>LOVERS</span></a>
-  <nav class="navigation">
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="index.html" class="site-logo">
+      <span class="logo-main">YUZU LOVERS</span>
+      <span class="logo-sub">OFFICIAL FAN SITE</span>
+    </a>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav class="main-navigation">
     <a href="index.html">HOME</a>
-    <a href="news.html">NEWS</a>
-    <a href="discography.html">DISCOGRAPHY</a>
-    <a href="biography.html">BIOGRAPHY</a>
-    <a href="live.html">LIVE</a>
-    <a href="movie.html">MOVIE</a>
+    <a href="news">NEWS</a>
+    <a href="biography">BIOGRAPHY</a>
+    <a href="discography">DISCOGRAPHY</a>
+    <a href="movie">MOVIE</a>
+    <a href="live">LIVE</a>
   </nav>
-</header>
 
-<main class="disco-main">
+  <!-- MAIN -->
+  <main class="coming-soon">
 
-  <section class="disco-heading">
-    <span class="disco-eyebrow">MUSIC &amp; MEMORIES</span>
-    <h1>DISCOGRAPHY</h1>
-    <p>ゆずの音楽と作品の軌跡</p>
-    <div class="disco-line"></div>
-  </section>
+    <div class="coming-soon-content">
 
-  <p class="disco-intro">
-    これまでにリリースされた、ゆずの音楽作品と映像作品を紹介します。
-    ひとつひとつの作品に刻まれた、大切な音楽の記録。
-  </p>
+      <span class="coming-soon-label">
+        CONTENTS
+      </span>
 
-  <div class="disco-filters" aria-label="作品カテゴリー">
-    <button class="disco-filter active" data-category="all">ALL</button>
-    <button class="disco-filter" data-category="single">SINGLE</button>
-    <button class="disco-filter" data-category="digital">DIGITAL</button>
-    <button class="disco-filter" data-category="dvd">DVD</button>
-    <button class="disco-filter" data-category="bluray">BLU-RAY</button>
-  </div>
+      <h1>COMING SOON</h1>
 
-  <div class="disco-search-wrap">
-    <input
-      type="search"
-      class="disco-search"
-      id="discoSearch"
-      placeholder="作品名・発売日で検索..."
-      aria-label="作品を検索"
-    >
-  </div>
+      <div class="coming-soon-line"></div>
 
-  <div class="disco-section-title">
-    <h2>ALL WORKS</h2>
-    <span id="discoCount"></span>
-  </div>
+      <p>ただいま準備中です。</p>
 
-  <div class="disco-grid" id="discoGrid"></div>
+      <p class="coming-soon-description">
+        コンテンツ公開まで、もうしばらくお待ちください。
+      </p>
 
-  <p class="disco-empty" id="discoEmpty">
-    該当する作品はありません。
-  </p>
+      <a href="index.html" class="back-home">
+        BACK TO HOME
+      </a>
 
-</main>
+    </div>
 
-<footer class="disco-footer">
-  <h2>YUZU <span>LOVERS</span></h2>
-  <p>MUSIC · HISTORY · MEMORIES</p>
-  <a href="index.html">BACK TO HOME ↑</a>
-</footer>
+  </main>
 
-<script>
-/* =================================
-   WORK DATA
-   既存の作品情報を引き継いでいます。
-   imageには画像のURLを設定してください。
-================================= */
+  <!-- FOOTER -->
+  <footer class="site-footer">
 
-const yuzuWorks = [
-  {
-    title: "心をとめないで",
-    date: "2026.10.23",
-    type: "digital",
-    image: ""
-  },
-  {
-    title: "幾重（ライブバージョン）",
-    date: "2026.08.14",
-    type: "digital",
-    image: ""
-  },
-  {
-    title: "ニュービギニング",
-    date: "2026.06.03",
-    type: "digital",
-    image: ""
-  },
-  {
-    title: "GET BACK",
-    date: "2025.08.27",
-    type: "single",
-    image: ""
-  },
-  {
-    title: "尤",
-    date: "2025.08.27",
-    type: "digital",
-    image: ""
-  },
-  {
-    title: "シビレル",
-    date: "2025.07.30",
-    type: "digital",
-    image: ""
-  },
-  {
-    title: "LIVE FILMS 図鑑",
-    date: "2026.02.25",
-    type: "dvd",
-    image: ""
-  },
-  {
-    title: "録歌選 図鑑",
-    date: "2026.02.25",
-    type: "dvd",
-    image: ""
-  },
-  {
-    title: "LIVE FILMS 図鑑",
-    date: "2026.02.25",
-    type: "bluray",
-    image: ""
-  },
-  {
-    title: "録歌選 図鑑",
-    date: "2026.02.25",
-    type: "bluray",
-    image: ""
-  }
-];
+    <a href="index.html" class="footer-logo">
+      YUZU LOVERS
+    </a>
 
-const grid = document.getElementById("discoGrid");
-const search = document.getElementById("discoSearch");
-const empty = document.getElementById("discoEmpty");
-const count = document.getElementById("discoCount");
+    <p>
+      ゆずを愛するすべての人へ。
+    </p>
 
-const typeLabels = {
-  single: "SINGLE",
-  digital: "DIGITAL",
-  dvd: "DVD",
-  bluray: "BLU-RAY"
-};
+    <div class="footer-navigation">
+      <a href="index.html">HOME</a>
+      <a href="news.html">NEWS</a>
+      <a href="biography.html">BIOGRAPHY</a>
+      <a href="discography.html">DISCOGRAPHY</a>
+      <a href="movie.html">MOVIE</a>
+      <a href="live.html">LIVE</a>
+    </div>
 
-let currentCategory = "all";
+    <small>
+      © YUZU LOVERS. All Rights Reserved.
+    </small>
 
-function renderWorks() {
-  const keyword = search.value.trim().toLowerCase();
-
-  const filteredWorks = yuzuWorks.filter(work => {
-    const matchesCategory =
-      currentCategory === "all" ||
-      work.type === currentCategory;
-
-    const matchesSearch =
-      work.title.toLowerCase().includes(keyword) ||
-      work.date.includes(keyword) ||
-      typeLabels[work.type].toLowerCase().includes(keyword);
-
-    return matchesCategory && matchesSearch;
-  });
-
-  grid.innerHTML = "";
-
-  count.textContent = filteredWorks.length + " ITEMS";
-
-  empty.style.display =
-    filteredWorks.length === 0 ? "block" : "none";
-
-  filteredWorks.forEach(work => {
-    const card = document.createElement("article");
-    card.className = "disco-card";
-
-    const artwork = document.createElement("div");
-    artwork.className = "disco-artwork";
-
-    if (work.image) {
-      const img = document.createElement("img");
-      img.src = work.image;
-      img.alt = work.title + "のジャケット";
-      img.loading = "lazy";
-
-      img.onerror = function() {
-        artwork.innerHTML = "";
-        artwork.appendChild(createPlaceholder());
-      };
-
-      artwork.appendChild(img);
-    } else {
-      artwork.appendChild(createPlaceholder());
-    }
-
-    const info = document.createElement("div");
-    info.className = "disco-info";
-
-    const type = document.createElement("span");
-    type.className = "disco-type";
-    type.textContent = typeLabels[work.type] || "OTHER";
-
-    const title = document.createElement("h3");
-    title.textContent = work.title;
-
-    const date = document.createElement("p");
-    date.className = "disco-date";
-    date.textContent = work.date;
-
-    info.append(type, title, date);
-    card.append(artwork, info);
-    grid.appendChild(card);
-  });
-}
-
-function createPlaceholder() {
-  const placeholder = document.createElement("div");
-  placeholder.className = "disco-placeholder";
-
-  const mark = document.createElement("span");
-  mark.className = "disco-placeholder-mark";
-  mark.textContent = "YUZU";
-
-  const label = document.createElement("small");
-  label.textContent = "JACKET IMAGE";
-
-  placeholder.append(mark, label);
-
-  return placeholder;
-}
-
-/* Category buttons */
-document.querySelectorAll(".disco-filter").forEach(button => {
-  button.addEventListener("click", () => {
-    document.querySelectorAll(".disco-filter").forEach(item => {
-      item.classList.remove("active");
-    });
-
-    button.classList.add("active");
-    currentCategory = button.dataset.category;
-
-    renderWorks();
-  });
-});
-
-/* Search */
-search.addEventListener("input", renderWorks);
-
-/* Initial display */
-renderWorks();
-</script>
+  </footer>
 
 </body>
 </html>
