@@ -1,98 +1,177 @@
-<style>
-/* テキスト選択を禁止 */
-* {
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-}
-
-/* 画像のドラッグを禁止 */
-img {
-  -webkit-user-drag: none;
-  user-drag: none;
-}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<link rel="icon" type="image/088bc2db-23d8-4c62-80bd-8ac6e61d343a.jpg" href="favicon.svg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="YUZU LOVERS - ゆずの映像と写真">
-<title>MOVIE | ゆず大好きな人</title>
+
+<title>MOVIE | ゆず大好きな人公式サイト</title>
+<meta name="description" content="YUZU LOVERS - ゆずの映像と音楽を楽しむファンサイト">
+
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon.png">
 <link rel="stylesheet" href="style.css">
 
-<section class="movie-section">
-  <h2>VIDEO</h2>
+<style>
+.movie-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 24px 80px;
+}
 
-  <article class="movie-card">
-    <video
-      class="movie-player"
-      controls
-      controlsList="nodownload"
-      disablePictureInPicture
-      playsinline
-      preload="metadata"
-      oncontextmenu="return false;"
-    >
-      <source
-        src="https://res.cloudinary.com/b1q6fpjt/video/upload/f_mp4,vc_h264/v1793942925/%E3%82%86%E3%81%9A_%E5%BF%83%E3%82%92%E3%81%A8%E3%82%81%E3%81%AA%E3%81%84%E3%81%A7_MUSIC_VIDEO.mp4"
-        type="video/mp4">
-    </video>
+.movie-heading {
+  text-align: center;
+  margin-bottom: 60px;
+}
 
-    <div class="movie-info">
-      <span>MUSIC VIDEO</span>
-      <h3>ゆず『心をとめないで』MUSIC VIDEO</h3>
-      <p>
-        ゆずの音楽の魅力を映像で楽しめるミュージックビデオ。
-        楽曲の世界観を映像とともにお楽しみください。
-      </p>
-    </div>
-  </article>
-</section>
-  <!-- PHOTO -->
-  <section class="movie-section">
+.movie-heading h1 {
+  font-family: Georgia, serif;
+  font-size: 46px;
+  font-weight: normal;
+  letter-spacing: 7px;
+}
 
-    <h2>PHOTO GALLERY</h2>
+.movie-heading p {
+  color: #887866;
+  font-size: 14px;
+}
 
-    <div class="photo-grid">
+.movie-section {
+  margin-bottom: 70px;
+}
 
-      <article class="photo-card">
-        <img src="088bc2db-23d8-4c62-80bd-8ac6e61d343a.jpg"
-             alt="ゆず アーティスト写真">
-        <div class="photo-caption">
-          ARTIST PHOTO
-        </div>
-      </article>
+.movie-section h2 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  letter-spacing: 3px;
+  border-bottom: 1px solid #d6b978;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
 
-      <article class="photo-card">
-        <img src="800x_image.JPG"
-             alt="ゆず ライブ写真">
-        <div class="photo-caption">
-          YUZU COLLECTION
-        </div>
-      </article>
+.movie-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,.07);
+}
 
-      <article class="photo-card">
-        <img src="images.jpeg"
-             alt="ゆずの写真">
-        <div class="photo-caption">
-          MUSIC & MEMORIES
-        </div>
-      </article>
+.movie-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #211a13;
+  object-fit: contain;
+}
 
-    </div>
+.movie-info {
+  padding: 25px;
+}
+
+.movie-info .category {
+  color: #b18435;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.movie-info h3 {
+  font-size: 19px;
+  margin: 12px 0;
+  color: #30271e;
+}
+
+.movie-info p {
+  color: #887866;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.movie-note {
+  text-align: center;
+  color: #887866;
+  font-size: 13px;
+  line-height: 2;
+  margin-top: 40px;
+}
+
+@media(max-width:600px) {
+  .movie-heading h1 {
+    font-size: 35px;
+  }
+  .movie-info {
+    padding: 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo">YUZU <span>LOVERS</span></a>
+
+  <nav class="navigation">
+    <a href="index.html">HOME</a>
+    <a href="news.html">NEWS</a>
+    <a href="discography.html">DISCOGRAPHY</a>
+    <a href="biography.html">BIOGRAPHY</a>
+    <a href="live.html">LIVE</a>
+    <a href="movie.html">MOVIE</a>
+  </nav>
+</header>
+
+<main class="movie-page">
+
+  <section class="movie-heading">
+    <h1>MOVIE</h1>
+    <p>MUSIC & MEMORIES</p>
+    <p>ゆずの音楽と映像を楽しむ特別なページ。</p>
   </section>
-       <!-- PHOTO -->
+
   <section class="movie-section">
-    <h2>いつまでも、ゆずとともに。</h2>
-    <p>音楽と映像で振り返る、ゆずとの大切な時間。</p>
+    <h2>MUSIC VIDEO</h2>
+
+    <article class="movie-card">
+
+      <video
+        controls
+        controlsList="nodownload"
+        disablePictureInPicture
+        playsinline
+        preload="metadata"
+        oncontextmenu="return false;"
+      >
+        <source
+          src="https://res.cloudinary.com/b1q6fpjt/video/upload/f_mp4,vc_h264/v1793942925/%E3%82%86%E3%81%9A_%E5%BF%83%E3%82%92%E3%81%A8%E3%82%81%E3%81%AA%E3%81%84%E3%81%A7_MUSIC_VIDEO.mp4"
+          type="video/mp4">
+
+        お使いのブラウザは動画再生に対応していません。
+      </video>
+
+      <div class="movie-info">
+        <span class="category">MUSIC VIDEO</span>
+
+        <h3>ゆず『心をとめないで』MUSIC VIDEO</h3>
+
+        <p>
+          ゆずの音楽と映像を楽しむMOVIEコンテンツ。
+          YUZU LOVERSで特別な映像の時間をお楽しみください。
+        </p>
+      </div>
+
+    </article>
   </section>
+
+  <div class="movie-note">
+    <p>いつまでも、ゆずとともに。</p>
+    <p>YUZU LOVERS</p>
+  </div>
 
 </main>
 
 <footer class="footer">
   <h2>YUZU <span>LOVERS</span></h2>
   <p>MUSIC · HISTORY · MEMORIES</p>
+
   <div class="footer-nav">
     <a href="index.html">HOME</a>
     <a href="news.html">NEWS</a>
@@ -101,37 +180,51 @@ img {
     <a href="live.html">LIVE</a>
     <a href="movie.html">MOVIE</a>
   </div>
-  <p class="copyright">© YUZU LOVERS. ALL RIGHTS RESERVED.</p>
+
+  <p class="copyright">
+    © YUZU LOVERS. ALL RIGHTS RESERVED.
+  </p>
   <small>当サイトはファンによる非公式サイトです。</small>
 </footer>
+
+<script>
+// 右クリック禁止
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+
+// コピー・切り取り禁止
+document.addEventListener('copy', function(e) {
+  e.preventDefault();
+});
+
+document.addEventListener('cut', function(e) {
+  e.preventDefault();
+});
+
+// テキスト選択禁止
+document.addEventListener('selectstart', function(e) {
+  if (!['INPUT', 'TEXTAREA'].includes(e.target.tagName)) {
+    e.preventDefault();
+  }
+});
+
+// 画像・動画のドラッグ禁止
+document.addEventListener('dragstart', function(e) {
+  if (['IMG', 'VIDEO'].includes(e.target.tagName)) {
+    e.preventDefault();
+  }
+});
+
+// コピー・保存などのショートカット抑止
+document.addEventListener('keydown', function(e) {
+  if (e.ctrlKey || e.metaKey) {
+    if (['c', 'x', 's', 'u', 'p'].includes(e.key.toLowerCase())) {
+      e.preventDefault();
+    }
+  }
+});
+</script>
+
 </body>
 </html>
-/* MOVIEページのヘッダー */
-.header {
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
-  background: #211a13;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header .logo {
-  display: inline-block;
-  color: #ffffff;
-  font-size: 25px;
-  font-family: Georgia, serif;
-  letter-spacing: 3px;
-  visibility: visible;
-  opacity: 1;
-}
-
-.header .logo span {
-  color: #e7bd68;
-}
-
-.header .navigation a {
-  color: #ffffff;
-}
