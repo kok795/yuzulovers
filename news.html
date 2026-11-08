@@ -11,65 +11,45 @@ img {
   -webkit-user-drag: none;
   user-drag: none;
 }
+;
+
 <!DOCTYPE html>
 <html lang="ja">
-<head>  
-<link rel="icon" href="/favicon.ico">
-<link rel="icon" type="image/png" href="/favicon.png">
-<html lang="ja">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>NEWS | ゆず大好きな人公式サイト</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <link rel="stylesheet" href="/style.css">
+
   <style>
-    /* NEWSページ限定 ゴールドヘッダー */
-    header.news-gold-header {
-      background: linear-gradient(135deg, #100d08, #3b2b0d, #100d08) !important;
-      border-bottom: 2px solid #d4af37 !important;
-      box-shadow: 0 4px 20px rgba(212,175,55,0.3);
-      padding: 25px 5%;
-    }
-
-    header.news-gold-header .logo a {
-      color: #e8c66a !important;
-      font-size: 28px;
-      font-weight: bold;
-      letter-spacing: 4px;
-      text-decoration: none;
-    }
-
-    header.news-gold-header nav a {
-      color: #e5c779 !important;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    header.news-gold-header nav a:hover,
-    header.news-gold-header nav a.active {
-      color: #fff1ad !important;
-      text-shadow: 0 0 10px #d4af37;
+    /* NEWSページ専用デザイン */
+    header {
+      background: linear-gradient(
+        135deg,
+        #100d08,
+        #3b2b0d,
+        #100d08
+      );
       border-bottom: 2px solid #d4af37;
-      padding-bottom: 8px;
+    }
+
+    header .logo a,
+    header nav a {
+      color: #e8c66a;
+    }
+
+    header nav a:hover,
+    header nav a.active {
+      color: #fff1ad;
+      border-bottom: 2px solid #d4af37;
     }
   </style>
 </head>
-<body>
-
-  <header>
-    <div class="logo">
-      <a href="index.html">YUZU LOVERS</a>
-    </div>
-
-    <nav>
-      <a href="index.html">HOME</a>
-      <a href="news">NEWS</a>
-      <a href="discography">DISCOGRAPHY</a>
-      <a href="biography">BIOGRAPHY</a>
-      <a href="live">LIVE</a>
-      <a href="movie">MOVIE</a>
-    </nav>
-  </header>
-
   <main class="news-page">
 
     <div class="news-heading">
