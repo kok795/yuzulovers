@@ -27,39 +27,118 @@ img {
   <link rel="stylesheet" href="/style.css">
 
   <style>
-    /* NEWSページ専用デザイン */
-    header {
-      background: linear-gradient(
-        135deg,
-        #100d08,
-        #3b2b0d,
-        #100d08
-      );
-      border-bottom: 2px solid #d4af37;
-    }
+    
+/* ===== NEWS PAGE DESIGN ===== */
 
-    header .logo a,
-    header nav a {
-      color: #e8c66a;
-    }
+.news-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 70px 24px;
+  color: #f5f0e5;
+}
 
-    header nav a:hover,
-    header nav a.active {
-      color: #fff1ad;
-      border-bottom: 2px solid #d4af37;
-    }
+.news-heading {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.news-heading h1 {
+  font-size: clamp(34px, 6vw, 58px);
+  letter-spacing: 0.18em;
+  color: #d4af37;
+  margin-bottom: 12px;
+}
+
+.news-heading p {
+  color: #c9c1ae;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+}
+
+.news-list {
+  display: grid;
+  gap: 20px;
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 24px;
+  align-items: center;
+  padding: 25px 28px;
+  background: linear-gradient(135deg, #201c14, #11100d);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.news-item:hover {
+  border-color: #d4af37;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.news-date {
+  color: #d4af37;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
+.news-category {
+  display: inline-block;
+  color: #d4af37;
+  border: 1px solid #d4af37;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+
+.news-item h2 {
+  color: #fff;
+  font-size: 18px;
+  margin: 5px 0 10px;
+  line-height: 1.7;
+}
+
+.news-item p {
+  color: #c9c1ae;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 0;
+}
+
+.news-item a {
+  color: #e8c66a;
+  text-decoration: none;
+}
+
+.news-item a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .news-page {
+    padding: 45px 16px;
+  }
+
+  .news-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .news-item h2 {
+    font-size: 16px;
+  }
+}
   </style>
 </head>
-  <main class="news-page">
-
-    <div class="news-heading">
-      <span class="eyebrow">LATEST INFORMATION</span>
-      <h1>NEWS</h1>
-      <p>ゆずの最新情報をお届けします。</p>
-    </div>
-
-    <section class="news-list">
-<article class="news-item">
+<h1>NEWS</h1>
+    <p>ゆずの最新情報をお届けします。</p>
+  </div>
+  <div class="news-list">
+    <article class="news-item">
         <time class="news-date" datetime="2026-11-08">2026.11.08</time>
         <span class="news-category">TV</span>
         <a class="news-title"
