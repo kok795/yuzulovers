@@ -679,3 +679,11 @@ img {
     gap: 13px;
   }
 }
+/* BIOGRAPHY：年号とタイムラインの〇の間隔調整 */
+.timeline-year {
+  padding-right: 15px;
+}
+
+.timeline-item {
+  column-gap: 15px;
+}
