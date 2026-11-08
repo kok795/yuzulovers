@@ -12,7 +12,6 @@ img {
   user-drag: none;
 }
 ;
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -27,7 +26,66 @@ img {
   <link rel="stylesheet" href="/style.css">
 
   <style>
-    
+.site-header {
+  width: 100%;
+  background: #100e0a;
+  border-bottom: 1px solid #c5a34a;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.site-logo {
+  color: #d4af37;
+  font-size: 23px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  color: #eee4cc;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  padding-bottom: 7px;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: #d4af37;
+  border-bottom: 2px solid #d4af37;
+}
+
+@media (max-width: 700px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .main-nav {
+    justify-content: center;
+    gap: 15px;
+  }
+}    
 /* ===== NEWS PAGE DESIGN ===== */
 
 .news-page {
