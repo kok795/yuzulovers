@@ -520,3 +520,162 @@ img {
   font-size: 14px !important;
   font-weight: 600;
 }
+/* HEADER */
+.site-header {
+  text-align: center;
+  padding: 35px 15px 25px;
+}
+
+.site-logo {
+  text-decoration: none;
+  color: #333;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-main {
+  font-size: 27px;
+  letter-spacing: 5px;
+  font-weight: 600;
+}
+
+.logo-sub {
+  font-size: 9px;
+  letter-spacing: 4px;
+  margin-top: 7px;
+  color: #999;
+}
+
+/* NAVIGATION */
+.main-navigation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 18px 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.main-navigation a,
+.footer-navigation a {
+  color: #555;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+/* COMING SOON */
+.coming-soon {
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 20px;
+  background: #fff;
+}
+
+.coming-soon-content {
+  max-width: 600px;
+}
+
+.coming-soon-label {
+  color: #aaa;
+  font-size: 11px;
+  letter-spacing: 5px;
+}
+
+.coming-soon h1 {
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  margin: 22px 0;
+  color: #444;
+}
+
+.coming-soon-line {
+  width: 55px;
+  height: 1px;
+  background: #c8b9a4;
+  margin: 25px auto;
+}
+
+.coming-soon p {
+  color: #555;
+  font-size: 15px;
+}
+
+.coming-soon-description {
+  color: #999 !important;
+  font-size: 12px !important;
+}
+
+.back-home {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  border: 1px solid #ddd;
+  color: #666;
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+/* FOOTER */
+.site-footer {
+  text-align: center;
+  padding: 40px 15px 25px;
+  background: #f8f7f4;
+}
+
+.footer-logo {
+  color: #444;
+  font-size: 19px;
+  letter-spacing: 4px;
+  text-decoration: none;
+}
+
+.site-footer p {
+  color: #999;
+  font-size: 11px;
+  margin: 12px 0 25px;
+}
+
+.footer-navigation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.site-footer small {
+  color: #aaa;
+  font-size: 10px;
+}
+
+/* MOBILE */
+@media screen and (max-width: 600px) {
+  .logo-main {
+    font-size: 23px;
+  }
+
+  .main-navigation {
+    gap: 15px;
+    padding: 15px 8px;
+  }
+
+  .main-navigation a {
+    font-size: 10px;
+  }
+
+  .coming-soon h1 {
+    font-size: 24px;
+  }
+
+  .footer-navigation {
+    gap: 13px;
+  }
+}
