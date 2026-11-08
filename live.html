@@ -1,520 +1,89 @@
-<style>
-/* テキスト選択を禁止 */
-* {
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-}
-
-/* 画像のドラッグを禁止 */
-img {
-  -webkit-user-drag: none;
-  user-drag: none;
-}
-</style>
-
-<script>
-document.addEventListener('contextmenu', function(e) {
-  e.preventDefault();
-});
-
-document.addEventListener('copy', function(e) {
-  e.preventDefault();
-});
-
-document.addEventListener('cut', function(e) {
-  e.preventDefault();
-});
-
-document.addEventListener('keydown', function(e) {
-  if (
-    (e.ctrlKey || e.metaKey) &&
-    ['c', 'u', 's', 'a'].includes(e.key.toLowerCase())
-  ) {
-    e.preventDefault();
-  }
-});
-</script>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<link rel="icon" href="/favicon.ico">
-<link rel="icon" type="image/png" href="/favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ゆずのライブ・コンサート・ツアーの歴史を紹介するYUZU LOVERS">
-  <title>LIVE | ゆず大好き人公式サイト</title>
+
+  <title>LIVE | ゆず大好きな人公式サイト</title>
+
+  <meta name="description" content="YUZU LOVERS OFFICIAL SITE - ゆず大好きな人公式サイト">
+
+  <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    .live-page {
-      max-width: 1150px;
-      margin: 60px auto;
-      padding: 20px;
-    }
-
-    .page-title {
-      text-align: center;
-      letter-spacing: 7px;
-      margin-bottom: 15px;
-    }
-
-    .page-description {
-      text-align: center;
-      color: #777;
-      margin-bottom: 55px;
-    }
-
-    .latest-live {
-      background: #f8f5ef;
-      padding: 35px;
-      text-align: center;
-      border-radius: 10px;
-      margin-bottom: 70px;
-    }
-
-    .latest-live h2 {
-      letter-spacing: 4px;
-    }
-
-    .latest-live p {
-      line-height: 2;
-    }
-
-    .section-title {
-      border-bottom: 2px solid #d6a34a;
-      padding-bottom: 12px;
-      margin: 55px 0 30px;
-      letter-spacing: 3px;
-    }
-
-    .live-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-
-    .live-card {
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 3px 15px rgba(0,0,0,.07);
-      transition: transform .3s;
-    }
-
-    .live-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .live-card img {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      background: #eee;
-    }
-
-    .live-info {
-      padding: 20px;
-    }
-
-    .live-year {
-      color: #b18435;
-      font-size: 13px;
-      letter-spacing: 2px;
-    }
-
-    .live-info h3 {
-      font-size: 18px;
-      margin: 10px 0;
-    }
-
-    .live-info p {
-      font-size: 13px;
-      color: #777;
-      line-height: 1.8;
-    }
-
-    .history {
-      position: relative;
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .history::before {
-      content: "";
-      position: absolute;
-      left: 95px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: #d6a34a;
-    }
-
-    .history-item {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 45px;
-      margin-bottom: 35px;
-      position: relative;
-    }
-
-    .history-year {
-      color: #b18435;
-      font-weight: bold;
-      font-size: 22px;
-      text-align: right;
-    }
-
-    .history-content {
-      position: relative;
-      background: #fff;
-      padding: 20px;
-      box-shadow: 0 3px 12px rgba(0,0,0,.06);
-      border-radius: 8px;
-    }
-
-    .history-content::before {
-      content: "";
-      position: absolute;
-      left: -48px;
-      top: 10px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #d6a34a;
-      border: 4px solid white;
-    }
-
-    .history-content h3 {
-      margin: 0 0 10px;
-    }
-
-    .history-content p {
-      margin: 0;
-      line-height: 1.9;
-      color: #666;
-      font-size: 14px;
-    }
-
-    .official-live {
-      text-align: center;
-      padding: 45px 20px;
-      margin-top: 70px;
-      background: #f8f5ef;
-      border-radius: 10px;
-    }
-
-    .official-live a {
-      display: inline-block;
-      padding: 13px 28px;
-      background: #b18435;
-      color: white;
-      text-decoration: none;
-      border-radius: 25px;
-      margin-top: 15px;
-    }
-
-    @media(max-width:600px) {
-      .history::before {
-        left: 65px;
-      }
-
-      .history-item {
-        grid-template-columns: 55px 1fr;
-        gap: 25px;
-      }
-
-      .history-year {
-        font-size: 17px;
-      }
-
-      .history-content {
-        padding: 15px;
-      }
-    }
-  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">
-    <a href="index.html">YUZU LOVERS</a>
-  </div>
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="index.html" class="site-logo">
+      <span class="logo-main">YUZU LOVERS</span>
+      <span class="logo-sub">OFFICIAL FAN SITE</span>
+    </a>
+  </header>
 
-  <nav>
-    <a href="index.html">TOP</a>
+  <!-- NAVIGATION -->
+  <nav class="main-navigation">
+    <a href="index.html">HOME</a>
     <a href="news">NEWS</a>
     <a href="biography">BIOGRAPHY</a>
     <a href="discography">DISCOGRAPHY</a>
     <a href="movie">MOVIE</a>
     <a href="live">LIVE</a>
   </nav>
-</header>
 
-<main class="live-page">
+  <!-- MAIN -->
+  <main class="coming-soon">
 
-  <h1 class="page-title">LIVE</h1>
+    <div class="coming-soon-content">
 
-  <p class="page-description">
-    ゆずとファンがともに歩んできたライブの歴史
-  </p>
+      <span class="coming-soon-label">
+        CONTENTS
+      </span>
 
-  <!-- LATEST LIVE -->
-  <section class="latest-live">
-    <h2>LATEST LIVE</h2>
-    <p>
-      YUZU LIVE INFORMATION
-    </p>
-    <p>
-      最新のライブ・コンサート情報は、
-      ゆず公式サイトでチェック！
-    </p>
-    <a href="https://yuzu-official.com/"
-       target="_blank" rel="noopener">
-      OFFICIAL WEBSITE →
+      <h1>COMING SOON</h1>
+
+      <div class="coming-soon-line"></div>
+
+      <p>ただいま準備中です。</p>
+
+      <p class="coming-soon-description">
+        コンテンツ公開まで、もうしばらくお待ちください。
+      </p>
+
+      <a href="index.html" class="back-home">
+        BACK TO HOME
+      </a>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <a href="index.html" class="footer-logo">
+      YUZU LOVERS
     </a>
-  </section>
 
-  <!-- ARENA TOUR -->
-  <section>
-    <h2 class="section-title">ARENA TOUR</h2>
-
-    <div class="live-grid">
-
-      <article class="live-card">
-        <alt="図鑑ツアー">
-        <div class="live-info">
-          <span class="live-year">2024</span>
-          <h3>YUZU ARENA TOUR 2024 図鑑</h3>
-          <p>
-            アルバム『図鑑』を携えた全国アリーナツアー。
-          </p>
-        </div>
-      </article>
-
-      <article class="live-card">
-        <alt="SEESツアー">
-        <div class="live-info">
-          <span class="live-year">2022</span>
-          <h3>YUZU ARENA TOUR 2022 SEES</h3>
-          <p>
-            アルバム『SEES』の世界観を届けたツアー。
-          </p>
-        </div>
-      </article>
-
-      <article class="live-card">
-        <alt="PEOPLEツアー">
-        <div class="live-info">
-          <span class="live-year">2022</span>
-          <h3>YUZU ARENA TOUR 2022 PEOPLE</h3>
-          <p>
-            アルバム『PEOPLE』を中心とした全国ツアー。
-          </p>
-        </div>
-      </article>
-
-      <article class="live-card">
-        <alt="YUZUTOWNツアー">
-        <div class="live-info">
-          <span class="live-year">2021</span>
-          <h3>YUZU ARENA TOUR 2021 YUZUTOWN</h3>
-          <p>
-            『YUZUTOWN』の楽曲を中心としたライブ。
-          </p>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- DOME / STADIUM -->
-  <section>
-    <h2 class="section-title">DOME / STADIUM</h2>
-
-    <div class="live-grid">
-
-      <article class="live-card">
-        <alt="20周年ライブ">
-        <div class="live-info">
-          <span class="live-year">2017</span>
-          <h3>ゆず 20周年ドーム公演</h3>
-          <p>
-            デビュー20周年を記念したドームでのライブ。
-          </p>
-        </div>
-      </article>
-
-      <article class="live-card">
-        <alt="15周年ライブ">
-        <div class="live-info">
-          <span class="live-year">2012</span>
-          <h3>YUZU 15th Anniversary</h3>
-          <p>
-            デビュー15周年を記念したライブ活動。
-          </p>
-        </div>
-      </article>
-
-      <article class="live-card">
-        <alt="FURUSATO">
-        <div class="live-info">
-          <span class="live-year">2009</span>
-          <h3>YUZU ARENA TOUR 2009-2010 FURUSATO</h3>
-          <p>
-            アルバム『FURUSATO』を携えたツアー。
-          </p>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- SPECIAL LIVE -->
-  <section>
-    <h2 class="section-title">SPECIAL LIVE</h2>
-
-    <div class="live-grid">
-
-      <article class="live-card">
-        <alt="25周年ライブ">
-        <div class="live-info">
-          <span class="live-year">2022</span>
-          <h3>25th Anniversary LIVE</h3>
-          <p>
-            デビュー25周年を記念した特別なライブ。
-          </p>
-        </div>
-      </article>
-
-      <article class="live-card">
-        <alt="20周年記念ライブ">
-        <div class="live-info">
-          <span class="live-year">2017</span>
-          <h3>20th Anniversary LIVE</h3>
-          <p>
-            20年間の歩みを振り返る記念公演。
-          </p>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- LIVE HISTORY -->
-  <section>
-    <h2 class="section-title">LIVE HISTORY</h2>
-
-    <div class="history">
-
-      <article class="history-item">
-        <div class="history-year">1997</div>
-        <div class="history-content">
-          <h3>路上ライブ時代</h3>
-          <p>
-            横浜・伊勢佐木町での路上ライブを通じて、
-            多くの人々に音楽を届ける。
-          </p>
-        </div>
-      </article>
-
-      <article class="history-item">
-        <div class="history-year">1998</div>
-        <div class="history-content">
-          <h3>初の全国ツアーへ</h3>
-          <p>
-            メジャーデビューを経て、
-            ライブ活動の規模を広げていく。
-          </p>
-        </div>
-      </article>
-
-      <article class="history-item">
-        <div class="history-year">2004</div>
-        <div class="history-content">
-          <h3>夢の地図</h3>
-          <p>
-            全国各地でライブを開催し、
-            多くのファンと音楽を共有する。
-          </p>
-        </div>
-      </article>
-
-      <article class="history-item">
-        <div class="history-year">2007</div>
-        <div class="history-content">
-          <h3>デビュー10周年</h3>
-          <p>
-            10周年の節目を迎え、
-            記念ライブなどを開催。
-          </p>
-        </div>
-      </article>
-
-      <article class="history-item">
-        <div class="history-year">2017</div>
-        <div class="history-content">
-          <h3>デビュー20周年</h3>
-          <p>
-            20周年を記念したライブやドーム公演を開催。
-          </p>
-        </div>
-      </article>
-
-      <article class="history-item">
-        <div class="history-year">2022</div>
-        <div class="history-content">
-          <h3>デビュー25周年</h3>
-          <p>
-            25周年を迎え、全国ツアーや記念公演を展開。
-          </p>
-        </div>
-      </article>
-
-      <article class="history-item">
-        <div class="history-year">2024</div>
-        <div class="history-content">
-          <h3>図鑑ツアー</h3>
-          <p>
-            新たなアルバムとともに全国の会場を巡る。
-          </p>
-        </div>
-      </article>
-
-      <article class="history-item">
-        <div class="history-year">2026</div>
-        <div class="history-content">
-          <h3>結成30周年</h3>
-          <p>
-            結成30周年を迎える記念すべき年。
-            これまでの歴史とこれからの未来をつなぐ。
-          </p>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <section class="official-live">
-    <h2>YUZU OFFICIAL LIVE</h2>
     <p>
-      最新のライブ情報・チケット情報・公演詳細はこちら。
+      ゆずを愛するすべての人へ。
     </p>
 
-    <a href="https://yuzu-official.com/"
-       target="_blank" rel="noopener">
-      OFFICIAL LIVE INFORMATION →
-    </a>
-  </section>
+    <div class="footer-navigation">
+      <a href="index.html">HOME</a>
+      <a href="news.html">NEWS</a>
+      <a href="biography.html">BIOGRAPHY</a>
+      <a href="discography.html">DISCOGRAPHY</a>
+      <a href="movie.html">MOVIE</a>
+      <a href="live.html">LIVE</a>
+    </div>
 
-</main>
+    <small>
+      © YUZU LOVERS. All Rights Reserved.
+    </small>
 
-<footer>
-  <p>YUZU LOVERS</p>
-  <p>UNOFFICIAL FAN SITE</p>
-  <p>© YUZU LOVERS</p>
-</footer>
+  </footer>
 
 </body>
 </html>
