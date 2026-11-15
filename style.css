@@ -848,3 +848,10 @@ img {
     font-size: 14px;
   }
 }
+/* 画像の保存・ドラッグを抑止 */
+img {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
