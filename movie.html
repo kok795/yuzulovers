@@ -10,12 +10,14 @@
 <link rel="icon" href="/favicon.ico">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="stylesheet" href="style.css">
-
 <style>
+  
 .movie-page {
   max-width: 1100px;
+  width: 100%;
   margin: 0 auto;
   padding: 100px 24px 80px;
+  box-sizing: border-box;
 }
 
 .movie-heading {
@@ -49,21 +51,40 @@
 }
 
 .movie-card {
+  width: 100%;
+  min-width: 0;
   background: white;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 18px rgba(0,0,0,.07);
-  ｛
-.movie-card video {
-  display: block;
+  margin-bottom: 35px;
+  box-sizing: border-box;
+}
+
+/* 動画を横型16:9に統一 */
+.movie-video {
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #211a13;
-  object-fit: cover;
+  overflow: hidden;
+}
+
+.movie-card video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #211a13;
 }
 
 .movie-info {
+  width: 100%;
   padding: 25px;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
 }
 
 .movie-info .category {
@@ -74,14 +95,36 @@
 
 .movie-info h3 {
   font-size: 19px;
+  line-height: 1.7;
   margin: 12px 0;
   color: #30271e;
+  overflow-wrap: anywhere;
 }
 
 .movie-info p {
   color: #887866;
   font-size: 14px;
   line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+.movie-links {
+  margin-top: 18px;
+}
+
+.movie-links a {
+  color: #3498db;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.movie-links a:hover {
+  text-decoration: underline;
+}
+
+.movie-hashtags {
+  margin-top: 15px;
+  overflow-wrap: anywhere;
 }
 
 .movie-note {
@@ -92,12 +135,25 @@
   margin-top: 40px;
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
+  .movie-page {
+    padding: 80px 14px 60px;
+  }
+
   .movie-heading h1 {
     font-size: 35px;
   }
+
   .movie-info {
     padding: 18px;
+  }
+
+  .movie-info h3 {
+    font-size: 17px;
+  }
+
+  .movie-info p {
+    font-size: 13px;
   }
 }
 </style>
@@ -117,6 +173,7 @@
     <a href="movie">MOVIE</a>
   </nav>
 </header>
+
 <main class="movie-page">
 
   <section class="movie-heading">
@@ -124,223 +181,141 @@
     <p>MUSIC & MEMORIES</p>
     <p>ゆずの音楽と映像を楽しむ特別なページ。</p>
   </section>
+
   <section class="movie-section">
     <h2>ATTENTION</h2>
 
+    <!-- 動画1 -->
     <article class="movie-card">
-  <video
-        controls
-        controlsList="nodownload"
-        disablePictureInPicture
-        playsinline
-        preload="metadata"
-        oncontextmenu="return false;"
-      >
-        <source
-          src="https://res.cloudinary.com/b1q6fpjt/video/upload/v1794784315/X2Twitter.com_WelkvCGnTkmYz5aq_1080p.mp4"
-          type="video/mp4">
-
-        お使いのブラウザは動画再生に対応していません。
-      </video>
-            <div class="movie-info">
+      <div class="movie-video">
+        <video controls controlsList="nodownload"
+          disablePictureInPicture playsinline preload="metadata">
+          <source src="https://res.cloudinary.com/b1q6fpjt/video/upload/v1794784315/X2Twitter.com_WelkvCGnTkmYz5aq_1080p.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="movie-info">
         <span class="category">ATTENTION</span>
-<div class="movie-description">
+        <h3>YUZU 30th ANNIVERSARY STADIUM LIVE 2027</h3>
+        <p>
+          2027年5月15日(土) DAY1「ゆ」<br>
+          2027年5月16日(日) DAY2「ず」<br>
+          セットリストが異なる2日間。<br>
+          地元・横浜の最大規模会場で開催される究極のアニバーサリーライブ。
+        </p>
+        <div class="movie-links">
+          <a href="https://yuzu-official.com/pages/30_stadiumlive_2027" target="_blank" rel="noopener noreferrer">
+            ▶ チケット先行・公演詳細はこちら
+          </a>
+        </div>
+        <div class="movie-hashtags">
+          <span style="color:#3498db">#ゆず22年ぶり日産スタジアム</span>
+        </div>
+      </div>
+    </article>
 
-  <h3>「YUZU 30th ANNIVERSARY STADIUM LIVE 2027 日産スタジアム」</h3>
-  <p>
-    「YUZU 30th ANNIVERSARY STADIUM LIVE 2027 日産スタジアム」<br>
-2027年5月15日(土) DAY1「ゆ」<br>
-2027年5月16日(日) DAY2「ず」<br>
-
-セットリストが異なる2日間。<br>
-地元・横浜の最大規模会場で開催される<br>
-究極のアニバーサリーライブ。<br>
-    <div class="movie-links">
-  <a href="https://yuzu-official.com/pages/30_stadiumlive_2027"
-     target="_blank"
-     rel="noopener noreferrer">
-    ▶ チケット先行・公演詳細はこちら
-  </a>
-      <div>
-<div class="movie-hashtags">
-  <span style="color: #3498db;">
-    #ゆず22年ぶり日産スタジアム
-  </span>
-</div>
-      
-      <div class="movie-hashtags">
-  <span style="color: #3498db !important;">
-    #ゆず22年ぶり日産スタジアム 
-    
-      <video
-        controls
-        controlsList="nodownload"
-        disablePictureInPicture
-        playsinline
-        preload="metadata"
-        oncontextmenu="return false;"
-      >
-        <source
-          src="https://res.cloudinary.com/b1q6fpjt/video/upload/v1794179469/%E3%82%86%E3%81%9A_Blu-ray_DVD_LIVE_FILMS_%E5%BF%83%E9%9F%B3_Teaser_Movie.mp4"
-          type="video/mp4">
-
-        お使いのブラウザは動画再生に対応していません。
-      </video>
-            <div class="movie-info">
+    <!-- 動画2 -->
+    <article class="movie-card">
+      <div class="movie-video">
+        <video controls controlsList="nodownload"
+          disablePictureInPicture playsinline preload="metadata">
+          <source src="https://res.cloudinary.com/b1q6fpjt/video/upload/v1794179469/%E3%82%86%E3%81%9A_Blu-ray_DVD_LIVE_FILMS_%E5%BF%83%E9%9F%B3_Teaser_Movie.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="movie-info">
         <span class="category">ATTENTION</span>
-<div class="movie-description">
+        <h3>ゆず Blu-ray & DVD「LIVE FILMS 心音」Teaser Movie</h3>
+        <p>
+          約22万人を動員した、ゆずキャリア初となる弾き語りアリーナツアーを映像化。<br>
+          Blu-ray & DVD「LIVE FILMS 心音」<br>
+          2026年12月23日(水)発売<br>
+          YUZU Official Store限定販売 | 完全受注生産<br>
+          スペシャルパッケージ仕様 / DISC2枚組<br>
+          Blu-ray：PPTF-7173～7174<br>
+          DVD：PPTF-1084～1085<br>
+          価格：¥12,300(税込)<br>
+          受注期間：10月5日(月)18:00～10月30日(日)23:59まで<br>
+          ※現在は販売を終了しております。
+        </p>
+        <div class="movie-links">
+          <a href="https://yuzu-official.com/pages/livefilms_shinon" target="_blank" rel="noopener noreferrer">
+            特設サイトはこちら
+          </a>
+        </div>
+        <div class="movie-hashtags">
+          <span style="color:#3498db">#ゆず弾き語りツアー心音 #ゆず心音</span>
+        </div>
+      </div>
+    </article>
 
-  <h3>ゆず Blu-ray & DVD「LIVE FILMS 心音」Teaser Movie</h3>
-  <p>
-  約22万人を動員した、ゆずキャリア初となる弾き語りアリーナツアーを映像化。<br>
-    Blu-ray & DVD「LIVE FILMS 心音」<br>
-    2026年12月23日(水)発売<br>
-    Blu-ray & DVD「LIVE FILMS 心音」<br>
-    YUZU Official Store限定販売 | 完全受注生産<br>
-    スペシャルパッケージ仕様 / DISC2枚組<br>
-    Blu-ray：PPTF-7173～7174<br>
-    DVD：PPTF-1084～1085<br>
-    価格：¥12,300(税込) <br>
-    受注期間：10月5日(月)18:00​〜10月30日(日) 23:59​まで<br>
-    ※現在は、販売を既に終了しております。<br>
-    ＜収録曲＞<br>
-    1.逆光<br>
-    2.1<br>
-    3.地下街<br>
-    4.心の音<br>
-    5.ねこじゃらし<br>
-    6.雨と泪<br>
-    7.ま、いっか<br>
-    8.日替わり定食<br>
-    9.出発前(岩沢厚治ソロ)<br>
-    10.消しゴム(北川悠仁ソロ)<br>
-    11.リアル<br>
-    12.喜怒哀楽メドレー<br>
-    (種/贈る詩/傍観者/LAND/踏切/からっぽ/ストーリー/イロトリドリ/ユーモラス)<br>
-    13.手のなる方へ<br>
-    14.少年<br>
-    15.栄光の架橋<br>
-    16.心音<br>
-    17.幾重<br>
-    18.夏色<br>
-    ＜特典映像＞<br>
-    "心音" Tour After Interview<br>
-    【封入特典】<br>
-    ・限定ライブフォトステッカー5種<br>
-    ・新聞広告デザインポスター<br>
-    【YUZU Official Store購入特典】<br>
-    ・撮り下ろしカット クリアファイル（A4）<br>
-    <div class="movie-links">
-  <a href="https://yuzu-official.com/pages/livefilms_shinon"
-     target="_blank"
-     rel="noopener noreferrer">
-    特設サイトはこちら
-  </a>
-    </div>
-    </a>
-  </div>
-<div class="movie-hashtags">
-  <span style="color: #3498db !important;">
-    #ゆず弾き語りツアー心音​ #ゆず心音​ 
-  </span>
-</div>
+    <!-- 動画3 -->
+    <article class="movie-card">
+      <div class="movie-video">
+        <video controls controlsList="nodownload"
+          disablePictureInPicture playsinline preload="metadata">
+          <source src="https://res.cloudinary.com/b1q6fpjt/video/upload/v1794130447/%E7%A5%9D_30%E5%91%A8%E5%B9%B4_%E3%82%86%E3%81%9A_22%E5%B9%B4%E3%81%B6%E3%82%8A%E6%97%A5%E7%94%A3%E3%82%B9%E3%82%BF%E3%82%B8%E3%82%A2%E3%83%A0%E5%85%AC%E6%BC%94_%E9%96%8B%E5%82%AC%E6%B1%BA%E5%AE%9A.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="movie-info">
+        <span class="category">ATTENTION</span>
+        <h3>【祝30周年】ゆず22年ぶり日産スタジアム公演開催決定!</h3>
+        <p>
+          <strong>YUZU 30th ANNIVERSARY STADIUM LIVE 2027</strong><br>
+          日産スタジアム
+        </p>
+        <p>
+          2027年5月15日(土) DAY1「ゆ」<br>
+          2027年5月16日(日) DAY2「ず」
+        </p>
+        <p><strong>22年ぶり日産スタジアム凱旋！</strong></p>
+        <p>
+          セットリストが異なる2日間、地元・横浜の最大規模会場で開催される、究極のアニバーサリーライブ。
+        </p>
+        <p>
+          「ゆずの輪」会員<br>
+          チケット先行受付中🎫
+        </p>
+        <div class="movie-links">
+          <a href="https://yuzu-official.com/pages/30_stadiumlive_2027" target="_blank" rel="noopener noreferrer">
+            ▶ チケット先行・公演詳細はこちら
+          </a>
+        </div>
+        <div class="movie-hashtags">
+          <span style="color:#3498db">#ゆず22年ぶり日産スタジアム</span>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
   <section class="movie-section">
-    <h2>ATTENTION</h2>
-
-    <article class="movie-card">
-
-      <video
-        controls
-        controlsList="nodownload"
-        disablePictureInPicture
-        playsinline
-        preload="metadata"
-        oncontextmenu="return false;"
-      >
-        <source
-          src="https://res.cloudinary.com/b1q6fpjt/video/upload/v1794130447/%E7%A5%9D_30%E5%91%A8%E5%B9%B4_%E3%82%86%E3%81%9A_22%E5%B9%B4%E3%81%B6%E3%82%8A%E6%97%A5%E7%94%A3%E3%82%B9%E3%82%BF%E3%82%B8%E3%82%A2%E3%83%A0%E5%85%AC%E6%BC%94_%E9%96%8B%E5%82%AC%E6%B1%BA%E5%AE%9A.mp4"
-          type="video/mp4">
-
-        お使いのブラウザは動画再生に対応していません。
-      </video>
-            <div class="movie-info">
-        <span class="category">ATTENTION</span>
-<div class="movie-description">
-
-  <h3>【祝30周年】ゆず22年ぶり日産スタジアム公演開催決定!</h3>
-
-  <p><strong>YUZU 30th ANNIVERSARY STADIUM LIVE 2027</strong><br>
-  日産スタジアム</p>
-
-  <p>
-    2027年5月15日(土) DAY1「ゆ」<br>
-    2027年5月16日(日) DAY2「ず」<br>
-  </p>
-
-  <p><strong>22年ぶり日産スタジアム凱旋！</strong></p>
-
-  <p>
-    セットリストが異なる2日間、地元・横浜の最大規模会場で開催される、究極のアニバーサリーライブ。<br>
-  </p>
-
-  <p>
-    「ゆずの輪」会員<br>
-    チケット先行受付中🎫
-  </p>
-
-  <div class="movie-links">
-    <a href="https://yuzu-official.com/pages/30_stadiumlive_2027"
-       target="_blank"
-       rel="noopener noreferrer">
-      ▶ チケット先行・公演詳細はこちら
-    </a>
-  </div>
-<div class="movie-hashtags">
-  <span style="color: #3498db !important;">
-    #ゆず22年ぶり日産スタジアム
-  </span>
-</div>
     <h2>MUSIC VIDEO</h2>
 
     <article class="movie-card">
-
-      <video
-        controls
-        controlsList="nodownload"
-        disablePictureInPicture
-        playsinline
-        preload="metadata"
-        oncontextmenu="return false;"
-      >
-        <source
-          src="https://res.cloudinary.com/b1q6fpjt/video/upload/f_mp4,vc_h264/v1793942925/%E3%82%86%E3%81%9A_%E5%BF%83%E3%82%92%E3%81%A8%E3%82%81%E3%81%AA%E3%81%84%E3%81%A7_MUSIC_VIDEO.mp4"
-          type="video/mp4">
-
-        お使いのブラウザは動画再生に対応していません。
-      </video>
+      <div class="movie-video">
+        <video controls controlsList="nodownload"
+          disablePictureInPicture playsinline preload="metadata">
+          <source src="https://res.cloudinary.com/b1q6fpjt/video/upload/f_mp4,vc_h264/v1793942925/%E3%82%86%E3%81%9A_%E5%BF%83%E3%82%92%E3%81%A8%E3%82%81%E3%81%AA%E3%81%84%E3%81%A7_MUSIC_VIDEO.mp4" type="video/mp4">
+        </video>
+      </div>
 
       <div class="movie-info">
         <span class="category">MUSIC VIDEO</span>
-
         <h3>ゆず『心をとめないで』MUSIC VIDEO</h3>
-
         <p>
-          ゆずの音楽と映像を楽しむMOVIEコンテンツ。
+          ゆずの音楽と映像を楽しむMOVIEコンテンツ。<br>
           ゆず大好きな人公式サイトで特別な映像の時間をお楽しみください。
         </p>
       </div>
+    </article>
 
-    </article>
- </section>
-    </article>
   </section>
 
   <div class="movie-note">
     <p>いつまでも、ゆずとともに。</p>
-    <p>YUZU LOVERS</p>
+    <p>ゆず大好きな人公式サイト</p>
   </div>
-</main>
 
+</main>
 <footer class="footer">
   <h2>YUZU <span>LOVERS</span></h2>
   <p>MUSIC · HISTORY · MEMORIES</p>
