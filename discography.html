@@ -84,6 +84,60 @@
     </small>
 
   </footer>
+<script>
+const discoData = [
+  {
+    date: "1998.06.03",
+    category: "SINGLE",
+    title: "夏色",
+    image: ""
+  },
+  {
+    date: "1998.11.11",
+    category: "SINGLE",
+    title: "からっぽ",
+    image: ""
+  },
+  {
+    date: "1998.07.23",
+    category: "ALBUM",
+    title: "ゆず一家",
+    image: ""
+  }
+];
 
+const discoList = document.getElementById("disco-list");
+
+function showDisco(category = "ALL") {
+  const items = category === "ALL"
+    ? discoData
+    : discoData.filter(item => item.category === category);
+
+  discoList.innerHTML = items.map(item => `
+    <article class="disco-item">
+      <div class="disco-image">
+        ${item.image
+          ? `<img src="${item.image}" alt="${item.title}">`
+          : `<div class="disco-no-image">JACKET</div>`}
+      </div>
+      <p class="disco-date">${item.date}</p>
+      <p class="disco-type">${item.category}</p>
+      <h2 class="disco-title">${item.title}</h2>
+    </article>
+  `).join("");
+}
+
+document.querySelectorAll(".disco-filter").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelector(".disco-filter.active")
+      ?.classList.remove("active");
+
+    button.classList.add("active");
+    showDisco(button.dataset.filter);
+  });
+});
+
+showDisco();
+</script>
 </body>
 </html>
