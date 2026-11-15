@@ -80,7 +80,25 @@
     </small>
 
   </footer>
-<script>
+const discoList = document.getElementById("disco-list");
+
+function showDisco(category = "ALL") {
+  const items = category === "ALL"
+    ? discoData
+    : discoData.filter(item => item.category === category);
+
+  discoList.innerHTML = items.map(item => `
+    <article class="disco-item">
+      <div class="disco-image">
+        ${item.image
+          ? `<img src="${item.image}" alt="${item.title}">`
+          : `<div class="disco-no-image">JACKET</div>`}
+      </div>
+      <p class="disco-date">${item.date}</p>
+      <p class="disco-type">${item.category}</p>
+      <h2 class="disco-title">${item.title}</h2>
+    </article>
+  <script>
 const discoData = [
     {
     date: "1997.10.25",
@@ -120,28 +138,8 @@ const discoData = [
   },
   
 ];
-
-const discoList = document.getElementById("disco-list");
-
-function showDisco(category = "ALL") {
-  const items = category === "ALL"
-    ? discoData
-    : discoData.filter(item => item.category === category);
-
-  discoList.innerHTML = items.map(item => `
-    <article class="disco-item">
-      <div class="disco-image">
-        ${item.image
-          ? `<img src="${item.image}" alt="${item.title}">`
-          : `<div class="disco-no-image">JACKET</div>`}
-      </div>
-      <p class="disco-date">${item.date}</p>
-      <p class="disco-type">${item.category}</p>
-      <h2 class="disco-title">${item.title}</h2>
-    </article>
   `).join("");
 }
-
 document.querySelectorAll(".disco-filter").forEach(button => {
   button.addEventListener("click", () => {
     document.querySelector(".disco-filter.active")
@@ -153,6 +151,20 @@ document.querySelectorAll(".disco-filter").forEach(button => {
 });
 
 showDisco();
+</script>
+  
+<script>
+document.addEventListener("contextmenu", function(e) {
+  if (e.target.closest("img")) {
+    e.preventDefault();
+  }
+});
+
+document.addEventListener("dragstart", function(e) {
+  if (e.target.closest("img")) {
+    e.preventDefault();
+  }
+});
 </script>
 </body>
 </html>
