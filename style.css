@@ -781,3 +781,70 @@ img {
     font-size: 11px;
   }
 }
+/* DISCOGRAPHY 作品カード */
+
+.disco-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 38px 24px;
+}
+
+.disco-item {
+  text-align: left;
+  min-width: 0;
+}
+
+.disco-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #f1eee8;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.disco-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.disco-no-image {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b2a58f;
+  letter-spacing: 3px;
+  font-size: 13px;
+}
+
+.disco-date {
+  font-size: 12px;
+  color: #8b806e;
+  margin-bottom: 5px;
+}
+
+.disco-type {
+  font-size: 11px;
+  color: #a58b62;
+  letter-spacing: 2px;
+  margin-bottom: 7px;
+}
+
+.disco-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  .disco-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 14px;
+  }
+
+  .disco-title {
+    font-size: 14px;
+  }
+}
