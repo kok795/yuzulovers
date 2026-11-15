@@ -690,3 +690,94 @@ img {
 .timeline {
   margin-top: 40px;
 }
+/* =========================
+   DISCOGRAPHY
+========================= */
+
+.discography-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 70px 24px 100px;
+}
+
+.discography-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.discography-subtitle {
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: #a58b62;
+  margin-bottom: 12px;
+}
+
+.discography-heading h1 {
+  font-size: 34px;
+  letter-spacing: 5px;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.discography-heading p:last-child {
+  color: #777;
+  font-size: 14px;
+}
+
+.disco-category {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 45px;
+  border-bottom: 1px solid #e8e2d8;
+  padding-bottom: 18px;
+}
+
+.disco-filter {
+  background: transparent;
+  border: 1px solid #d8cdbb;
+  color: #776b59;
+  padding: 9px 17px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.disco-filter:hover,
+.disco-filter.active {
+  background: #a58b62;
+  border-color: #a58b62;
+  color: #fff;
+}
+
+.disco-list {
+  min-height: 250px;
+}
+
+.disco-loading {
+  text-align: center;
+  color: #888;
+  padding: 60px 0;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .discography-page {
+    padding: 50px 16px 70px;
+  }
+
+  .discography-heading h1 {
+    font-size: 27px;
+  }
+
+  .disco-category {
+    gap: 7px;
+  }
+
+  .disco-filter {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+}
