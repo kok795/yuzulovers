@@ -50,65 +50,151 @@
   </nav>
 
   <div id="disco-list" class="disco-grid"></div>
-
+<div id="disco-pagination" class="disco-pagination"></div>
 <script>
+
 const discoData = [
-  {
-    date: "1997.10.25",
-    category: "ALBUM",
-    title: "ゆずの素",
-    image: "https://res.cloudinary.com/b1q6fpjt/image/upload/v1794716222/9093_SNCC-86920.jpg"
-  },
-  {
-    date: "1998.02.21",
-    category: "ALBUM",
-    title: "ゆずマン",
-    image: "https://res.cloudinary.com/b1q6fpjt/image/upload/v1794721373/images_-_2026-11-15T144235.973.jpg"
-  },
-  {
-    date: "1998.06.03",
-    category: "SINGLE",
-    title: "夏色",
-    image: "https://res.cloudinary.com/b1q6fpjt/image/upload/v1794720934/9211_SNDC-28901.jpg"
-  },
-  {
-    date: "1998.07.23",
-    category: "ALBUM",
-    title: "ゆず一家",
-    image: "https://res.cloudinary.com/b1q6fpjt/image/upload/v1794716274/images.jpg"
-  },
-  {
-    date: "1998.09.18",
-    category: "SINGLE",
-    title: "少年",
-    image: "https://res.cloudinary.com/b1q6fpjt/image/upload/v1794716274/images_1.jpg"
-  },
-  {
-    date: "1998.11.11",
-    category: "SINGLE",
-    title: "からっぽ",
-    image: "https://res.cloudinary.com/b1q6fpjt/image/upload/v1794716274/9209_SNDC-28903.jpg"
-  },
-   {
-    date: "1999.01.20",
-    category: "SINGLE",
-    title: "いつか",
-    image: "https://res.cloudinary.com/b1q6fpjt/image/upload/v1794716273/images_2.jpg"
-  },
+  {date:"2026.10.23",category:"DIGITAL",title:"心をとめないで"},
+  {date:"2026.08.14",category:"DIGITAL",title:"幾重(ライブバージョン)"},
+  {date:"2026.06.03",category:"DIGITAL",title:"ニュービギニング"},
+  {date:"2026.03.11",category:"ALBUM",title:"心音"},
+  {date:"2026.02.25",category:"BLU-RAY",title:"Blu-ray「LIVE FILMS 図鑑」"},
+  {date:"2026.02.25",category:"DVD",title:"DVD「LIVE FILMS 図鑑」"},
+  {date:"2026.02.25",category:"BLU-RAY",title:"Blu-ray「録歌選 図鑑」"},
+  {date:"2026.02.25",category:"DVD",title:"DVD「録歌選 図鑑」"},
+  {date:"2025.08.27",category:"DIGITAL",title:"尤"},
+  {date:"2025.08.27",category:"SINGLE",title:"GET BACK"},
+  {date:"2025.07.30",category:"DIGITAL",title:"シビレル"},
+  {date:"2025.06.25",category:"BLU-RAY",title:"Blu-ray「LIVE FILMS AGAIN AGAIN」"},
+  {date:"2025.06.25",category:"DVD",title:"DVD「LIVE FILMS AGAIN AGAIN」"},
+  {date:"2025.06.25",category:"BLU-RAY",title:"Blu-ray「LIVE FILMS ゆず晦日」"},
+  {date:"2025.06.25",category:"DVD",title:"DVD「LIVE FILMS ゆず晦日」"},
+  {date:"2025.05.21",category:"DIGITAL",title:"GET BACK"},
+  {date:"2024.12.27",category:"DIGITAL",title:"flowers"},
+  {date:"2024.11.27",category:"DIGITAL",title:"Chururi(feat.松たか子)"},
+  {date:"2024.07.31",category:"ALBUM",title:"図鑑 Visual Art Box"},
+  {date:"2024.07.31",category:"ALBUM",title:"図鑑"},
+  {date:"2024.07.17",category:"DIGITAL",title:"夏色 [再録]"},
+  {date:"2024.05.15",category:"DIGITAL",title:"Chururi"},
+  {date:"2024.04.17",category:"BLU-RAY",title:"LIVE FILMS HIBIKI DAY2 RED ✕ ALL STARS"},
+  {date:"2024.04.17",category:"DVD",title:"LIVE FILMS HIBIKI DAY2 RED ✕ ALL STARS"},
+  {date:"2023.08.31",category:"BLU-RAY",title:"録歌選 PEOPLE SEES"},
+  {date:"2023.08.31",category:"DVD",title:"録歌選 PEOPLE SEES"},
+  {date:"2023.08.31",category:"BLU-RAY",title:"LIVE FILMS 夏祭り 杜の音 後夜祭"},
+  {date:"2023.08.31",category:"DVD",title:"LIVE FILMS 夏祭り 杜の音 後夜祭"},
+  {date:"2023.08.23",category:"DIGITAL",title:"ビューティフル"},
+  {date:"2023.06.21",category:"DIGITAL",title:"SUBWAY"},
+  {date:"2023.03.15",category:"BLU-RAY",title:"LIVE FILMS PEOPLE -ALWAYS with you-"},
+  {date:"2023.03.15",category:"DVD",title:"LIVE FILMS PEOPLE -ALWAYS with you-"},
+  {date:"2023.03.15",category:"BLU-RAY",title:"LIVE FILMS SEES -ALWAYS with you-"},
+  {date:"2023.03.15",category:"DVD",title:"LIVE FILMS SEES -ALWAYS with you-"},
+  {date:"2022.10.25",category:"DIGITAL",title:"YUZU ARENA TOUR 2022 PEOPLE -ALWAYS with you-"},
+  {date:"2022.09.17",category:"DIGITAL",title:"YUZU ARENA TOUR 2022 SEES -ALWAYS with you-"},
+  {date:"2022.06.29",category:"ALBUM",title:"SEES"},
+  {date:"2022.05.18",category:"DIGITAL",title:"明日の君と"},
+  {date:"2022.03.23",category:"ALBUM",title:"PEOPLE"},
+  {date:"2021.12.22",category:"BLU-RAY",title:"録歌選 YUZUTOWN"},
+  {date:"2021.12.22",category:"DVD",title:"録歌選 YUZUTOWN"},
+  {date:"2021.12.22",category:"BLU-RAY",title:"LIVE FILMS YUZUTOWN / ALWAYS YUZUTOWN"},
+  {date:"2021.12.22",category:"DVD",title:"LIVE FILMS YUZUTOWN / ALWAYS YUZUTOWN"},
+  {date:"2021.11.24",category:"BLU-RAY",title:"LIVE FILMS 謳おう 2021"},
+  {date:"2021.11.24",category:"DVD",title:"LIVE FILMS 謳おう 2021"},
+  {date:"2021.08.25",category:"BLU-RAY",title:"LIVE FILMS 二人参客"},
+  {date:"2021.08.25",category:"DVD",title:"LIVE FILMS 二人参客"},
+  {date:"2021.06.02",category:"DIGITAL",title:"NATSUMONOGATARI"},
+  {date:"2020.11.15",category:"BLU-RAY",title:"LIVE FILMS YUZU ONLINE TOUR 2020 AGAIN"},
+  {date:"2020.11.15",category:"DVD",title:"LIVE FILMS YUZU ONLINE TOUR 2020 AGAIN"},
+  {date:"2020.09.16",category:"BLU-RAY",title:"YUZU ALL TIME BEST LIVE AGAIN 1997-2007"},
+  {date:"2020.09.16",category:"DVD",title:"YUZU ALL TIME BEST LIVE AGAIN 1997-2007"},
+  {date:"2020.09.16",category:"BLU-RAY",title:"YUZU ALL TIME BEST LIVE AGAIN 2008-2020"},
+  {date:"2020.09.16",category:"DVD",title:"YUZU ALL TIME BEST LIVE AGAIN 2008-2020"},
+  {date:"2020.08.17",category:"DIGITAL",title:"公私混同"},
+  {date:"2020.05.25",category:"DIGITAL",title:"そのときには"},
+  {date:"2020.03.04",category:"ALBUM",title:"YUZUTOWN"},
+  {date:"2020.02.14",category:"DIGITAL",title:"水色"},
+  {date:"2020.01.15",category:"BLU-RAY",title:"LIVE FILMS ゆずのみ〜拍手喝祭〜"},
+  {date:"2020.01.15",category:"DVD",title:"LIVE FILMS ゆずのみ〜拍手喝祭〜"},
+  {date:"2019.07.07",category:"DIGITAL",title:"GreenGreen"},
+  {date:"2019.05.10",category:"DIGITAL",title:"SEIMEI"},
+  {date:"2018.12.19",category:"BLU-RAY",title:"録歌選 BIGYELL"},
+  {date:"2018.12.19",category:"DVD",title:"録歌選 BIGYELL"},
+  {date:"2018.12.19",category:"BLU-RAY",title:"LIVE FILMS BIG YELL"},
+  {date:"2018.12.19",category:"DVD",title:"LIVE FILMS BIG YELL"},
+  {date:"2018.07.20",category:"DIGITAL",title:"うたエール (弾き語りバージョン)"},
+  {date:"2018.05.29",category:"DIGITAL",title:"公園通り"},
+  {date:"2018.04.04",category:"ALBUM",title:"BIG YELL"},
+  {date:"2018.02.09",category:"DIGITAL",title:"うたエール"},
+  {date:"2017.12.06",category:"BLU-RAY",title:"LIVE FILMS ゆずイロハ"},
+  {date:"2017.12.06",category:"DVD",title:"LIVE FILMS ゆずイロハ"},
+  {date:"2017.12.06",category:"BLU-RAY",title:"LIVE FILMS ゆずのみ"},
+  {date:"2017.12.06",category:"DVD",title:"LIVE FILMS ゆずのみ"},
+  {date:"2017.10.13",category:"DIGITAL",title:"恋、弾けました。"},
+  {date:"2017.06.28",category:"OTHER",title:"4LOVE"},
+  {date:"2017.06.21",category:"OTHER",title:"謳おう"},
+  {date:"2017.03.11",category:"DIGITAL",title:"タッタ"},
+  {date:"2016.07.25",category:"DIGITAL",title:"見上げてごらん夜の星を 〜ぼくらのうた〜"},
+  {date:"2016.04.27",category:"DVD",title:"録歌選 TOWA"},
+  {date:"2016.04.27",category:"BLU-RAY",title:"Live Films TOWA -episode zero-"},
+  {date:"2016.04.27",category:"DVD",title:"LIVE FILMS TOWA -episode zero-"},
+  {date:"2016.01.13",category:"DIGITAL",title:"TOWA"},
+  {date:"2016.01.13",category:"ALBUM",title:"TOWA"},
+  {date:"2015.09.30",category:"ALBUM",title:"NININ SANKYAKU YUZU MEGA MIX"},
+  {date:"2015.09.09",category:"ALBUM",title:"二人参客 2015.8.15 ～緑の日～"},
+  {date:"2015.09.09",category:"ALBUM",title:"二人参客 2015.8.16 ～黄色の日～"},
+  {date:"2015.08.12",category:"SINGLE",title:"終わらない歌"},
+  {date:"2015.07.01",category:"DIGITAL",title:"かける"},
+  {date:"2015.04.15",category:"SINGLE",title:"OLA!!"},
+  {date:"2015.03.30",category:"DIGITAL",title:"OLA!!"},
+  {date:"2015.03.30",category:"DIGITAL",title:"終わらない歌"},
+  {date:"2015.01.02",category:"DIGITAL",title:"ポケット"},
+  {date:"2014.11.26",category:"DVD",title:"LIVE FILMS 新世界"},
+  {date:"2014.11.26",category:"DVD",title:"録歌選 新世界"},
+  {date:"2014.07.18",category:"DIGITAL",title:"夜霧の伊勢佐木町〜愛の真世界編〜"},
+  {date:"2014.02.19",category:"ALBUM",title:"新世界"},
+  {date:"2014.02.12",category:"SINGLE",title:"ヒカレ"},
+  {date:"2013.12.25",category:"SINGLE",title:"表裏一体"},
+  {date:"2013.12.25",category:"DVD",title:"LIVE FILMS GO LAND"},
+  {date:"2013.11.13",category:"SINGLE",title:"雨のち晴レルヤ／守ってあげたい"},
+  {date:"2013.09.18",category:"SINGLE",title:"友〜旅立ちの時〜"},
+  {date:"2013.09.18",category:"DVD",title:"録歌選 LAND"},
+  {date:"2013.06.15",category:"DVD",title:"LIVE FILMS YUZU YOU ARENA 〜みんなと、どこまでも〜"},
+  {date:"2013.05.01",category:"ALBUM",title:"LAND"},
+  {date:"2013.01.30",category:"DIGITAL",title:"イロトリドリ"},
+  {date:"2013.01.09",category:"SINGLE",title:"REASON"},
+  {date:"2013.01.09",category:"DVD",title:"録歌選 2-NI-"},
+  {date:"1997.10.25",category:"ALBUM",title:"ゆずの素"},
+  {date:"1998.02.21",category:"ALBUM",title:"ゆずマン"},
+  {date:"1998.06.03",category:"SINGLE",title:"夏色"},
+  {date:"1998.07.23",category:"ALBUM",title:"ゆず一家"},
+  {date:"1998.09.18",category:"SINGLE",title:"少年"},
+  {date:"1998.11.11",category:"SINGLE",title:"からっぽ"},
+  {date:"1999.01.20",category:"SINGLE",title:"いつか"}
 ];
 
+const discoPerPage = 24;
+let discoPage = 1;
+let discoCategory = "ALL";
+
 const discoList = document.getElementById("disco-list");
+const discoPagination = document.getElementById("disco-pagination");
 
-function showDisco(category = "ALL") {
-  const items = category === "ALL"
+function getDiscoWorks() {
+  return discoCategory === "ALL"
     ? discoData
-    : discoData.filter(item => item.category === category);
+    : discoData.filter(item => item.category === discoCategory);
+}
 
-  discoList.innerHTML = items.map(item => `
+function showDisco() {
+  const items = getDiscoWorks();
+  const totalPages = Math.ceil(items.length / discoPerPage);
+  const start = (discoPage - 1) * discoPerPage;
+  const visible = items.slice(start, start + discoPerPage);
+
+  discoList.innerHTML = visible.map(item => `
     <article class="disco-item">
       <div class="disco-image">
         ${item.image
-          ? `<img src="${item.image}" alt="${item.title}" draggable="false">`
+          ? `<img src="${item.image}" alt="${item.title}" draggable="false" loading="lazy">`
           : `<div class="disco-no-image">JACKET</div>`}
       </div>
       <p class="disco-date">${item.date}</p>
@@ -116,32 +202,56 @@ function showDisco(category = "ALL") {
       <h2 class="disco-title">${item.title}</h2>
     </article>
   `).join("");
+
+  showPagination(totalPages);
+}
+
+function showPagination(totalPages) {
+  discoPagination.innerHTML = "";
+  if (totalPages <= 1) return;
+
+  const prev = document.createElement("button");
+  prev.textContent = "‹ 前へ";
+  prev.disabled = discoPage === 1;
+  prev.onclick = () => changePage(discoPage - 1);
+  discoPagination.appendChild(prev);
+
+  for (let i = 1; i <= totalPages; i++) {
+    const button = document.createElement("button");
+    button.textContent = i;
+    if (i === discoPage) button.classList.add("active");
+    button.onclick = () => changePage(i);
+    discoPagination.appendChild(button);
+  }
+
+  const next = document.createElement("button");
+  next.textContent = "次へ ›";
+  next.disabled = discoPage === totalPages;
+  next.onclick = () => changePage(discoPage + 1);
+  discoPagination.appendChild(next);
+}
+
+function changePage(page) {
+  const totalPages = Math.ceil(getDiscoWorks().length / discoPerPage);
+  if (page < 1 || page > totalPages) return;
+  discoPage = page;
+  showDisco();
+  document.querySelector(".discography-heading")
+    .scrollIntoView({ behavior: "smooth" });
 }
 
 document.querySelectorAll(".disco-filter").forEach(button => {
   button.addEventListener("click", () => {
     document.querySelector(".disco-filter.active")
       ?.classList.remove("active");
-
     button.classList.add("active");
-    showDisco(button.dataset.filter);
+    discoCategory = button.dataset.filter;
+    discoPage = 1;
+    showDisco();
   });
 });
 
 showDisco();
-
-// 画像の保存操作を抑止
-document.addEventListener("contextmenu", function(e) {
-  if (e.target.closest("img")) {
-    e.preventDefault();
-  }
-});
-
-document.addEventListener("dragstart", function(e) {
-  if (e.target.closest("img")) {
-    e.preventDefault();
-  }
-});
 </script>
 </main>
   <!-- FOOTER -->
