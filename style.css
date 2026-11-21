@@ -855,3 +855,41 @@ img {
   -webkit-user-select: none;
   user-select: none;
 }
+.disco-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 40px 0;
+}
+
+.disco-pagination button {
+  background: transparent;
+  border: 1px solid #c5a04a;
+  color: inherit;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.disco-pagination button.active,
+.disco-pagination button:hover:not(:disabled) {
+  background: #c5a04a;
+  color: white;
+}
+
+.disco-pagination button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.disco-no-image {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c5a04a;
+  color: #c5a04a;
+  letter-spacing: 3px;
+}
