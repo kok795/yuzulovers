@@ -1,89 +1,808 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>LIVE | ゆず大好きな人公式サイト</title>
+<title>LIVE | ゆず大好きな人公式サイト</title>
+<meta name="description" content="YUZU LOVERS LIVE HISTORY。ゆずの歴代ライブ・ツアーを年代別に紹介。">
 
-  <meta name="description" content="YUZU LOVERS OFFICIAL SITE - ゆず大好きな人公式サイト">
+<link rel="icon" href="/favicon.ico">
 
-  <link rel="icon" href="favicon.ico">
-  <link rel="stylesheet" href="style.css">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #090909;
+  color: #f5f1e8;
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1.8;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  background: linear-gradient(135deg, #090909, #272013, #090909);
+  border-bottom: 1px solid #a88b46;
+  padding: 25px 20px;
+  text-align: center;
+}
+
+.logo {
+  color: #d4b46a;
+  font-family: Georgia, serif;
+  font-size: 32px;
+  letter-spacing: 5px;
+}
+
+.logo-sub {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+nav {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+}
+
+nav a {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #ddd;
+  transition: .3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #d6b56b;
+}
+
+.hero {
+  padding: 100px 20px 80px;
+  text-align: center;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.4), #090909),
+    radial-gradient(circle at center, #57431e 0%, #19140b 42%, #090909 80%);
+}
+
+.hero-label {
+  color: #d4b46a;
+  letter-spacing: 6px;
+  font-size: 12px;
+}
+
+.hero h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(42px, 8vw, 88px);
+  font-weight: normal;
+  letter-spacing: 8px;
+  margin: 20px 0;
+  color: #e4c77c;
+}
+
+.hero p {
+  color: #c4c0b7;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.hero-line {
+  width: 100px;
+  height: 1px;
+  background: #b99a51;
+  margin: 30px auto;
+}
+
+.hero-description {
+  max-width: 700px;
+  margin: auto;
+  font-size: 13px;
+  color: #aaa;
+  letter-spacing: 1px;
+}
+
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 65px 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  color: #d6b56b;
+  font-size: 34px;
+  letter-spacing: 5px;
+}
+
+.section-title p {
+  color: #888;
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-top: 5px;
+}
+
+.feature {
+  border: 1px solid #9a7b3e;
+  background: linear-gradient(135deg, #20190c, #0b0b0b 65%);
+  padding: 35px 25px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.feature .tag {
+  color: #d6b56b;
+  font-size: 11px;
+  letter-spacing: 4px;
+}
+
+.feature h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(25px, 5vw, 42px);
+  color: #e1c77d;
+  font-weight: normal;
+  margin: 15px 0;
+}
+
+.feature p {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.feature a {
+  display: inline-block;
+  border: 1px solid #b89953;
+  padding: 10px 25px;
+  margin-top: 20px;
+  color: #d6b56b;
+  font-size: 12px;
+  transition: .3s;
+}
+
+.feature a:hover {
+  background: #b89953;
+  color: #080808;
+}
+
+.controls {
+  margin: 30px 0;
+}
+
+.search-box {
+  width: 100%;
+  background: #111;
+  border: 1px solid #393328;
+  color: #eee;
+  padding: 15px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-box:focus {
+  border-color: #b89953;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+  margin: 20px 0;
+}
+
+.filter-btn {
+  background: #111;
+  border: 1px solid #51432b;
+  color: #ccc;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: .3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #b89953;
+  color: #090909;
+  border-color: #b89953;
+}
+
+.year-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 25px 0 40px;
+}
+
+.year-btn {
+  background: transparent;
+  color: #aaa;
+  border: 1px solid #393329;
+  padding: 8px 13px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: .3s;
+}
+
+.year-btn:hover,
+.year-btn.active {
+  color: #d6b56b;
+  border-color: #b89953;
+}
+
+.results-info {
+  color: #8e8a80;
+  font-size: 12px;
+  margin: 15px 0;
+  text-align: right;
+}
+
+.live-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.live-card {
+  border: 1px solid #29251d;
+  background: linear-gradient(145deg, #15130e, #0c0c0c);
+  transition: .3s;
+  overflow: hidden;
+}
+
+.live-card:hover {
+  border-color: #8c713c;
+  transform: translateY(-3px);
+}
+
+.card-top {
+  padding: 23px 23px 15px;
+}
+
+.card-year {
+  color: #c5a65d;
+  font-family: Georgia, serif;
+  letter-spacing: 3px;
+  font-size: 13px;
+}
+
+.card-category {
+  display: inline-block;
+  color: #999;
+  border: 1px solid #3b352a;
+  padding: 2px 8px;
+  font-size: 10px;
+  margin-left: 8px;
+  letter-spacing: 1px;
+}
+
+.card-title {
+  color: #e4dfd5;
+  font-size: 17px;
+  font-weight: 500;
+  margin-top: 12px;
+  line-height: 1.7;
+}
+
+.card-date {
+  color: #858178;
+  font-size: 12px;
+  margin-top: 7px;
+}
+
+.card-venue {
+  color: #aaa;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.detail-btn {
+  background: transparent;
+  color: #c9a65b;
+  border: none;
+  border-top: 1px solid #2a261f;
+  width: 100%;
+  padding: 14px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.detail-btn:hover {
+  background: #18140d;
+}
+
+.detail {
+  display: none;
+  border-top: 1px solid #2b261d;
+  padding: 20px 23px;
+  color: #aaa;
+  font-size: 13px;
+}
+
+.detail.open {
+  display: block;
+}
+
+.detail div {
+  margin-bottom: 8px;
+}
+
+.detail strong {
+  color: #d0b16a;
+  font-weight: normal;
+}
+
+.empty {
+  display: none;
+  text-align: center;
+  color: #888;
+  padding: 60px 10px;
+  grid-column: 1 / -1;
+}
+
+.archive-note {
+  margin-top: 50px;
+  border: 1px solid #332b1e;
+  padding: 20px;
+  text-align: center;
+  color: #888;
+  font-size: 12px;
+}
+
+footer {
+  border-top: 1px solid #29241a;
+  padding: 35px 20px;
+  text-align: center;
+  color: #888;
+  background: #070707;
+}
+
+footer .footer-logo {
+  font-family: Georgia, serif;
+  color: #b99a51;
+  letter-spacing: 4px;
+  font-size: 20px;
+}
+
+footer p {
+  font-size: 11px;
+  margin-top: 8px;
+}
+
+@media (max-width: 650px) {
+  .live-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 75px 15px 55px;
+  }
+
+  .hero h1 {
+    letter-spacing: 4px;
+  }
+
+  nav {
+    gap: 14px;
+  }
+
+  nav a {
+    font-size: 10px;
+  }
+
+  .section {
+    padding: 45px 15px;
+  }
+
+  .section-title h2 {
+    font-size: 27px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <a href="index.html" class="site-logo">
-      <span class="logo-main">YUZU LOVERS</span>
-      <span class="logo-sub">OFFICIAL FAN SITE</span>
-    </a>
-  </header>
+<header>
+  <div class="logo">YUZU LOVERS</div>
+  <div class="logo-sub">ゆず大好きな人公式サイト</div>
 
-  <!-- NAVIGATION -->
-  <nav class="main-navigation">
+  <nav>
     <a href="index.html">HOME</a>
-    <a href="news">NEWS</a>
-    <a href="biography">BIOGRAPHY</a>
-    <a href="discography">DISCOGRAPHY</a>
-    <a href="movie">MOVIE</a>
-    <a href="live">LIVE</a>
+    <a href="news.html">NEWS</a>
+    <a href="discography.html">DISCOGRAPHY</a>
+    <a href="biography.html">BIOGRAPHY</a>
+    <a href="live.html" class="active">LIVE</a>
+    <a href="movie.html">MOVIE</a>
   </nav>
+</header>
 
-  <!-- MAIN -->
-  <main class="coming-soon">
+<section class="hero">
+  <div class="hero-label">YUZU LIVE ARCHIVE</div>
+  <h1>LIVE HISTORY</h1>
+  <div class="hero-line"></div>
+  <p>1998 — 2027</p>
+  <br>
+  <div class="hero-description">
+    ゆずが歩んできたライブの歴史。<br>
+    数々のツアー、ステージ、そして忘れられない瞬間を振り返る。
+  </div>
+</section>
 
-    <div class="coming-soon-content">
+<main class="section">
 
-      <span class="coming-soon-label">
-        CONTENTS
-      </span>
-
-      <h1>COMING SOON</h1>
-
-      <div class="coming-soon-line"></div>
-
-      <p>ただいま準備中です。</p>
-
-      <p class="coming-soon-description">
-        コンテンツ公開まで、もうしばらくお待ちください。
-      </p>
-
-      <a href="index.html" class="back-home">
-        BACK TO HOME
-      </a>
-
-    </div>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-
-    <a href="index.html" class="footer-logo">
-      YUZU LOVERS
+  <section class="feature">
+    <div class="tag">30th ANNIVERSARY</div>
+    <h2>YUZU STADIUM LIVE 2027</h2>
+    <p>22年ぶりの日産スタジアム凱旋公演</p>
+    <p>DAY1「ゆ」 / DAY2「ず」</p>
+    <p>2027.05.15 – 2027.05.16</p>
+    <a href="https://yuzu-official.com/pages/30_stadiumlive_2027"
+       target="_blank" rel="noopener">
+      OFFICIAL SITE ↗
     </a>
+  </section>
 
-    <p>
-      ゆずを愛するすべての人へ。
-    </p>
+  <div class="section-title">
+    <h2>LIVE ARCHIVE</h2>
+    <p>歴代ライブ・ツアー一覧</p>
+  </div>
 
-    <div class="footer-navigation">
-      <a href="index.html">HOME</a>
-      <a href="news.html">NEWS</a>
-      <a href="biography.html">BIOGRAPHY</a>
-      <a href="discography.html">DISCOGRAPHY</a>
-      <a href="movie.html">MOVIE</a>
-      <a href="live.html">LIVE</a>
+  <div class="controls">
+    <input
+      type="search"
+      id="search"
+      class="search-box"
+      placeholder="ライブ・ツアー名を検索..."
+    >
+
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-category="ALL">ALL</button>
+      <button class="filter-btn" data-category="TOUR">TOUR</button>
+      <button class="filter-btn" data-category="ARENA">ARENA</button>
+      <button class="filter-btn" data-category="DOME">DOME</button>
+      <button class="filter-btn" data-category="STADIUM">STADIUM</button>
+      <button class="filter-btn" data-category="HALL">HALL</button>
+      <button class="filter-btn" data-category="EVENT">EVENT</button>
+      <button class="filter-btn" data-category="ONLINE">ONLINE</button>
+      <button class="filter-btn" data-category="WINTER">冬至の日</button>
     </div>
 
-    <small>
-      © YUZU LOVERS. All Rights Reserved.
-    </small>
+    <div class="year-list" id="years"></div>
+  </div>
 
-  </footer>
+  <div class="results-info" id="results"></div>
 
+  <div class="live-grid" id="liveGrid">
+    <div class="empty" id="empty">
+      該当するライブが見つかりませんでした。
+    </div>
+  </div>
+
+  <div class="archive-note">
+    <p>YUZU LIVE HISTORY</p>
+    <p>1998 – 2027</p>
+    <p>※公演情報は随時追加・確認・更新予定です。</p>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-logo">YUZU LOVERS</div>
+  <p>ゆず大好きな人公式サイト</p>
+  <p>© YUZU LOVERS</p>
+</footer>
+
+<script>
+const lives = [
+
+/* ================= 1990年代 ================= */
+{year:1998,title:"初ワンマンライブ「カレーうどん」",category:"HALL"},
+{year:1998,title:"渋谷公園通り劇場LIVE「戸棚の中のおやつ食べていい？」",category:"HALL"},
+{year:1998,title:"渋谷公園通り劇場LIVE「ミューズで手を洗ってからね！」",category:"HALL"},
+{year:1998,title:"ゆずワンマンLIVE「ゆずの夏祭り」",category:"EVENT"},
+{year:1998,title:"初のコンサートツアー「昇心旅行」",category:"TOUR"},
+{year:1998,title:"初の体育館ツアー「幸（せ）拍（手）歌合戦」",category:"TOUR"},
+{year:1999,title:"ツアー「サクラサク'99」",category:"TOUR"},
+{year:1999,title:"アリーナツアー「秋（音）楽旅行」",category:"ARENA"},
+{year:1999,title:"冬至の日ライブ",category:"WINTER"},
+
+/* ================= 2000年代 ================= */
+{year:2000,title:"夏の野球場ツアー「満員音（楽）礼 ～熱闘!Bomb踊り～」",category:"STADIUM"},
+{year:2000,title:"体育館ツアー「トビラ」",category:"TOUR"},
+{year:2000,title:"冬至の日ライブ",category:"WINTER"},
+
+{year:2001,title:"初のドーム公演「ふたりのビッグ（エッグ）ショー」",category:"DOME"},
+{year:2001,title:"冬至の日ライブ",category:"WINTER"},
+
+{year:2002,title:"体育館ツアー「ユズモラス」",category:"TOUR"},
+{year:2002,title:"ユズモラス 特別編",category:"EVENT"},
+{year:2002,title:"冬至の日ライブ",category:"WINTER"},
+
+{year:2003,title:"体育館ツアー「すみれ」",category:"TOUR"},
+{year:2003,title:"夏休み子供コンサート「ゆずスマイル」",category:"EVENT"},
+{year:2003,title:"幸（せ）拍（手）歌合戦",category:"EVENT"},
+{year:2003,title:"冬至の日ライブ",category:"WINTER"},
+
+{year:2004,title:"体育館ツアー「夢の地図」",category:"TOUR"},
+{year:2004,title:"体育館ツアー「1 ～ONE～」",category:"TOUR"},
+{year:2004,title:"「1 ～ONE～」FINAL at BUDOKAN",category:"HALL"},
+{year:2004,title:"冬至の日ライブ",category:"WINTER"},
+
+{year:2005,title:"YUZU STADIUM 2005「GO HOME」",category:"STADIUM"},
+{year:2005,title:"冬至の日ライブ",category:"WINTER"},
+
+{year:2006,title:"体育館ツアー「リボン」",category:"TOUR"},
+{year:2006,title:"ゆずスマイルコンサート「にほんのうた」",category:"EVENT"},
+{year:2006,title:"冬至の日ライブ",category:"WINTER"},
+
+{year:2007,title:"デビュー10周年感謝祭「ゆずのね」",category:"EVENT"},
+{year:2007,title:"ハレブタイ!ゆずとハタチでつくる「ありがとう」コンサート",category:"EVENT"},
+{year:2007,title:"冬至の日ライブ",category:"WINTER"},
+
+{year:2008,title:"ARENA TOUR「WONDERFUL WORLD」",category:"ARENA"},
+{year:2008,title:"夏コンサート「素晴らしきこの世界」",category:"STADIUM"},
+{year:2008,title:"冬至の日ライブ",category:"WINTER"},
+
+{year:2009,title:"ARENA TOUR「FURUSATO」",category:"ARENA"},
+{year:2009,title:"冬至の日ライブ",category:"WINTER"},
+
+/* ================= 2010年代 ================= */
+{year:2010,title:"FURUSATO FINAL at 日本武道館",category:"HALL"},
+{year:2010,title:"LIVE CIRCUIT「FUTATABI」",category:"TOUR"},
+{year:2010,title:"Premium Live Event「Hey和」",category:"EVENT"},
+{year:2010,title:"冬至の日ライブ",category:"WINTER"},
+
+{year:2011,title:"ARENA TOUR「2-NI- × FUTARI」",category:"ARENA"},
+{year:2011,title:"東北ツアー「2-NI- × FUTARI」",category:"TOUR"},
+{year:2011,title:"冬至の日ライブ",category:"WINTER"},
+
+{year:2012,title:"15th anniversary Dome Live「YUZU YOU ～二人で、どうむありがとう～」",category:"DOME"},
+{year:2012,title:"15th anniversary Dome Live「YUZU YOU ～みんな、どうむありがとう～」",category:"DOME"},
+{year:2012,title:"LIVE CIRCUIT「YUZU YOU ～二人で、どこへでも～」",category:"TOUR"},
+{year:2012,title:"冬至の日ライブ",category:"WINTER"},
+
+{year:2013,title:"ARENA TOUR「YUZU YOU ～みんなと、どこまでも～」",category:"ARENA"},
+{year:2013,title:"ARENA TOUR「GO LAND」",category:"ARENA"},
+{year:2013,title:"冬至の日ライブ",category:"WINTER"},
+
+{year:2014,title:"ARENA TOUR「新世界」",category:"ARENA"},
+{year:2014,title:"冬至の日ライブ",category:"WINTER"},
+
+{year:2015,title:"弾き語りライブ「二人参客」in 横浜スタジアム",category:"STADIUM"},
+{year:2015,title:"二人参客 前夜祭 ～にほんのうた～",category:"EVENT"},
+{year:2015,title:"二人参客 後夜祭 ～ゆずっこ感謝DAY～",category:"EVENT"},
+{year:2015,title:"震災から4年「明日へ」コンサート",category:"EVENT"},
+{year:2015,title:"ARENA TOUR「TOWA-episode zero-」",category:"ARENA"},
+
+{year:2016,title:"ARENA TOUR「TOWA」",category:"ARENA"},
+{year:2016,title:"SUMMER「NATSUIRO」",category:"TOUR"},
+{year:2016,title:"20周年記念 弾き語りライブ「ゆずのみ」",category:"DOME"},
+{year:2016,title:"震災から5年「明日へ」コンサート",category:"EVENT"},
+{year:2016,title:"冬至の日ライブ in 熊本",category:"WINTER"},
+
+{year:2017,title:"20th Anniversary DOME TOUR「ゆずイロハ」",category:"DOME"},
+{year:2017,title:"SUMMER FEST. TOUR「GOOD SUNSHINE DAYS」",category:"TOUR"},
+{year:2017,title:"HALL TOUR「謳おう」",category:"HALL"},
+{year:2017,title:"ASIA TOUR「謳おう -UTAO-」",category:"TOUR"},
+{year:2017,title:"夏祭り 杜の音",category:"EVENT"},
+{year:2017,title:"X'mas SPECIAL LIVE",category:"EVENT"},
+{year:2017,title:"冬至の日ライブ ファイナル",category:"WINTER"},
+
+{year:2018,title:"ARENA TOUR「BIG YELL」",category:"ARENA"},
+{year:2018,title:"ARENA TOUR「BIG YELL II ～Great Voyage～」",category:"ARENA"},
+{year:2018,title:"BIG YELL × FUTARI in 広島",category:"EVENT"},
+{year:2018,title:"お～いお茶 ゆずフレッシュLIVE",category:"EVENT"},
+{year:2018,title:"夏祭り 杜の音",category:"EVENT"},
+{year:2018,title:"冬至の日ライブ",category:"WINTER"},
+
+{year:2019,title:"弾き語りドームツアー「ゆずのみ ～拍手喝祭～」",category:"DOME"},
+{year:2019,title:"ASIA LIVE「YUZUNOMI ～拍手喝祭～」",category:"TOUR"},
+{year:2019,title:"夏祭り 杜の音 ～ゆずのみ 後夜祭～",category:"EVENT"},
+
+/* ================= 2020年代 ================= */
+{year:2020,title:"ARENA TOUR「YUZUTOWN」※開催中止",category:"ARENA"},
+{year:2020,title:"ONLINE TOUR「AGAIN」",category:"ONLINE"},
+
+{year:2021,title:"バレンタオンラインライブ",category:"ONLINE"},
+{year:2021,title:"ONLINE LIVE「YUZUTOWN」",category:"ONLINE"},
+{year:2021,title:"ONLINE LIVE「ALWAYS YUZUTOWN」",category:"ONLINE"},
+{year:2021,title:"TOUR「謳おう」",category:"TOUR"},
+{year:2021,title:"「謳おう × FUTARI in 日本武道館」",category:"HALL"},
+{year:2021,title:"冬至の日ライブ",category:"WINTER"},
+
+{year:2022,title:"ARENA TOUR「PEOPLE -ALWAYS with you-」",category:"ARENA"},
+{year:2022,title:"ARENA TOUR「SEES -ALWAYS with you-」",category:"ARENA"},
+{year:2022,title:"夏祭り 杜の音 後夜祭 ～ゆずっこを想う～",category:"EVENT"},
+
+{year:2023,title:"TOUR「Rita -みんなとまたあえる-」",category:"TOUR"},
+{year:2023,title:"SPECIAL LIVE「HIBIKI」in K-Arena Yokohama",category:"ARENA"},
+{year:2023,title:"HIBIKI アンコール公演",category:"EVENT"},
+
+{year:2024,title:"AGAIN AGAIN in 横浜BUNTAI",category:"HALL"},
+{year:2024,title:"ARENA TOUR「図鑑」",category:"ARENA"},
+{year:2024,title:"Orchestra Concert「ゆず晦日」",category:"EVENT"},
+
+{year:2025,title:"ARENA TOUR「図鑑」",category:"ARENA"},
+{year:2025,title:"ARENA TOUR「図鑑 spring has come」",category:"ARENA"},
+{year:2025,title:"夏祭り 杜の音",category:"EVENT"},
+{year:2025,title:"YUZU LIVE「GET BACK トビラ」",category:"EVENT"},
+{year:2025,title:"JAPAN LIVE「GET BACK」長崎",category:"TOUR"},
+
+{year:2026,title:"ゆずオーケストラコンサート",category:"EVENT"},
+{year:2026,title:"弾き語りアリーナツアー「心音」",category:"ARENA"},
+{year:2026,title:"30周年開幕記念ライブ「心をとめないで」",category:"EVENT"},
+{year:2026,title:"生声30分 弾き語りライブ in TOY'S FACTORY",category:"EVENT"},
+
+{year:2027,title:"30th ANNIVERSARY STADIUM LIVE DAY1「ゆ」",category:"STADIUM",date:"2027.05.15",venue:"日産スタジアム"},
+{year:2027,title:"30th ANNIVERSARY STADIUM LIVE DAY2「ず」",category:"STADIUM",date:"2027.05.16",venue:"日産スタジアム"}
+
+];
+
+/* 冬至の日ライブ追加データ */
+const winterLives = [
+{year:1997,title:"冬至の日ライブ",category:"WINTER",venue:"横浜大通り公園"},
+{year:1998,title:"冬至の日ライブ",category:"WINTER",venue:"代々木第一体育館駐車場"},
+{year:1999,title:"冬至の日ライブ",category:"WINTER",venue:"西武ドーム"},
+{year:2000,title:"冬至の日ライブ",category:"WINTER",venue:"よみうりランドオープンシアターEAST"},
+{year:2001,title:"冬至の日ライブ",category:"WINTER",venue:"国立代々木競技場駐車場"},
+{year:2002,title:"冬至の日ライブ",category:"WINTER",venue:"臨港パーク"},
+{year:2003,title:"冬至の日ライブ",category:"WINTER",venue:"ポートアイランド内芝生広場"},
+{year:2004,title:"冬至の日ライブ",category:"WINTER",venue:"宜野湾市海浜公園野外劇場"},
+{year:2005,title:"冬至の日ライブ",category:"WINTER",venue:"天然色劇場"},
+{year:2006,title:"冬至の日ライブ",category:"WINTER",venue:"横浜赤レンガ倉庫"},
+{year:2007,title:"冬至の日ライブ",category:"WINTER",venue:"横浜スタジアム"},
+{year:2008,title:"冬至の日ライブ",category:"WINTER",venue:"横浜スタジアム"},
+{year:2009,title:"冬至の日ライブ",category:"WINTER",venue:"FURUSATO岡山公演終了後"},
+{year:2010,title:"冬至の日ライブ",category:"WINTER",venue:"TOY'S FACTORY CHANNEL"},
+{year:2011,title:"冬至の日ライブ",category:"WINTER",venue:"福島県テルサ"},
+{year:2012,title:"冬至の日ライブ",category:"WINTER",venue:"YUZU YOU 埼玉公演終了後"},
+{year:2013,title:"冬至の日ライブ",category:"WINTER",venue:"横浜みなとみらい万葉倶楽部"},
+{year:2014,title:"冬至の日ライブ",category:"WINTER",venue:"横浜にぎわい座"},
+{year:2015,title:"冬至の日ライブ",category:"WINTER",venue:"STUDIO HOUSE"},
+{year:2016,title:"冬至の日ライブ",category:"WINTER",venue:"熊本城二の丸広場"},
+{year:2017,title:"冬至の日ライブ",category:"WINTER",venue:"カトレヤプラザ伊勢佐木"},
+{year:2021,title:"冬至の日ライブ",category:"WINTER",venue:"ノエビアスタジアム神戸"}
+];
+
+lives.push(...winterLives);
+
+/* ================= 表示機能 ================= */
+
+const grid = document.getElementById("liveGrid");
+const search = document.getElementById("search");
+const yearArea = document.getElementById("years");
+const results = document.getElementById("results");
+const empty = document.getElementById("empty");
+
+let selectedYear = "ALL";
+let selectedCategory = "ALL";
+
+const years = [...new Set(lives.map(l => l.year))].sort((a,b) => b-a);
+
+years.forEach(year => {
+  const btn = document.createElement("button");
+  btn.className = "year-btn";
+  btn.textContent = year;
+  btn.dataset.year = year;
+
+  btn.onclick = () => {
+    selectedYear = selectedYear === String(year) ? "ALL" : String(year);
+    update();
+  };
+
+  yearArea.appendChild(btn);
+});
+
+document.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.onclick = () => {
+    selectedCategory = btn.dataset.category;
+
+    document.querySelectorAll(".filter-btn").forEach(b => {
+      b.classList.remove("active");
+    });
+
+    btn.classList.add("active");
+    update();
+  };
+});
+
+search.addEventListener("input", update);
+
+function update() {
+  const keyword = search.value.trim().toLowerCase();
+
+  const filtered = lives.filter(l => {
+    const yearMatch =
+      selectedYear === "ALL" || String(l.year) === selectedYear;
+
+    const categoryMatch =
+      selectedCategory === "ALL" || l.category === selectedCategory;
+
+    const keywordMatch =
+      `${l.title} ${l.year} ${l.category} ${l.venue || ""}`
+        .toLowerCase()
+        .includes(keyword);
+
+    return yearMatch && categoryMatch && keywordMatch;
+  });
+
+  grid.innerHTML = "";
+  grid.appendChild(empty);
+
+  empty.style.display = filtered.length === 0 ? "block" : "none";
+
+  results.textContent = `${filtered.length} LIVE RECORDS`;
+
+  document.querySelectorAll(".year-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.year === selectedYear);
+  });
+
+  filtered.sort((a,b) => b.year - a.year);
+
+  filtered.forEach((live, index) => {
+    const card = document.createElement("article");
+    card.className = "live-card";
+
+    const date = live.date || "開催年 " + live.year;
+    const venue = live.venue || "公演会場・詳細情報";
+
+    card.innerHTML = `
+      <div class="card-top">
+        <div>
+          <span class="card-year">${live.year}</span>
+          <span class="card-category">${live.category}</span>
+        </div>
+        <h3 class="card-title">${live.title}</h3>
+        <div class="card-date">${date}</div>
+        <div class="card-venue">${venue}</div>
+      </div>
+
+      <button class="detail-btn">
+        ＋ LIVE DETAILS
+      </button>
+
+      <div class="detail">
+        <div><strong>YEAR：</strong>${live.year}</div>
+        <div><strong>TITLE：</strong>${live.title}</div>
+        <div><strong>CATEGORY：</strong>${live.category}</div>
+        <div><strong>VENUE：</strong>${venue}</div>
+        <div><strong>INFO：</strong>公演詳細は確認でき次第追加予定。</div>
+      </div>
+    `;
+
+    const btn = card.querySelector(".detail-btn");
+    const detail = card.querySelector(".detail");
+
+    btn.onclick = () => {
+      const opened = detail.classList.toggle("open");
+      btn.textContent = opened ? "－ CLOSE DETAILS" : "＋ LIVE DETAILS";
+    };
+
+    grid.appendChild(card);
+  });
+}
+
+update();
+</script>
 </body>
 </html>
