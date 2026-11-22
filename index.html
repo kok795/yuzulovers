@@ -139,6 +139,69 @@
 </footer>
 
 <script>
+  const yuzuTrack = document.getElementById("yuzuTrack");
+const yuzuSlides = document.querySelectorAll(".yuzu-carousel-slide");
+const yuzuDotsContainer = document.getElementById("yuzuDots");
+const yuzuPrev = document.getElementById("yuzuPrev");
+const yuzuNext = document.getElementById("yuzuNext");
+
+let yuzuIndex = 0;
+let yuzuTimer;
+
+yuzuSlides.forEach((_, i) => {
+  const dot = document.createElement("button");
+  if (i === 0) dot.classList.add("active");
+
+  dot.addEventListener("click", () => {
+    yuzuGoTo(i);
+  });
+
+  yuzuDotsContainer.appendChild(dot);
+});
+
+const yuzuDots = yuzuDotsContainer.querySelectorAll("button");
+
+function yuzuGoTo(index) {
+  yuzuIndex = (index + yuzuSlides.length) % yuzuSlides.length;
+
+  yuzuTrack.style.transform =
+    `translateX(-${yuzuIndex * 100}%)`;
+
+  yuzuDots.forEach((dot, i) => {
+    dot.classList.toggle("active", i === yuzuIndex);
+  });
+}
+
+yuzuNext.addEventListener("click", () => {
+  yuzuGoTo(yuzuIndex + 1);
+});
+
+yuzuPrev.addEventListener("click", () => {
+  yuzuGoTo(yuzuIndex - 1);
+});
+
+/* 5秒ごとに横スライド */
+function yuzuStartSlide() {
+  yuzuTimer = setInterval(() => {
+    yuzuGoTo(yuzuIndex + 1);
+  }, 5000);
+}
+
+function yuzuStopSlide() {
+  clearInterval(yuzuTimer);
+}
+
+yuzuNext.addEventListener("click", () => {
+  yuzuStopSlide();
+  yuzuStartSlide();
+});
+
+yuzuPrev.addEventListener("click", () => {
+  yuzuStopSlide();
+  yuzuStartSlide();
+});
+
+yuzuStartSlide();
 const cards = document.querySelectorAll(".content-card");
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -150,6 +213,5 @@ const observer = new IntersectionObserver(entries => {
 },{threshold:0.15});
 cards.forEach(card => observer.observe(card));
 </script>
-
 </body>
 </html>
