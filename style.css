@@ -1183,3 +1183,34 @@ img {
   height: 2px;
   background: linear-gradient(90deg, #b68b43, #e7bd68, #b68b43);
 }
+/* EXPLORE YUZU 全体のゴールドフレーム */
+section.contents {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  border: 2px solid #c9a24d !important;
+  border-radius: 20px !important;
+
+  max-width: 1400px !important;
+  width: 90% !important;
+  margin: 60px auto !important;
+  padding: 60px 40px !important;
+
+  box-sizing: border-box !important;
+  background: #fff !important;
+
+  box-shadow:
+    0 0 0 5px rgba(201, 162, 77, 0.08),
+    0 10px 35px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* スマホ表示 */
+@media screen and (max-width: 600px) {
+  section.contents {
+    width: 94% !important;
+    padding: 40px 15px !important;
+    margin: 35px auto !important;
+    border-radius: 14px !important;
+  }
+}
