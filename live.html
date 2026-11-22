@@ -418,6 +418,26 @@ footer p {
     font-size: 27px;
   }
 }
+  /* テキスト選択・コピー防止 */
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* 入力欄は通常操作可能にする */
+input,
+textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* 画像のドラッグ防止 */
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
 </style>
 </head>
 
