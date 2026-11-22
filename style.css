@@ -987,55 +987,77 @@ img {
     right: 8px;
   }
 }
-/* YUZU LOVERS IMAGE SLIDER */
+/* ==========================
+   YUZU LOVERS SLIDE BANNER
+========================== */
 
 .yuzu-carousel {
   position: relative;
-  max-width: 1200px;
   width: 95%;
+  max-width: 1200px;
   margin: 35px auto;
   overflow: hidden;
-  border-radius: 10px;
   border: 1px solid #c9a227;
+  border-radius: 10px;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .yuzu-carousel-track {
   display: flex;
-  transition: transform 0.65s ease-in-out;
+  width: 100%;
+  transition: transform 0.65s ease;
+  will-change: transform;
 }
 
 .yuzu-carousel-slide {
   flex: 0 0 100%;
   width: 100%;
-  display: block;
-}
-
-.yuzu-carousel-slide img {
-  width: 100%;
   aspect-ratio: 16 / 6;
-  object-fit: cover;
   display: block;
-  transition: 0.4s;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 
-.yuzu-carousel-slide:hover img {
-  transform: scale(1.02);
-}
+/* 矢印 */
 
-/* 左右ボタン */
 .yuzu-carousel-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
+  z-index: 5;
+
+  width: 44px;
+  height: 44px;
+
   border: 1px solid #d4af37;
-  background: rgba(0,0,0,0.65);
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.7);
   color: #d4af37;
+
   font-size: 30px;
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.3s;
+}
+
+.yuzu-carousel-arrow:hover {
+  background: #d4af37;
+  color: #111;
 }
 
 .yuzu-carousel-arrow.prev {
@@ -1047,23 +1069,27 @@ img {
 }
 
 /* ドット */
+
 .yuzu-carousel-dots {
   position: absolute;
   bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 5;
+
   display: flex;
   gap: 10px;
-  z-index: 10;
 }
 
 .yuzu-carousel-dots button {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   padding: 0;
-  border-radius: 50%;
+
   border: 1px solid #d4af37;
-  background: transparent;
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.4);
   cursor: pointer;
 }
 
@@ -1071,29 +1097,34 @@ img {
   background: #d4af37;
 }
 
-/* スマホ */
+/* スマートフォン */
+
 @media (max-width: 768px) {
-  .yuzu-carousel-slide img {
+
+  .yuzu-carousel {
+    width: 94%;
+    border-radius: 7px;
+  }
+
+  .yuzu-carousel-slide {
     aspect-ratio: 16 / 9;
   }
 
   .yuzu-carousel-arrow {
     width: 35px;
     height: 35px;
-    font-size: 23px;
+    font-size: 24px;
   }
-}
-/* スライドバナー画像の保存・選択防止 */
-.yuzu-carousel-slide img {
-  -webkit-user-drag: none;
-  user-drag: none;
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-  pointer-events: auto;
-}
 
-/* バナー上の画像操作を抑止 */
-.yuzu-carousel {
-  -webkit-touch-callout: none;
-}
+  .yuzu-carousel-arrow.prev {
+    left: 8px;
+  }
+
+  .yuzu-carousel-arrow.next {
+    right: 8px;
+  }
+
+  .yuzu-carousel-dots {
+    bottom: 10px;
+  }
+  }
