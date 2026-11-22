@@ -1149,3 +1149,37 @@ img {
   transform: translateY(0) !important;
   visibility: visible !important;
 }
+/* EXPLORE YUZU 全体を囲む */
+.contents {
+  border: 1px solid #c5a04a;
+  border-radius: 18px;
+  margin: 40px auto;
+  max-width: 1400px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 30px rgba(120, 90, 40, 0.08);
+}
+
+/* 内側の余白 */
+.contents {
+  padding: 90px 7%;
+}
+
+/* 見出しの装飾 */
+.contents .section-title h2 {
+  color: #5b4527;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 18px;
+}
+
+/* 見出し下のゴールドライン */
+.contents .section-title h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 2px;
+  background: linear-gradient(90deg, #b68b43, #e7bd68, #b68b43);
+}
