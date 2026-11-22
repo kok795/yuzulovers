@@ -204,23 +204,15 @@ a {
   grid-template-columns: repeat(6, 1fr);
   gap: 20px;
 }
-
-.content-card {
-  position: relative;
-  grid-column: span 2;
-  min-height: 240px;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  overflow: hidden;
-  color: white;
-  background: linear-gradient(135deg,#9d7848,#35271b);
-  transition: .4s;
-  opacity: 0;
-  transform: translateY(25px);
+.content-card
+opacity: 1;
+transform: translateY(0);
+visibility: visible;
+.content-card.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
 }
-
 .content-card:nth-child(4) {
   grid-column: 2 / span 2;
 }
