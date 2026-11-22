@@ -178,103 +178,120 @@ a {
   font-size: 14px;
   line-height: 2.5;
 }
+/* =========================
+   CONTENTS / EXPLORE YUZU
+========================= */
 
-/* CONTENTS */
 .contents {
-  padding: 110px 7%;
+  display: block !important;
+  position: relative;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  width: 90%;
+  max-width: 1400px;
+  margin: 60px auto !important;
+  padding: 80px 7% !important;
+
+  box-sizing: border-box;
   background: #f5f0e7;
+
+  border: 2px solid #c5a04a;
+  border-radius: 20px;
+
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
 }
 
-.section-title {
+/* 見出し */
+.contents .section-title {
+  display: block !important;
   text-align: center;
   margin-bottom: 55px;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
-.section-title h2 {
+.contents .section-title h2 {
   font-family: Georgia, serif;
   font-size: 42px;
   font-weight: 400;
   letter-spacing: 3px;
+  color: #5b4527;
+
+  display: inline-block;
+  position: relative;
+  padding-bottom: 18px;
 }
 
+/* ゴールドライン */
+.contents .section-title h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 70px;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    #b68b43,
+    #e7bd68,
+    #b68b43
+  );
+}
+
+/* カード配置 */
 .contents-grid {
   max-width: 1200px;
   margin: auto;
+
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 20px;
 }
-.content-card
-opacity: 1;
-transform: translateY(0);
-visibility: visible;
-.content-card.show {
-  opacity: 1;
-  transform: translateY(0);
-  visibility: visible;
+
+/* カード表示 */
+.contents-grid .content-card {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  visibility: visible !important;
 }
+
+/* LIVE */
 .content-card:nth-child(4) {
   grid-column: 2 / span 2;
 }
 
+/* MOVIE */
 .content-card:nth-child(5) {
   grid-column: 4 / span 2;
 }
 
-.content-card.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* スマートフォン */
+@media screen and (max-width: 800px) {
+  .contents {
+    width: 94%;
+    margin: 35px auto !important;
+    padding: 50px 15px !important;
+    border-radius: 15px;
+  }
 
-.content-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0,0,0,.15);
-}
+  .contents-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
 
-.content-card span {
-  color: #e7bd68;
-  font-size: 10px;
-  letter-spacing: 2px;
-}
+  .content-card:nth-child(4),
+  .content-card:nth-child(5) {
+    grid-column: auto;
+  }
 
-.content-card h3 {
-  margin-top: 10px;
-  font-family: Georgia, serif;
-  font-size: 27px;
-  font-weight: 400;
+  .contents .section-title h2 {
+    font-size: 30px;
+  }
 }
-
-.content-card p {
-  font-size: 12px;
-  color: rgba(255,255,255,.8);
-}
-
-.content-card b {
-  position: absolute;
-  right: 25px;
-  bottom: 25px;
-  color: #e7bd68;
-  font-size: 20px;
-}
-
-/* MESSAGE */
-.message {
-  padding: 120px 20px;
-  text-align: center;
-}
-
-.message > p:not(.eyebrow) {
-  color: #887866;
-}
-
-.message strong {
-  display: block;
-  margin-top: 35px;
-  color: #b68b43;
-  letter-spacing: 5px;
-  font-family: Georgia, serif;
-}
-
 /* FOOTER */
 .footer {
   padding: 65px 20px 35px;
@@ -1120,97 +1137,3 @@ img {
     bottom: 10px;
   }
   }
-/* EXPLORE YUZU 表示修正 */
-.contents {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  position: relative;
-  z-index: 2;
-  padding: 80px 20px;
-}
-
-.contents .section-title {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.contents .section-title h2 {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-｝
-  /* EXPLORE YUZU カード強制表示 */
-.contents-grid .content-card {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  visibility: visible !important;
-}
-/* EXPLORE YUZU 全体を囲む */
-.contents {
-  border: 1px solid #c5a04a;
-  border-radius: 18px;
-  margin: 40px auto;
-  max-width: 1400px;
-  box-sizing: border-box;
-  box-shadow: 0 8px 30px rgba(120, 90, 40, 0.08);
-}
-
-/* 内側の余白 */
-.contents {
-  padding: 90px 7%;
-}
-
-/* 見出しの装飾 */
-.contents .section-title h2 {
-  color: #5b4527;
-  position: relative;
-  display: inline-block;
-  padding-bottom: 18px;
-}
-
-/* 見出し下のゴールドライン */
-.contents .section-title h2::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70px;
-  height: 2px;
-  background: linear-gradient(90deg, #b68b43, #e7bd68, #b68b43);
-}
-/* EXPLORE YUZU 全体のゴールドフレーム */
-section.contents {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-
-  border: 2px solid #c9a24d !important;
-  border-radius: 20px !important;
-
-  max-width: 1400px !important;
-  width: 90% !important;
-  margin: 60px auto !important;
-  padding: 60px 40px !important;
-
-  box-sizing: border-box !important;
-  background: #fff !important;
-
-  box-shadow:
-    0 0 0 5px rgba(201, 162, 77, 0.08),
-    0 10px 35px rgba(0, 0, 0, 0.08) !important;
-}
-
-/* スマホ表示 */
-@media screen and (max-width: 600px) {
-  section.contents {
-    width: 94% !important;
-    padding: 40px 15px !important;
-    margin: 35px auto !important;
-    border-radius: 14px !important;
-  }
-}
