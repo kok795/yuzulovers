@@ -1083,3 +1083,17 @@ img {
     font-size: 23px;
   }
 }
+/* スライドバナー画像の保存・選択防止 */
+.yuzu-carousel-slide img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  pointer-events: auto;
+}
+
+/* バナー上の画像操作を抑止 */
+.yuzu-carousel {
+  -webkit-touch-callout: none;
+}
