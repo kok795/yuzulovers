@@ -161,7 +161,12 @@
 </footer>
 
 <script>
-  const yuzuTrack = document.getElementById("yuzuTrack");
+/* ==========================
+   YUZU LOVERS SLIDER
+========================== */
+
+const yuzuCarousel = document.getElementById("yuzuCarousel");
+const yuzuTrack = document.getElementById("yuzuTrack");
 const yuzuSlides = document.querySelectorAll(".yuzu-carousel-slide");
 const yuzuDotsContainer = document.getElementById("yuzuDots");
 const yuzuPrev = document.getElementById("yuzuPrev");
@@ -169,13 +174,24 @@ const yuzuNext = document.getElementById("yuzuNext");
 
 let yuzuIndex = 0;
 let yuzuTimer;
+let yuzuTouchStartX = 0;
+let yuzuTouchEndX = 0;
+let yuzuSwiping = false;
 
-yuzuSlides.forEach((_, i) => {
+/* ドット作成 */
+yuzuSlides.forEach((slide, i) => {
   const dot = document.createElement("button");
-  if (i === 0) dot.classList.add("active");
+
+  dot.type = "button";
+  dot.setAttribute("aria-label", `バナー${i + 1}`);
+
+  if (i === 0) {
+    dot.classList.add("active");
+  }
 
   dot.addEventListener("click", () => {
     yuzuGoTo(i);
+    yuzuRestartSlide();
   });
 
   yuzuDotsContainer.appendChild(dot);
@@ -183,6 +199,7 @@ yuzuSlides.forEach((_, i) => {
 
 const yuzuDots = yuzuDotsContainer.querySelectorAll("button");
 
+/* スライド移動 */
 function yuzuGoTo(index) {
   yuzuIndex = (index + yuzuSlides.length) % yuzuSlides.length;
 
@@ -191,19 +208,14 @@ function yuzuGoTo(index) {
 
   yuzuDots.forEach((dot, i) => {
     dot.classList.toggle("active", i === yuzuIndex);
-  });
+  }
+  );
 }
 
-yuzuNext.addEventListener("click", () => {
-  yuzuGoTo(yuzuIndex + 1);
-});
-
-yuzuPrev.addEventListener("click", () => {
-  yuzuGoTo(yuzuIndex - 1);
-});
-
-/* 5秒ごとに横スライド */
+/* 自動スライド */
 function yuzuStartSlide() {
+  yuzuStopSlide();
+
   yuzuTimer = setInterval(() => {
     yuzuGoTo(yuzuIndex + 1);
   }, 5000);
@@ -213,38 +225,75 @@ function yuzuStopSlide() {
   clearInterval(yuzuTimer);
 }
 
-yuzuNext.addEventListener("click", () => {
-  yuzuStopSlide();
+function yuzuRestartSlide() {
   yuzuStartSlide();
+}
+
+/* 左右ボタン */
+yuzuNext.addEventListener("click", (e) => {
+  e.stopPropagation();
+  yuzuGoTo(yuzuIndex + 1);
+  yuzuRestartSlide();
 });
 
-yuzuPrev.addEventListener("click", () => {
-  yuzuStopSlide();
-  yuzuStartSlide();
+yuzuPrev.addEventListener("click", (e) => {
+  e.stopPropagation();
+  yuzuGoTo(yuzuIndex - 1);
+  yuzuRestartSlide();
 });
 
-yuzuStartSlide();
-const cards = document.querySelectorAll(".content-card");
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-      observer.unobserve(entry.target);
+/* マウス操作中は自動スライド停止 */
+yuzuCarousel.addEventListener("mouseenter", yuzuStopSlide);
+yuzuCarousel.addEventListener("mouseleave", yuzuStartSlide);
+
+/* スマホの横スワイプ */
+yuzuCarousel.addEventListener("touchstart", (e) => {
+  yuzuTouchStartX = e.changedTouches[0].screenX;
+  yuzuSwiping = false;
+}, { passive: true });
+
+yuzuCarousel.addEventListener("touchmove", (e) => {
+  yuzuTouchEndX = e.changedTouches[0].screenX;
+
+  if (Math.abs(yuzuTouchStartX - yuzuTouchEndX) > 15) {
+    yuzuSwiping = true;
+  }
+}, { passive: true });
+
+yuzuCarousel.addEventListener("touchend", (e) => {
+  yuzuTouchEndX = e.changedTouches[0].screenX;
+
+  const distance = yuzuTouchStartX - yuzuTouchEndX;
+
+  if (Math.abs(distance) > 50) {
+    yuzuGoTo(yuzuIndex + (distance > 0 ? 1 : -1));
+    yuzuRestartSlide();
+  }
+}, { passive: true });
+
+/* スワイプ直後の誤クリックを防止 */
+yuzuSlides.forEach(slide => {
+  slide.addEventListener("click", (e) => {
+    if (yuzuSwiping) {
+      e.preventDefault();
+      e.stopPropagation();
+      yuzuSwiping = false;
     }
-  });
-},{threshold:0.15});
-cards.forEach(card => observer.observe(card));
-  /* バナー画像の右クリック禁止 */
-document.querySelectorAll(".yuzu-carousel-slide img").forEach(img => {
-  img.addEventListener("contextmenu", e => e.preventDefault());
-
-  img.addEventListener("dragstart", e => e.preventDefault());
+  }, true);
 });
 
-/* バナー内での画像保存操作を抑止 */
-document.querySelector(".yuzu-carousel")?.addEventListener("contextmenu", e => {
+/* バナーの右クリック・ドラッグ抑止 */
+yuzuCarousel.addEventListener("contextmenu", e => {
   e.preventDefault();
 });
+
+yuzuCarousel.addEventListener("dragstart", e => {
+  e.preventDefault();
+});
+
+/* 初期化 */
+yuzuGoTo(0);
+yuzuStartSlide();
 </script>
 </body>
 </html>
