@@ -821,7 +821,25 @@ function update() {
     grid.appendChild(card);
   });
 }
+// 右クリックメニューを無効化
+document.addEventListener("contextmenu", function(e) {
+  e.preventDefault();
+});
 
+// コピーを無効化
+document.addEventListener("copy", function(e) {
+  e.preventDefault();
+});
+
+// 切り取りを無効化
+document.addEventListener("cut", function(e) {
+  e.preventDefault();
+});
+
+// テキストのドラッグ選択を防止
+document.addEventListener("dragstart", function(e) {
+  e.preventDefault();
+});
 update();
 </script>
 </body>
