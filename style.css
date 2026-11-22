@@ -893,108 +893,7 @@ img {
   color: #c5a04a;
   letter-spacing: 3px;
 }
-/* =========================
-   YUZU LOVERS SLIDER
-========================= */
 
-.yl-banner {
-  width: 100%;
-  max-width: 1400px;
-  margin: 35px auto;
-  padding: 0 15px;
-}
-
-.yl-slider {
-  position: relative;
-  width: 100%;
-  height: 430px;
-  overflow: hidden;
-  border: 1px solid #c9a227;
-  border-radius: 12px;
-  background: #111;
-}
-
-.yl-slide {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #fff;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.8s ease;
-}
-
-.yl-slide.active {
-  opacity: 1;
-  visibility: visible;
-  z-index: 1;
-}
-
-.yl-banner-overlay {
-  width: 100%;
-  height: 100%;
-  padding: 55px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: linear-gradient(
-    90deg,
-    rgba(0,0,0,0.88) 0%,
-    rgba(0,0,0,0.55) 48%,
-    rgba(0,0,0,0.08) 100%
-  );
-}
-
-.yl-banner-label {
-  color: #d4af37;
-  font-size: 13px;
-  letter-spacing: 5px;
-  margin-bottom: 15px;
-}
-
-.yl-banner-overlay h2 {
-  font-size: clamp(28px, 4vw, 55px);
-  font-weight: 800;
-  letter-spacing: 3px;
-  margin: 0 0 15px;
-  color: #e7c65a;
-}
-
-.yl-banner-overlay p {
-  font-size: 18px;
-  letter-spacing: 2px;
-  margin-bottom: 25px;
-}
-
-.yl-banner-button {
-  display: inline-block;
-  width: fit-content;
-  padding: 13px 28px;
-  border: 1px solid #d4af37;
-  color: #d4af37;
-  letter-spacing: 2px;
-  font-size: 12px;
-  transition: 0.3s;
-}
-
-.yl-slide:hover .yl-banner-button {
-  background: #d4af37;
-  color: #111;
-}
-
-/* ARROWS */
-
-.yl-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
-  width: 45px;
-  height: 45px;
   border: 1px solid rgba(212,175,55,0.7);
   border-radius: 50%;
   background: rgba(0,0,0,0.65);
@@ -1086,5 +985,101 @@ img {
 
   .yl-next {
     right: 8px;
+  }
+}
+/* YUZU LOVERS IMAGE SLIDER */
+
+.yuzu-carousel {
+  position: relative;
+  max-width: 1200px;
+  width: 95%;
+  margin: 35px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid #c9a227;
+}
+
+.yuzu-carousel-track {
+  display: flex;
+  transition: transform 0.65s ease-in-out;
+}
+
+.yuzu-carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  display: block;
+}
+
+.yuzu-carousel-slide img {
+  width: 100%;
+  aspect-ratio: 16 / 6;
+  object-fit: cover;
+  display: block;
+  transition: 0.4s;
+}
+
+.yuzu-carousel-slide:hover img {
+  transform: scale(1.02);
+}
+
+/* 左右ボタン */
+.yuzu-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid #d4af37;
+  background: rgba(0,0,0,0.65);
+  color: #d4af37;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.yuzu-carousel-arrow.prev {
+  left: 15px;
+}
+
+.yuzu-carousel-arrow.next {
+  right: 15px;
+}
+
+/* ドット */
+.yuzu-carousel-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.yuzu-carousel-dots button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid #d4af37;
+  background: transparent;
+  cursor: pointer;
+}
+
+.yuzu-carousel-dots button.active {
+  background: #d4af37;
+}
+
+/* スマホ */
+@media (max-width: 768px) {
+  .yuzu-carousel-slide img {
+    aspect-ratio: 16 / 9;
+  }
+
+  .yuzu-carousel-arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 23px;
   }
 }
