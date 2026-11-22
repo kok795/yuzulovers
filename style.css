@@ -893,3 +893,198 @@ img {
   color: #c5a04a;
   letter-spacing: 3px;
 }
+/* =========================
+   YUZU LOVERS SLIDER
+========================= */
+
+.yl-banner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 35px auto;
+  padding: 0 15px;
+}
+
+.yl-slider {
+  position: relative;
+  width: 100%;
+  height: 430px;
+  overflow: hidden;
+  border: 1px solid #c9a227;
+  border-radius: 12px;
+  background: #111;
+}
+
+.yl-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease;
+}
+
+.yl-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+.yl-banner-overlay {
+  width: 100%;
+  height: 100%;
+  padding: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.88) 0%,
+    rgba(0,0,0,0.55) 48%,
+    rgba(0,0,0,0.08) 100%
+  );
+}
+
+.yl-banner-label {
+  color: #d4af37;
+  font-size: 13px;
+  letter-spacing: 5px;
+  margin-bottom: 15px;
+}
+
+.yl-banner-overlay h2 {
+  font-size: clamp(28px, 4vw, 55px);
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin: 0 0 15px;
+  color: #e7c65a;
+}
+
+.yl-banner-overlay p {
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+.yl-banner-button {
+  display: inline-block;
+  width: fit-content;
+  padding: 13px 28px;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  letter-spacing: 2px;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.yl-slide:hover .yl-banner-button {
+  background: #d4af37;
+  color: #111;
+}
+
+/* ARROWS */
+
+.yl-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(212,175,55,0.7);
+  border-radius: 50%;
+  background: rgba(0,0,0,0.65);
+  color: #d4af37;
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.yl-arrow:hover {
+  background: #d4af37;
+  color: #111;
+}
+
+.yl-prev {
+  left: 15px;
+}
+
+.yl-next {
+  right: 15px;
+}
+
+/* DOTS */
+
+.yl-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  gap: 12px;
+}
+
+.yl-dot {
+  width: 11px;
+  height: 11px;
+  padding: 0;
+  border: 1px solid #d4af37;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.yl-dot.active {
+  background: #d4af37;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .yl-slider {
+    height: 280px;
+  }
+
+  .yl-banner-overlay {
+    padding: 35px 30px;
+  }
+
+  .yl-banner-overlay h2 {
+    font-size: 27px;
+    letter-spacing: 1px;
+  }
+
+  .yl-banner-overlay p {
+    font-size: 14px;
+  }
+
+  .yl-banner-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .yl-banner-button {
+    padding: 10px 18px;
+    font-size: 10px;
+  }
+
+  .yl-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 17px;
+  }
+
+  .yl-prev {
+    left: 8px;
+  }
+
+  .yl-next {
+    right: 8px;
+  }
+}
