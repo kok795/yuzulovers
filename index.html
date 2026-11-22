@@ -212,6 +212,17 @@ const observer = new IntersectionObserver(entries => {
   });
 },{threshold:0.15});
 cards.forEach(card => observer.observe(card));
+  /* バナー画像の右クリック禁止 */
+document.querySelectorAll(".yuzu-carousel-slide img").forEach(img => {
+  img.addEventListener("contextmenu", e => e.preventDefault());
+
+  img.addEventListener("dragstart", e => e.preventDefault());
+});
+
+/* バナー内での画像保存操作を抑止 */
+document.querySelector(".yuzu-carousel")?.addEventListener("contextmenu", e => {
+  e.preventDefault();
+});
 </script>
 </body>
 </html>
