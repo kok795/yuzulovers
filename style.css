@@ -1150,4 +1150,10 @@ img {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
+｝
+  /* EXPLORE YUZU カード強制表示 */
+.contents-grid .content-card {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  visibility: visible !important;
 }
